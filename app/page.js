@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Hero from './components/home/Hero';
 import ServicesGrid from './components/home/ServicesGrid';
 import WhyUs from './components/home/WhyUs';
@@ -12,10 +12,24 @@ import Modal from './components/Modal';
 import ContactForm from './components/ContactForm';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import SectionSeparator from './components/SectionSeparator';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('general');
+  const [showHeader, setShowHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) setShowHeader(true);
+    };
+    const timer = setTimeout(() => setShowHeader(true), 3000);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, []);
 
   const handleOpenModal = (serviceSlug = 'general') => {
     setSelectedService(serviceSlug);
@@ -29,44 +43,30 @@ export default function HomePage() {
 
   return (
     <>
-      <Header onOpenModal={() => handleOpenModal('general')} />
+      {showHeader && <Header onOpenModal={() => handleOpenModal('general')} />}
 
       <main className="min-h-screen">
         <Hero onOpenModal={() => handleOpenModal('general')} />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-gray-50 to-white" />
-
+        <SectionSeparator variant="light" />
         <ServicesGrid />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-white to-gray-50" />
-
+        <SectionSeparator variant="gray" />
         <WhyUs />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-white to-gray-50" />
-
+        <SectionSeparator variant="reverseLight" />
         <About />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-gray-50 to-blue-600" />
-
+        <SectionSeparator variant="blue" />
         <Process />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-blue-600 to-gray-50" />
-
+        <SectionSeparator variant="reverseGray" />
         <Testimonials />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-gray-50 to-white" />
-
+        <SectionSeparator variant="gray" />
         <FAQ />
 
-        {/* Séparateur visuel */}
-        <div className="h-16 bg-gradient-to-b from-white to-blue-600" />
-
+        <SectionSeparator variant="reverseBlue" />
         <CTABanner onOpenModal={() => handleOpenModal('general')} />
       </main>
 

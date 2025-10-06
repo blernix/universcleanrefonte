@@ -15,21 +15,21 @@ export default function About() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <div className="relative container mx-auto px-6 max-w-6xl">
+      <div className="relative container  mx-auto px-6 max-w-6xl">
         {/* Intro */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="!text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
             {aboutContent.intro.title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="!text-lg md:!text-xl !text-gray-600 max-w-3xl !mx-auto leading-relaxed !text-center">
             {aboutContent.intro.subtitle}
           </p>
-          <p className="mt-6 text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-6 !text-gray-700 max-w-3xl !mx-auto leading-relaxed !text-center">
             {aboutContent.intro.content}
           </p>
         </motion.div>
@@ -53,14 +53,14 @@ export default function About() {
                   animate={{ opacity: [0.3, 0.6, 0.3] }}
                   transition={{ duration: 6, repeat: Infinity }}
                 />
-                <div className="relative z-10 flex flex-col items-center text-center">
+                <div className="relative z-10 flex flex-col items-center !text-center">
                   <div className="bg-blue-50 p-4 rounded-full mb-6 shadow-sm">
                     <Icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <h3 className="!text-2xl font-semibold !text-gray-900 mb-3 !text-center">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="!text-gray-600 leading-relaxed !text-center">
                     {value.text}
                   </p>
                 </div>

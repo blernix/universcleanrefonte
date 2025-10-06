@@ -13,12 +13,12 @@ export default function ServicesGrid() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="!text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
             Nos Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="!text-xl !text-gray-600 !text-center max-w-2xl !mx-auto">
             Découvrez notre gamme complète de services de nettoyage professionnel
           </p>
         </motion.div>
@@ -58,11 +58,11 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* Contenu */}
-                  <div className="flex flex-col flex-grow p-8 text-center relative z-10 bg-white transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <div className="flex flex-col flex-grow p-8 !text-center relative z-10 bg-white transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50">
+                    <h3 className="!text-2xl font-bold !text-gray-900 mb-4 !text-center">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    <p className="!text-gray-600 mb-6 leading-relaxed flex-grow !text-center">
                       {service.shortDescription}
                     </p>
 

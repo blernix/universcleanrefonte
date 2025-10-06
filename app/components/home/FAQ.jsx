@@ -13,17 +13,17 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="!text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
             Questions Fréquentes
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="!text-xl !text-gray-600 max-w-2xl !mx-auto !text-center">
             Toutes les réponses à vos questions
           </p>
         </motion.div>
@@ -40,9 +40,9 @@ export default function FAQ() {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-6 text-left bg-white hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-6 !text-left bg-white hover:bg-gray-50 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                <h3 className="!text-lg font-semibold !text-gray-900 pr-4">
                   {faq.q}
                 </h3>
                 {openIndex === index ? (
@@ -60,7 +60,7 @@ export default function FAQ() {
                   transition={{ duration: 0.3 }}
                   className="px-6 pb-6 bg-gray-50"
                 >
-                  <p className="text-gray-700 whitespace-pre-line leading-relaxed">
+                  <p className="!text-gray-700 whitespace-pre-line leading-relaxed !text-left">
                     {faq.a}
                   </p>
                 </motion.div>

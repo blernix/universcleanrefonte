@@ -26,7 +26,7 @@ export default function Testimonials() {
 
   return (
     <section id="avis" className="py-20 bg-gray-50">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Ils nous font confiance
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto text-center">
             Découvrez les avis de nos clients satisfaits
           </p>
         </motion.div>

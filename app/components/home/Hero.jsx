@@ -213,33 +213,33 @@ export default function Hero({ onOpenModal }) {
         <strong>Voiture • Canapé • Matelas • Mobilier</strong>
       </p>
 
-      <p className="text-lg md:text-xl mb-12 text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p className="!text-lg md:!text-xl mb-12 !text-gray-600 max-w-3xl !mx-auto leading-relaxed !text-center">
         Plus de 10 ans d'expérience. Produits professionnels haut de gamme (Koch Chemie, CarPro).
         Intervention à La Genevraye (77) et 30 km alentour.
       </p>
 
       {/* Boutons */}
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <motion.button
-          onClick={onOpenModal}
-          className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-semibold text-xl shadow-lg hover:bg-blue-700 hover:shadow-2xl transition-all duration-300"
-          animate={{ y: [0, -6, 0] }}
-          transition={{
-            duration: 1.8,
-            repeat: Infinity,
-            repeatDelay: 3,
-            ease: "easeInOut"
-          }}
-        >
-          Obtenir mon devis gratuit
-        </motion.button>
+<motion.button
+  onClick={onOpenModal}
+  className="bg-blue-600 text-white !px-8 !py-4 rounded-full font-bold !text-2xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 border-none cursor-pointer"
+  animate={{ y: [0, -8, 0] }}
+  transition={{
+    duration: 1.8,
+    repeat: Infinity,
+    repeatDelay: 1,
+    ease: "easeInOut"
+  }}
+>
+  Obtenir mon devis gratuit
+</motion.button>
 
-        <a
-          href="tel:+33XXXXXXXXX"
-          className="bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-2xl font-semibold text-xl shadow-lg hover:bg-blue-50 hover:shadow-2xl transition-all duration-300"
-        >
-          📞 Appeler maintenant
-        </a>
+<a
+  href="tel:+33XXXXXXXXX"
+  className="bg-white text-blue-600 border-2 border-blue-600 !px-8 !py-4 rounded-full font-bold !text-2xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
+>
+  📞 Appeler maintenant
+</a>
       </div>
     </motion.div>
   </div>

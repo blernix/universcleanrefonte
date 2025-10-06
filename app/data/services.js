@@ -19,49 +19,53 @@ export const servicesData = [
       {
         name: 'Start',
         price: {
-          'classe1': '80€',
-          'classe2': '90€',
-          'classe3': '100€'
+          'classe1': '60€',
+          'classe2': '70€',
+          'classe3': '80€'
         },
         description: 'Pensée pour les voitures entretenues régulièrement qui nécessitent un rafraîchissement rapide.',
         benefits: [
           'Dépoussiérage des plastiques',
-          'Aspiration complète de l\'habitacle',
-          'Nettoyage des vitres intérieures',
+          'Aspiration de l\'habitacle',
+          'Nettoyage des plastiques',
+          'Nettoyage des vitres',
           'Parfum d\'ambiance'
         ]
       },
       {
         name: 'Confort',
         price: {
-          'classe1': '120€',
-          'classe2': '140€',
-          'classe3': '160€'
+          'classe1': '110€',
+          'classe2': '130€',
+          'classe3': '150€'
         },
         description: 'Pour une attention plus poussée avec nettoyage en profondeur des plastiques et moquettes.',
         benefits: [
-          'Tout de la formule Start',
-          'Nettoyage détaillé des plastiques avec outils adaptés',
-          'Nettoyage approfondi des moquettes',
-          'Injection-extraction des tapis et surtapis',
-          'Rendu impeccable et habitacle plus sain'
+          'Nettoyage complet des plastiques, tableau de bord, panneaux de porte',
+          'Nettoyage complet des moquettes',
+          'Nettoyage des tapis (injection / extraction)',
+          'Nettoyage des vitres',
+          'Parfum d\'ambiance'
         ]
       },
       {
         name: 'Ultimate',
         price: {
-          'classe1': '180€',
-          'classe2': '210€',
-          'classe3': '240€'
+          'classe1': '295€',
+          'classe2': '295€',
+          'classe3': '295€'
         },
+        priceNote: 'Grande voiture +20€',
         description: 'Le niveau le plus abouti du nettoyage intérieur. Chaque élément travaillé avec minutie.',
         benefits: [
-          'Plastiques et tableau de bord au pinceau et à la vapeur',
-          'Sièges tissus ou cuir nettoyés en profondeur',
-          'Hydratation et nourrissage du cuir',
-          'Moquettes et tapis à l\'injection-extraction',
-          'Protection UV sur les plastiques',
-          'Intérieur comme neuf, propre et protégé'
+          'Nettoyage des plastiques, tableau de bord, panneaux de porte et grilles d\'aérations (vapeur)',
+          'Nettoyage et entretien des sièges en cuir',
+          'Nettoyage des sièges en tissus (injection / extraction)',
+          'Nettoyage des moquettes (injection / extraction)',
+          'Nettoyage des tapis (injection / extraction)',
+          'Protection UV des plastiques',
+          'Nettoyage des vitres',
+          'Parfum d\'ambiance'
         ]
       }
     ],
@@ -101,44 +105,49 @@ export const servicesData = [
         description: 'Idéale pour les voitures entretenues régulièrement. L\'essentiel pour un extérieur propre.',
         benefits: [
           'Prélavage de la carrosserie',
-          'Lavage à la main',
+          'Nettoyage de la carrosserie à la main',
           'Nettoyage des jantes',
-          'Vitres claires',
+          'Nettoyage des vitres',
+          'Finition brillance',
           'Dressing des pneus'
         ]
       },
       {
         name: 'Confort',
         price: {
-          'classe1': '90€',
-          'classe2': '110€',
-          'classe3': '130€'
+          'classe1': '95€',
+          'classe2': '115€',
+          'classe3': '135€'
         },
         description: 'Pour aller plus loin avec décontamination ferreuse et finition brillance.',
         benefits: [
-          'Tout de la formule Start',
-          'Nettoyage poussé des jantes et pneus',
-          'Dégraissage complet',
-          'Décontamination ferreuse de la carrosserie',
-          'Finition brillance pour un éclat profond et durable'
+          'Prélavage de la carrosserie',
+          'Nettoyage de la carrosserie à la main',
+          'Nettoyage des jantes, pneus',
+          'Décontamination ferreuse',
+          'Finition brillance',
+          'Nettoyage des vitres',
+          'Dressing des pneus'
         ]
       },
       {
         name: 'Ultimate',
         price: {
-          'classe1': '150€',
-          'classe2': '180€',
-          'classe3': '210€'
+          'classe1': '249€',
+          'classe2': '249€',
+          'classe3': '249€'
         },
+        priceNote: 'Grande voiture +20€',
         description: 'Le niveau le plus abouti. Chaque détail travaillé pour une brillance exceptionnelle.',
         benefits: [
-          'Prélavage minutieux au pinceau (logos, phares, poignées)',
-          'Nettoyage jantes jusqu\'à l\'intérieur',
-          'Passages de roues dégraissés',
-          'Dégoudronnage et clay bar (décontamination maximale)',
-          'Protection céramique carrosserie, vitres et jantes',
-          'Brillance exceptionnelle et protection jusqu\'à 6 mois',
-          'Vitres impeccables et dressing pneus'
+          'Prélavage de la carrosserie en détails',
+          'Nettoyage de la carrosserie à la main',
+          'Nettoyage des jantes, pneus et passage de roues',
+          'Décontamination chimique et dégoudronnage de la carrosserie et des jantes',
+          'Décontamination mécanique de la carrosserie',
+          'Protection à base de céramique',
+          'Nettoyage des vitres',
+          'Dressing des pneus'
         ]
       }
     ],
@@ -171,9 +180,9 @@ export const servicesData = [
       {
         name: 'Start',
         price: {
-          'classe1': '120€',
-          'classe2': '140€',
-          'classe3': '160€'
+          'classe1': '100€',
+          'classe2': '120€',
+          'classe3': '140€'
         },
         description: 'Rafraîchissement complet intérieur + extérieur pour véhicules entretenus.',
         benefits: [
@@ -185,9 +194,9 @@ export const servicesData = [
       {
         name: 'Confort',
         price: {
-          'classe1': '200€',
-          'classe2': '240€',
-          'classe3': '280€'
+          'classe1': '190€',
+          'classe2': '230€',
+          'classe3': '270€'
         },
         description: 'Nettoyage en profondeur dedans comme dehors.',
         benefits: [
@@ -200,10 +209,11 @@ export const servicesData = [
       {
         name: 'Ultimate',
         price: {
-          'classe1': '320€',
-          'classe2': '380€',
-          'classe3': '440€'
+          'classe1': '530€',
+          'classe2': '530€',
+          'classe3': '530€'
         },
+        priceNote: 'Grande voiture +40€',
         description: 'Le soin haut de gamme intégral. Votre véhicule comme neuf sous tous les angles.',
         benefits: [
           'Formule Ultimate Intérieur',
@@ -242,21 +252,29 @@ export const servicesData = [
     image: '/services/canape.webp',
     imageAlt: 'Canapé propre après nettoyage professionnel',
     category: 'mobilier',
-    price: 'Sur devis',
-    priceDetails: {
-      '2places': 'Sur devis',
-      '3places': 'Sur devis',
-      'angle': 'Sur devis'
-    },
     description: 'Nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Élimination des taches, ravivage des couleurs, neutralisation des odeurs et réduction des allergènes.',
-    benefits: [
-      'Couleurs éclatantes : vos tissus retrouvent leur aspect d\'origine',
-      'Hygiène renforcée : poussières et allergènes éliminés',
-      'Fraîcheur garantie : les mauvaises odeurs disparaissent',
-      'Produits spécifiques textiles (différents de l\'automobile)',
-      'Pénétration en profondeur dans les fibres',
-      'Respect des matériaux délicats',
-      'Approche respectueuse de l\'environnement'
+    formulas: [
+      {
+        name: 'Nettoyage Standard',
+        price: {
+          '1places': '59€',
+          '2-3places': '79€',
+          '3-4places': '109€',
+          'angle': '119€',
+          'U': '139€'
+        },
+        description: 'Nettoyage complet de votre canapé avec injection-extraction professionnelle.',
+        benefits: [
+          'Aspiration complète en profondeur',
+          'Pré-traitement et détachage ciblé',
+          'Injection-extraction avec produits textiles professionnels',
+          'Ravivage des couleurs',
+          'Élimination des poussières et allergènes',
+          'Neutralisation des mauvaises odeurs',
+          'Produits spécifiques textiles respectueux des matériaux',
+          'Séchage optimisé en 6-12h'
+        ]
+      }
     ],
     process: [
       { step: 1, title: 'Aspiration complète', desc: 'Élimination des poussières et débris en surface' },
@@ -324,9 +342,11 @@ export const vehicleClasses = [
 
 // Tailles de canapé pour formulaire
 export const canapeTypes = [
-  { value: '2places', label: 'Canapé 2 places' },
-  { value: '3places', label: 'Canapé 3 places' },
-  { value: 'angle', label: 'Canapé d\'angle' },
+  { value: '1places', label: 'Canapé 1 place' },
+  { value: '2-3places', label: 'Canapé 2/3 places' },
+  { value: '3-4places', label: 'Canapé 3/4 places' },
+  { value: 'angle', label: 'Forme d\'angle' },
+  { value: 'U', label: 'Forme de U' },
   { value: 'autre', label: 'Autre (à préciser)' }
 ];
 
@@ -375,14 +395,14 @@ export const globalFAQ = [
 
 export const aboutContent = {
   intro: {
-    title: 'À propos d’Univers Clean',
+    title: 'À propos dUnivers Clean',
     subtitle: 'La passion du nettoyage au service de la perfection',
-    content: `Née d’une passion pour le detailing automobile, Univers Clean allie rigueur professionnelle et exigence artisanale. Après plus de dix ans d’expérience dans les plus grandes concessions, nous proposons aujourd’hui des prestations haut de gamme pour redonner éclat et confort à votre intérieur comme à votre véhicule.`
+    content: `Née d'une passion pour le detailing automobile, Univers Clean allie rigueur professionnelle et exigence artisanale. Après plus de dix ans d'expérience dans les plus grandes concessions, nous proposons aujourd'hui des prestations haut de gamme pour redonner éclat et confort à votre intérieur comme à votre véhicule.`
   },
   values: [
     {
       title: 'Exigence & Passion',
-      text: `Chaque intervention est réalisée avec soin et précision, comme si c’était notre propre bien.`,
+      text: `Chaque intervention est réalisée avec soin et précision, comme si c'était notre propre bien.`,
       icon: 'Heart'
     },
     {
@@ -392,7 +412,7 @@ export const aboutContent = {
     },
     {
       title: 'Respect & Confiance',
-      text: `Qu’il s’agisse d’une citadine, d’un canapé ou d’une supercar, chaque client bénéficie de la même attention.`,
+      text: `Qu'il s'agisse d'une citadine, d'un canapé ou d'une supercar, chaque client bénéficie de la même attention.`,
       icon: 'Users'
     }
   ]
