@@ -18,24 +18,55 @@ const ScrollExpandMedia = ({
   }, [mediaSrc]);
 
   useEffect(() => {
+    let touchStartY = 0;
+    let touchStartProgress = 0;
+
     const handleWheel = (e) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY === 0) {
         e.preventDefault();
         setMediaFullyExpanded(false);
         setScrollProgress(0.99);
-      } 
+      }
       else if (!mediaFullyExpanded) {
         e.preventDefault();
         const scrollDelta = e.deltaY * 0.001;
         const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1);
         setScrollProgress(newProgress);
-        
+
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
         }
       }
     };
-    
+
+    const handleTouchStart = (e) => {
+      if (!mediaFullyExpanded) {
+        touchStartY = e.touches[0].clientY;
+        touchStartProgress = scrollProgress;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!mediaFullyExpanded) {
+        e.preventDefault();
+        const touchCurrentY = e.touches[0].clientY;
+        const touchDelta = (touchStartY - touchCurrentY) * 0.002; // Sensibilité tactile
+        const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
+        setScrollProgress(newProgress);
+
+        if (newProgress >= 1) {
+          setMediaFullyExpanded(true);
+        }
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (mediaFullyExpanded && scrollProgress >= 0.95) {
+        // Animation terminée, on peut scroller normalement
+        return;
+      }
+    };
+
     const handleScroll = () => {
       if (!mediaFullyExpanded && window.scrollY > 0) {
         window.scrollTo(0, 0);
@@ -43,10 +74,16 @@ const ScrollExpandMedia = ({
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
     window.addEventListener('scroll', handleScroll, { passive: false });
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrollProgress, mediaFullyExpanded]);
