@@ -23,7 +23,7 @@ export default function ServiceCTA({ onOpenModal }) {
             text: "Rejoignez nos centaines de clients satisfaits en Île-de-France.",
             button: (
               <a
-                href="tel:+33XXXXXXXXX"
+                href="tel:+33782364263"
                 className="bg-white text-blue-600 !px-8 !py-3 rounded-full font-bold hover:bg-gray-100 transition-colors inline-block no-underline"
               >
                 📞 Appeler maintenant

@@ -127,40 +127,46 @@ export default function ContactForm({ formType = 'general', onClose }) {
   // Vue de Récapitulatif
   if (submitStatus === 'recap') {
     return (
-      <div>
-        <div className="space-y-3 text-sm">
-          {config.fields.map(field => formData[field] && (
-            <div key={field} className="p-3 bg-gray-50 rounded-md border border-gray-200">
-              <span className="font-semibold text-gray-600 capitalize">
-                {field === 'name' ? 'Nom' : 
-                 field === 'email' ? 'Email' : 
-                 field === 'phone' ? 'Téléphone' : 
-                 field === 'canapeType' ? 'Type de canapé' : 
-                 field === 'matelasSize' ? 'Taille matelas' :
-                 field === 'vehicleClass' ? 'Classe véhicule' :
-                 field === 'urgence' ? 'Urgence' :
-                 'Message'}
-              </span>
-              <p className="text-gray-900 whitespace-pre-wrap break-words mt-1">{formData[field]}</p>
-            </div>
-          ))}
+      <div className="space-y-6">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 !p-6 rounded-2xl border-2 border-blue-100">
+          <h3 className="!text-lg font-bold !text-gray-900 !mb-4 flex items-center gap-2">
+            <CheckCircle2 className="!text-blue-600" size={20} />
+            Vérifiez vos informations
+          </h3>
+          <div className="space-y-4">
+            {config.fields.map(field => formData[field] && (
+              <div key={field} className="!p-4 !bg-white rounded-xl border border-blue-100 shadow-sm">
+                <span className="font-bold !text-gray-700 !text-sm uppercase tracking-wide">
+                  {field === 'name' ? 'Nom' :
+                   field === 'email' ? 'Email' :
+                   field === 'phone' ? 'Téléphone' :
+                   field === 'canapeType' ? 'Type de canapé' :
+                   field === 'matelasSize' ? 'Taille matelas' :
+                   field === 'vehicleClass' ? 'Classe véhicule' :
+                   field === 'urgence' ? 'Urgence' :
+                   'Message'}
+                </span>
+                <p className="!text-gray-900 whitespace-pre-wrap break-words !mt-2 !text-base">{formData[field]}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-6 flex justify-end gap-4">
-          <button 
-            onClick={() => setSubmitStatus(null)} 
-            className="flex items-center gap-2 text-gray-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors" 
+        <div className="flex flex-col sm:flex-row justify-end gap-3">
+          <button
+            onClick={() => setSubmitStatus(null)}
+            className="flex items-center justify-center gap-2 !text-gray-700 font-bold !py-4 !px-6 rounded-xl hover:!bg-gray-100 transition-all border-2 border-gray-200 hover:border-gray-300"
             disabled={isSubmitting}
           >
-            <Edit3 size={16}/>
+            <Edit3 size={18}/>
             Modifier
           </button>
-          <button 
-            onClick={handleFinalSend} 
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors disabled:opacity-50" 
+          <button
+            onClick={handleFinalSend}
+            className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-4 !px-8 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
-            {isSubmitting ? 'Envoi...' : 'Confirmer et envoyer'}
+            {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+            {isSubmitting ? 'Envoi en cours...' : 'Confirmer et envoyer'}
           </button>
         </div>
       </div>
@@ -170,11 +176,14 @@ export default function ContactForm({ formType = 'general', onClose }) {
   // Vue de Succès
   if (submitStatus === 'success') {
     return (
-      <div className="text-center py-8">
-        <CheckCircle2 className="mx-auto h-16 w-16 text-green-500 mb-4" />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Message envoyé !</h3>
-        <p className="text-gray-600 mb-6">
-          Merci pour votre demande. Nous vous répondrons dans les plus brefs délais (sous 24h).
+      <div className="!text-center !py-12">
+        <div className="relative inline-block !mb-6">
+          <div className="absolute inset-0 bg-green-400/20 rounded-full blur-2xl animate-pulse" />
+          <CheckCircle2 className="relative mx-auto h-20 w-20 !text-green-500" strokeWidth={2} />
+        </div>
+        <h3 className="!text-3xl font-bold !text-gray-900 !mb-4">Message envoyé avec succès !</h3>
+        <p className="!text-gray-600 !mb-8 !text-lg max-w-md mx-auto">
+          Merci pour votre demande. Notre équipe vous répondra dans les <span className="font-bold !text-blue-600">24 heures</span>.
         </p>
         <button
           onClick={() => {
@@ -183,7 +192,7 @@ export default function ContactForm({ formType = 'general', onClose }) {
             setTouched({});
             onClose();
           }}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors"
+          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-4 !px-8 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
         >
           Fermer
         </button>
@@ -194,15 +203,18 @@ export default function ContactForm({ formType = 'general', onClose }) {
   // Vue d'Erreur
   if (submitStatus === 'error') {
     return (
-      <div className="text-center py-8">
-        <XCircle className="mx-auto h-16 w-16 text-red-500 mb-4" />
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Une erreur est survenue</h3>
-        <p className="text-gray-600 mb-6">
-          Veuillez réessayer. Si le problème persiste, contactez-nous directement par téléphone.
+      <div className="!text-center !py-12">
+        <div className="relative inline-block !mb-6">
+          <div className="absolute inset-0 bg-red-400/20 rounded-full blur-2xl animate-pulse" />
+          <XCircle className="relative mx-auto h-20 w-20 !text-red-500" strokeWidth={2} />
+        </div>
+        <h3 className="!text-3xl font-bold !text-gray-900 !mb-4">Une erreur est survenue</h3>
+        <p className="!text-gray-600 !mb-8 !text-lg max-w-md mx-auto">
+          Veuillez réessayer. Si le problème persiste, contactez-nous directement par téléphone au <span className="font-bold !text-blue-600">06 XX XX XX XX</span>.
         </p>
         <button
           onClick={() => setSubmitStatus(null)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors"
+          className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-4 !px-8 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
         >
           Réessayer
         </button>
@@ -217,12 +229,12 @@ export default function ContactForm({ formType = 'general', onClose }) {
   return (
     <>
       <style>{shakeAnimation}</style>
-      <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <form onSubmit={handleSubmit} noValidate className="space-y-6">
         {/* Nom */}
         {config.fields.includes('name') && (
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Nom <span className="text-red-500">*</span>
+          <div className="group">
+            <label htmlFor="name" className="block !text-sm font-semibold !text-gray-800 !mb-3">
+              Nom complet <span className="!text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -230,24 +242,24 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full bg-blue-50/50 border rounded-lg px-4 py-3 transition-all duration-200 ${
+              className={`w-full !bg-white border-2 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 ${
                 touched.name && errors.name
-                  ? 'border-red-500 shake'
+                  ? '!border-red-500 shake !bg-red-50/30'
                   : touched.name && !errors.name
-                  ? 'border-green-500'
-                  : 'border-gray-300'
-              } focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
-              placeholder="Votre nom complet"
+                  ? '!border-green-500 !bg-green-50/30'
+                  : 'border-gray-200 hover:border-blue-300'
+              } focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none`}
+              placeholder="Jean Dupont"
             />
-            {errors.name && <p className="text-red-500 text-xs mt-1.5">{errors.name}</p>}
+            {errors.name && <p className="!text-red-600 !text-sm !mt-2 flex items-center gap-2"><XCircle size={14}/> {errors.name}</p>}
           </div>
         )}
 
         {/* Email */}
         {config.fields.includes('email') && (
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email <span className="text-red-500">*</span>
+          <div className="group">
+            <label htmlFor="email" className="block !text-sm font-semibold !text-gray-800 !mb-3">
+              Adresse email <span className="!text-red-500">*</span>
             </label>
             <input
               type="email"
@@ -255,24 +267,24 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full bg-blue-50/50 border rounded-lg px-4 py-3 transition-all duration-200 ${
+              className={`w-full !bg-white border-2 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 ${
                 touched.email && errors.email
-                  ? 'border-red-500 shake'
+                  ? '!border-red-500 shake !bg-red-50/30'
                   : touched.email && !errors.email
-                  ? 'border-green-500'
-                  : 'border-gray-300'
-              } focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
-              placeholder="votre@email.com"
+                  ? '!border-green-500 !bg-green-50/30'
+                  : 'border-gray-200 hover:border-blue-300'
+              } focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none`}
+              placeholder="jean.dupont@example.com"
             />
-            {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
+            {errors.email && <p className="!text-red-600 !text-sm !mt-2 flex items-center gap-2"><XCircle size={14}/> {errors.email}</p>}
           </div>
         )}
 
         {/* Téléphone */}
         {config.fields.includes('phone') && (
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-              Téléphone <span className="text-red-500">*</span>
+          <div className="group">
+            <label htmlFor="phone" className="block !text-sm font-semibold !text-gray-800 !mb-3">
+              Numéro de téléphone <span className="!text-red-500">*</span>
             </label>
             <input
               type="tel"
@@ -280,23 +292,23 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.phone}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full bg-blue-50/50 border rounded-lg px-4 py-3 transition-all duration-200 ${
+              className={`w-full !bg-white border-2 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 ${
                 touched.phone && errors.phone
-                  ? 'border-red-500 shake'
+                  ? '!border-red-500 shake !bg-red-50/30'
                   : touched.phone && !errors.phone
-                  ? 'border-green-500'
-                  : 'border-gray-300'
-              } focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                  ? '!border-green-500 !bg-green-50/30'
+                  : 'border-gray-200 hover:border-blue-300'
+              } focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none`}
               placeholder="06 12 34 56 78"
             />
-            {errors.phone && <p className="text-red-500 text-xs mt-1.5">{errors.phone}</p>}
+            {errors.phone && <p className="!text-red-600 !text-sm !mt-2 flex items-center gap-2"><XCircle size={14}/> {errors.phone}</p>}
           </div>
         )}
 
         {/* Type de canapé */}
         {config.fields.includes('canapeType') && (
-          <div>
-            <label htmlFor="canapeType" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="group">
+            <label htmlFor="canapeType" className="block !text-sm font-semibold !text-gray-800 !mb-3">
               Type de canapé
             </label>
             <select
@@ -304,7 +316,7 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.canapeType}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="w-full bg-blue-50/50 border border-gray-300 rounded-lg px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
             >
               <option value="">-- Sélectionner --</option>
               {canapeTypes.map((type) => (
@@ -316,8 +328,8 @@ export default function ContactForm({ formType = 'general', onClose }) {
 
         {/* Taille matelas */}
         {config.fields.includes('matelasSize') && (
-          <div>
-            <label htmlFor="matelasSize" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="group">
+            <label htmlFor="matelasSize" className="block !text-sm font-semibold !text-gray-800 !mb-3">
               Taille du matelas
             </label>
             <select
@@ -325,7 +337,7 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.matelasSize}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="w-full bg-blue-50/50 border border-gray-300 rounded-lg px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
             >
               <option value="">-- Sélectionner --</option>
               {matelasSizes.map((size) => (
@@ -337,8 +349,8 @@ export default function ContactForm({ formType = 'general', onClose }) {
 
         {/* Classe véhicule */}
         {config.fields.includes('vehicleClass') && (
-          <div>
-            <label htmlFor="vehicleClass" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="group">
+            <label htmlFor="vehicleClass" className="block !text-sm font-semibold !text-gray-800 !mb-3">
               Classe du véhicule
             </label>
             <select
@@ -346,7 +358,7 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.vehicleClass}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="w-full bg-blue-50/50 border border-gray-300 rounded-lg px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
             >
               <option value="">-- Sélectionner --</option>
               {vehicleClasses.map((cls) => (
@@ -358,8 +370,8 @@ export default function ContactForm({ formType = 'general', onClose }) {
 
         {/* Urgence */}
         {config.fields.includes('urgence') && (
-          <div>
-            <label htmlFor="urgence" className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="group">
+            <label htmlFor="urgence" className="block !text-sm font-semibold !text-gray-800 !mb-3">
               Délai souhaité
             </label>
             <select
@@ -367,7 +379,7 @@ export default function ContactForm({ formType = 'general', onClose }) {
               value={formData.urgence}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="w-full bg-blue-50/50 border border-gray-300 rounded-lg px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
             >
               <option value="Non urgent">Pas urgent (sous 1 semaine)</option>
               <option value="Urgent">Urgent (sous 48h)</option>
@@ -378,34 +390,35 @@ export default function ContactForm({ formType = 'general', onClose }) {
 
         {/* Message */}
         {config.fields.includes('message') && (
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-              Votre message <span className="text-red-500">*</span>
+          <div className="group">
+            <label htmlFor="message" className="block !text-sm font-semibold !text-gray-800 !mb-3">
+              Votre message <span className="!text-red-500">*</span>
             </label>
             <textarea
               id="message"
-              rows="5"
+              rows="6"
               value={formData.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`w-full bg-blue-50/50 border rounded-lg px-4 py-3 transition-all duration-200 resize-none ${
+              className={`w-full !bg-white border-2 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 resize-none ${
                 touched.message && errors.message
-                  ? 'border-red-500 shake'
+                  ? '!border-red-500 shake !bg-red-50/30'
                   : touched.message && !errors.message
-                  ? 'border-green-500'
-                  : 'border-gray-300'
-              } focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
-              placeholder="Décrivez votre besoin en détail..."
+                  ? '!border-green-500 !bg-green-50/30'
+                  : 'border-gray-200 hover:border-blue-300'
+              } focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none`}
+              placeholder="Décrivez votre besoin en détail : surface, matériel concerné, état actuel, date souhaitée..."
             ></textarea>
-            {errors.message && <p className="text-red-500 text-xs mt-1.5">{errors.message}</p>}
+            {errors.message && <p className="!text-red-600 !text-sm !mt-2 flex items-center gap-2"><XCircle size={14}/> {errors.message}</p>}
           </div>
         )}
 
-        <div className="pt-2">
+        <div className="!pt-6">
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3.5 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+            className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-5 !px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-2xl transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 !text-lg"
           >
+            <Send size={20} />
             Vérifier mon message
           </button>
         </div>

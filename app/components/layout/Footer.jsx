@@ -39,6 +39,7 @@ export default function Footer() {
               href="https://www.facebook.com/universclean77"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Facebook Univers Clean 77"
               className="p-2 rounded-full bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 hover:text-blue-300 transition-colors"
             >
               <Facebook className="w-5 h-5" />
@@ -47,6 +48,7 @@ export default function Footer() {
               href="https://www.instagram.com/universclean77/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram Univers Clean 77"
               className="p-2 rounded-full bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 hover:text-blue-300 transition-colors"
             >
               <Instagram className="w-5 h-5" />
@@ -89,20 +91,20 @@ export default function Footer() {
           <ul className="space-y-4 text-sm">
             <li>
               <a
-                href="tel:+33XXXXXXXXX"
+                href="tel:+33782364263"
                 className="flex items-center gap-2 hover:text-blue-400 transition-colors"
               >
                 <Phone className="w-4 h-4 text-blue-400" />
-                XX XX XX XX XX
+                07 82 36 42 63
               </a>
             </li>
             <li>
               <a
-                href="mailto:contact@univers-clean77.fr"
+                href="mailto:universclean77@gmail.com"
                 className="flex items-center gap-2 hover:text-blue-400 transition-colors"
               >
                 <Mail className="w-4 h-4 text-blue-400" />
-                contact@univers-clean77.fr
+                universclean77@gmail.com
               </a>
             </li>
             <li className="flex items-start gap-2">

@@ -71,7 +71,7 @@ export default function Modal({ isOpen, onClose, title, children }) {
             </div>
 
             {/* Content avec scroll */}
-            <div className="overflow-y-auto max-h-[calc(90vh-120px)] px-8 py-6 bg-gradient-to-b from-gray-50 to-white">
+            <div className="overflow-y-auto max-h-[calc(90vh-120px)] !px-10 !py-8 bg-gradient-to-b from-white to-gray-50/30">
               {children}
             </div>
 

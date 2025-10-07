@@ -20,6 +20,7 @@ const ScrollExpandMedia = ({
   useEffect(() => {
     let touchStartY = 0;
     let touchStartProgress = 0;
+    let isScrolling = false;
 
     const handleWheel = (e) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY === 0) {
@@ -41,29 +42,43 @@ const ScrollExpandMedia = ({
 
     const handleTouchStart = (e) => {
       if (!mediaFullyExpanded) {
+        isScrolling = false;
         touchStartY = e.touches[0].clientY;
         touchStartProgress = scrollProgress;
+        // Ne pas prévenir ici pour permettre au navigateur de détecter le geste
       }
     };
 
     const handleTouchMove = (e) => {
       if (!mediaFullyExpanded) {
-        e.preventDefault();
         const touchCurrentY = e.touches[0].clientY;
-        const touchDelta = (touchStartY - touchCurrentY) * 0.002; // Sensibilité tactile
-        const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
-        setScrollProgress(newProgress);
+        const touchDiff = touchStartY - touchCurrentY;
 
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
+        // Si l'utilisateur scrolle vers le bas de plus de 10px, on active l'animation
+        if (Math.abs(touchDiff) > 10) {
+          isScrolling = true;
+          e.preventDefault();
+        }
+
+        if (isScrolling) {
+          // Sensibilité augmentée pour mobile
+          const touchDelta = touchDiff * 0.003;
+          const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
+          setScrollProgress(newProgress);
+
+          if (newProgress >= 1) {
+            setMediaFullyExpanded(true);
+            isScrolling = false;
+          }
         }
       }
     };
 
     const handleTouchEnd = () => {
-      if (mediaFullyExpanded && scrollProgress >= 0.95) {
-        // Animation terminée, on peut scroller normalement
-        return;
+      isScrolling = false;
+      // Si l'animation n'est pas terminée, on peut reset ou continuer
+      if (!mediaFullyExpanded && scrollProgress < 0.1) {
+        setScrollProgress(0);
       }
     };
 
@@ -73,11 +88,15 @@ const ScrollExpandMedia = ({
       }
     };
 
+    // Desktop: wheel avec passive false
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+
+    // Mobile: touch events - passive false uniquement pour touchmove
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('touchend', handleTouchEnd, { passive: false });
-    window.addEventListener('scroll', handleScroll, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
@@ -94,9 +113,9 @@ const ScrollExpandMedia = ({
   const initialContentOpacity = 1 - scrollProgress * 2.5;
 
   return (
-    <div className="bg-white text-gray-900">
-      <section className='relative flex flex-col items-center justify-start'>
-        <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white'>
+    <div className="bg-white text-gray-900" style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
+      <section className='relative flex flex-col items-center justify-start' style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
+        <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white' style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
           
           {/* Image de fond */}
           <motion.div
@@ -123,7 +142,7 @@ const ScrollExpandMedia = ({
           </motion.div>
 
           {/* Titre et bouton initiaux */}
-          <motion.div 
+          <motion.div
             className='relative z-20 flex flex-col items-center justify-center text-center px-4'
             style={{ opacity: initialContentOpacity, display: initialContentOpacity <= 0 ? 'none' : 'flex' }}
           >
@@ -135,9 +154,22 @@ const ScrollExpandMedia = ({
                   {initialTitle.split(' ')[1]}
                 </motion.span>
              </h1>
+
+             {/* Indicateur de swipe pour mobile */}
+             <motion.div
+               className="mt-12 md:hidden flex flex-col items-center gap-2"
+               animate={{ y: [0, 10, 0] }}
+               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+             >
+               <p className="text-white text-sm font-semibold drop-shadow-lg">Glissez vers le haut</p>
+               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+               </svg>
+             </motion.div>
+
              <a
                 href="#services"
-                className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl"
+                className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl hidden md:block"
               >
                 Découvrir nos services
               </a>
@@ -235,7 +267,7 @@ export default function Hero({ onOpenModal }) {
 </motion.button>
 
 <a
-  href="tel:+33XXXXXXXXX"
+  href="tel:+33782364263"
   className="bg-white text-blue-600 border-2 border-blue-600 !px-8 !py-4 rounded-full font-bold !text-2xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
 >
   📞 Appeler maintenant

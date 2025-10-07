@@ -161,11 +161,11 @@ export default function Header({ onOpenModal }) {
           {/* CTA Desktop */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+33XXXXXXXXX"
+              href="tel:+33782364263"
               className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
             >
               <Phone className="w-5 h-5" />
-              <span className="font-medium">XX XX XX XX XX</span>
+              <span className="font-medium">07 82 36 42 63</span>
             </a>
             <button
               onClick={onOpenModal}
@@ -259,11 +259,11 @@ export default function Header({ onOpenModal }) {
                 )
               ))}
               <a
-                href="tel:+33XXXXXXXXX"
+                href="tel:+33782364263"
                 className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors py-2"
               >
                 <Phone className="w-5 h-5" />
-                <span className="font-medium">XX XX XX XX XX</span>
+                <span className="font-medium">07 82 36 42 63</span>
               </a>
               <button
                 onClick={() => {
