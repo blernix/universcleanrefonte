@@ -20,7 +20,7 @@ const ScrollExpandMedia = ({
   useEffect(() => {
     let touchStartY = 0;
     let touchStartProgress = 0;
-    let isScrolling = false;
+    let isAnimating = false;
 
     const handleWheel = (e) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY === 0) {
@@ -42,10 +42,9 @@ const ScrollExpandMedia = ({
 
     const handleTouchStart = (e) => {
       if (!mediaFullyExpanded) {
-        isScrolling = false;
         touchStartY = e.touches[0].clientY;
         touchStartProgress = scrollProgress;
-        // Ne pas prévenir ici pour permettre au navigateur de détecter le geste
+        isAnimating = false;
       }
     };
 
@@ -54,48 +53,65 @@ const ScrollExpandMedia = ({
         const touchCurrentY = e.touches[0].clientY;
         const touchDiff = touchStartY - touchCurrentY;
 
-        // Si l'utilisateur scrolle vers le bas de plus de 10px, on active l'animation
-        if (Math.abs(touchDiff) > 10) {
-          isScrolling = true;
-          e.preventDefault();
+        // Détection du swipe vers le haut (plus de 5px)
+        if (touchDiff > 5 && !isAnimating) {
+          isAnimating = true;
         }
 
-        if (isScrolling) {
-          // Sensibilité augmentée pour mobile
-          const touchDelta = touchDiff * 0.003;
+        if (isAnimating) {
+          // Prévenir uniquement quand on anime
+          e.preventDefault();
+
+          // Sensibilité pour mobile
+          const touchDelta = touchDiff * 0.004;
           const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
           setScrollProgress(newProgress);
 
           if (newProgress >= 1) {
             setMediaFullyExpanded(true);
-            isScrolling = false;
+            isAnimating = false;
           }
         }
       }
     };
 
     const handleTouchEnd = () => {
-      isScrolling = false;
-      // Si l'animation n'est pas terminée, on peut reset ou continuer
-      if (!mediaFullyExpanded && scrollProgress < 0.1) {
+      // Reset si l'utilisateur n'a pas assez swipé
+      if (!mediaFullyExpanded && scrollProgress < 0.15) {
+        setScrollProgress(0);
+      }
+      isAnimating = false;
+    };
+
+    const handleScroll = () => {
+      // Permettre le scroll natif quand l'animation est terminée
+      if (mediaFullyExpanded) {
+        return;
+      }
+
+      // Sur mobile, utiliser le scroll pour piloter l'animation
+      const scrollY = window.scrollY;
+      if (scrollY > 0 && scrollY < 300) {
+        const newProgress = Math.min(scrollY / 300, 1);
+        setScrollProgress(newProgress);
+
+        if (newProgress >= 1) {
+          setMediaFullyExpanded(true);
+        }
+      } else if (scrollY === 0) {
         setScrollProgress(0);
       }
     };
 
-    const handleScroll = () => {
-      if (!mediaFullyExpanded && window.scrollY > 0) {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    // Desktop: wheel avec passive false
+    // Desktop: wheel event
     window.addEventListener('wheel', handleWheel, { passive: false });
 
-    // Mobile: touch events - passive false uniquement pour touchmove
+    // Mobile: touch events
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
+    // Utiliser le scroll comme fallback
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
