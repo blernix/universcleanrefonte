@@ -113,83 +113,81 @@ const ScrollExpandMedia = ({
   const initialContentOpacity = 1 - scrollProgress * 2.5;
 
   return (
-    <div className="bg-white text-gray-900" style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
-      <section className='relative flex flex-col items-center justify-start' style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
-        <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white' style={{ touchAction: mediaFullyExpanded ? 'auto' : 'none' }}>
-          
-          {/* Image de fond */}
-          <motion.div
-            className='absolute inset-0 z-0'
-            animate={{ opacity: 1 - scrollProgress }}
-            transition={{ duration: 0.1 }}
+    <div className="bg-white text-gray-900">
+  <section className='relative flex flex-col items-center justify-start'>
+    <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-visible bg-white'>
+      
+      {/* Image de fond */}
+      <motion.div
+        className='absolute inset-0 z-0'
+        animate={{ opacity: 1 - scrollProgress }}
+        transition={{ duration: 0.1 }}
+      >
+        <img src={bgImageSrc} alt='Fond Univers Clean' className='w-full h-full object-cover' />
+        <div className='absolute inset-0 bg-white/20' />
+      </motion.div>
+
+      {/* Vidéo qui s'agrandit */}
+      <motion.div
+        className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl pointer-events-none'
+        style={{
+          width: `${mediaWidth}px`,
+          height: `${mediaHeight}px`,
+          maxWidth: '95vw',
+          maxHeight: '85vh',
+        }}
+      >
+        <video src={mediaSrc} autoPlay muted loop playsInline className='w-full h-full object-cover' />
+        <motion.div className='absolute inset-0 bg-black/20' animate={{ opacity: 0.3 - scrollProgress * 0.3 }} />
+      </motion.div>
+
+      {/* Titre et bouton initiaux */}
+      <motion.div
+        className='relative z-20 flex flex-col items-center justify-center text-center px-4 pointer-events-auto'
+        style={{ opacity: initialContentOpacity, display: initialContentOpacity <= 0 ? 'none' : 'flex' }}
+      >
+         <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-2xl'>
+            <motion.span className="block" style={{ transform: `translateX(-${initialTextTranslateX}vw)` }}>
+              {initialTitle.split(' ')[0]}
+            </motion.span>
+            <motion.span className="block text-blue-500" style={{ transform: `translateX(${initialTextTranslateX}vw)` }}>
+              {initialTitle.split(' ')[1]}
+            </motion.span>
+         </h1>
+
+         {/* Indicateur de swipe pour mobile */}
+         <motion.div
+           className="mt-12 md:hidden flex flex-col items-center gap-2"
+           animate={{ y: [0, 10, 0] }}
+           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+         >
+           <p className="text-white text-sm font-semibold drop-shadow-lg">Glissez vers le haut</p>
+           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+           </svg>
+         </motion.div>
+
+         <a
+            href="#services"
+            className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl hidden md:block"
           >
-            <img src={bgImageSrc} alt='Fond Univers Clean' className='w-full h-full object-cover' />
-            <div className='absolute inset-0 bg-white/20' />
-          </motion.div>
+            Découvrir nos services
+          </a>
+      </motion.div>
 
-          {/* Vidéo qui s'agrandit */}
-          <motion.div
-            className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl'
-            style={{
-              width: `${mediaWidth}px`,
-              height: `${mediaHeight}px`,
-              maxWidth: '95vw',
-              maxHeight: '85vh',
-            }}
-          >
-            <video src={mediaSrc} autoPlay muted loop playsInline className='w-full h-full object-cover' />
-            <motion.div className='absolute inset-0 bg-black/20' animate={{ opacity: 0.3 - scrollProgress * 0.3 }} />
-          </motion.div>
-
-          {/* Titre et bouton initiaux */}
-          <motion.div
-            className='relative z-20 flex flex-col items-center justify-center text-center px-4'
-            style={{ opacity: initialContentOpacity, display: initialContentOpacity <= 0 ? 'none' : 'flex' }}
-          >
-             <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-2xl'>
-                <motion.span className="block" style={{ transform: `translateX(-${initialTextTranslateX}vw)` }}>
-                  {initialTitle.split(' ')[0]}
-                </motion.span>
-                <motion.span className="block text-blue-500" style={{ transform: `translateX(${initialTextTranslateX}vw)` }}>
-                  {initialTitle.split(' ')[1]}
-                </motion.span>
-             </h1>
-
-             {/* Indicateur de swipe pour mobile */}
-             <motion.div
-               className="mt-12 md:hidden flex flex-col items-center gap-2"
-               animate={{ y: [0, 10, 0] }}
-               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-             >
-               <p className="text-white text-sm font-semibold drop-shadow-lg">Glissez vers le haut</p>
-               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-               </svg>
-             </motion.div>
-
-             <a
-                href="#services"
-                className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl hidden md:block"
-              >
-                Découvrir nos services
-              </a>
-          </motion.div>
-
-        </div>
-        
-        {/* Contenu après animation */}
-        {mediaFullyExpanded && (
-          <motion.div
-            className='relative w-full'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </section>
     </div>
+    
+    {/* Contenu après animation */}
+    <motion.div
+      className='relative w-full'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </motion.div>
+  </section>
+</div>
   );
 };
 
