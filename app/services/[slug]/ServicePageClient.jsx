@@ -16,6 +16,8 @@ import ServiceBenefits from '@/app/components/services/ServiceBenefits';
 import ServiceFAQ from '@/app/components/services/ServiceFAQ';
 import ServiceTestimonials from '@/app/components/services/ServiceTestimonials';
 import ServiceCTA from '@/app/components/services/ServiceCTA';
+import ServiceSchema from '@/app/components/services/ServiceSchema';
+import BeforeAfterSlider from '@/app/components/services/BeforeAfterSlider';
 
 export default function ServicePageClient({ service }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -57,6 +59,9 @@ export default function ServicePageClient({ service }) {
 
   return (
     <>
+      {/* Schema.org JSON-LD for SEO */}
+      <ServiceSchema service={service} />
+
       <Header onOpenModal={() => setIsModalOpen(true)} />
 
       <main className="overflow-hidden">
@@ -109,6 +114,36 @@ export default function ServicePageClient({ service }) {
 
         {/* Benefits Section */}
         <ServiceBenefits benefits={service.benefits} />
+
+        {/* Before/After Section (si disponible) */}
+        {service.beforeAfterImages && service.beforeAfterImages.length > 0 && (
+          <>
+            <SectionSeparator variant="light" />
+            <section className="py-20 bg-white">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Nos Résultats Avant/Après
+                  </h2>
+                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez la différence impressionnante de nos prestations professionnelles
+                  </p>
+                </div>
+
+                <div className="space-y-12">
+                  {service.beforeAfterImages.map((comparison, index) => (
+                    <BeforeAfterSlider
+                      key={index}
+                      beforeImage={comparison.before}
+                      afterImage={comparison.after}
+                      alt={comparison.alt}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          </>
+        )}
 
         <SectionSeparator variant="light" />
 

@@ -1,13 +1,13 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Heart, Award, Users } from 'lucide-react';
-import { aboutContent } from '@/app/data/services';
+import { aboutContent } from '@/app/data/global';
 
 const icons = { Heart, Award, Users };
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section id="about" aria-labelledby="about-title" className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Dégradé d’arrière-plan animé */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-blue-100/40 via-white to-blue-50/50 blur-3xl"
@@ -23,7 +23,7 @@ export default function About() {
           viewport={{ once: true }}
           className="!text-center mb-20"
         >
-          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
+          <h2 id="about-title" className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
             {aboutContent.intro.title}
           </h2>
           <p className="!text-lg md:!text-xl !text-gray-600 max-w-3xl !mx-auto leading-relaxed !text-center">
@@ -35,7 +35,7 @@ export default function About() {
         </motion.div>
 
         {/* Valeurs */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10 !pb-8">
           {aboutContent.values.map((value, index) => {
             const Icon = icons[value.icon];
             return (

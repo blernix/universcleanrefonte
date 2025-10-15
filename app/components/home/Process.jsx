@@ -27,11 +27,22 @@ export default function Process() {
 
   // Calculer la hauteur pour la timeline verticale (mobile)
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
+    if (ref.current && isMobile) {
+      // Calculer la hauteur jusqu'à la dernière bulle (pas tout le conteneur)
+      const stepElements = ref.current.querySelectorAll('.process-step');
+      if (stepElements.length > 0) {
+        const lastStep = stepElements[stepElements.length - 1];
+        const firstCircle = stepElements[0].querySelector('.process-circle');
+        const lastCircle = lastStep.querySelector('.process-circle');
+        if (firstCircle && lastCircle) {
+          const firstRect = firstCircle.getBoundingClientRect();
+          const lastRect = lastCircle.getBoundingClientRect();
+          const containerRect = ref.current.getBoundingClientRect();
+          setHeight(lastRect.top - containerRect.top + lastRect.height / 2);
+        }
+      }
     }
-  }, [ref, steps]);
+  }, [ref, steps, isMobile]);
 
   // Animation scroll pour mobile
   const { scrollYProgress } = useScroll(
@@ -87,11 +98,13 @@ export default function Process() {
     return (
       <section
         id="process-section"
+        aria-labelledby="process-title"
         ref={containerRef}
         className="relative bg-gray-50 text-gray-900 min-h-screen flex flex-col"
       >
         <div className="w-full py-32 px-8 md:px-16">
           <motion.h2
+            id="process-title"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -114,11 +127,11 @@ export default function Process() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative flex items-start min-h-[25vh] mb-12"
+              className="relative flex items-start min-h-[25vh] mb-12 process-step"
             >
               {/* Cercle avec numéro */}
               <div className="relative z-10 flex-shrink-0">
-                <div className="h-12 w-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                <div className="h-12 w-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-lg process-circle">
                   {step.number}
                 </div>
               </div>
@@ -170,6 +183,7 @@ export default function Process() {
   return (
     <section
       id="process-section"
+      aria-labelledby="process-title"
       className="relative min-h-screen bg-gray-50 text-gray-900 flex items-center justify-center py-32"
     >
       <div className="container mx-auto px-6 max-w-6xl text-center">
@@ -188,7 +202,7 @@ export default function Process() {
           Un processus simple, rapide et transparent
         </motion.p>
 
-        <div className="relative flex flex-row items-center justify-center gap-8">
+        <div className="relative flex flex-row items-start justify-center gap-8">
           {steps.map((step, index) => {
             const stepProgress = getStepProgress(index);
             const lineProgress = index < steps.length - 1 ? getLineProgress(index) : 0;
@@ -196,7 +210,7 @@ export default function Process() {
             return (
               <div key={index} className="relative flex flex-col items-center text-center max-w-xs">
                 {index < steps.length - 1 && (
-                  <div className="absolute top-10 left-full w-24 h-1 bg-blue-200">
+                  <div className="absolute top-10 left-[calc(50%+2.5rem)] w-[calc(100%+2rem)] h-1 bg-blue-200">
                     <motion.div
                       className="h-full bg-blue-600"
                       style={{

@@ -11,7 +11,7 @@ const ScrollExpandMedia = ({
 }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mediaFullyExpanded, setMediaFullyExpanded] = useState(false);
-  
+
   useEffect(() => {
     setScrollProgress(0);
     setMediaFullyExpanded(false);
@@ -20,7 +20,6 @@ const ScrollExpandMedia = ({
   useEffect(() => {
     let touchStartY = 0;
     let touchStartProgress = 0;
-    let isAnimating = false;
 
     const handleWheel = (e) => {
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY === 0) {
@@ -44,75 +43,40 @@ const ScrollExpandMedia = ({
       if (!mediaFullyExpanded) {
         touchStartY = e.touches[0].clientY;
         touchStartProgress = scrollProgress;
-        isAnimating = false;
       }
     };
 
     const handleTouchMove = (e) => {
       if (!mediaFullyExpanded) {
+        e.preventDefault();
         const touchCurrentY = e.touches[0].clientY;
-        const touchDiff = touchStartY - touchCurrentY;
-
-        // Détection du swipe vers le haut (plus de 5px)
-        if (touchDiff > 5 && !isAnimating) {
-          isAnimating = true;
-        }
-
-        if (isAnimating) {
-          // Prévenir uniquement quand on anime
-          e.preventDefault();
-
-          // Sensibilité pour mobile
-          const touchDelta = touchDiff * 0.004;
-          const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
-          setScrollProgress(newProgress);
-
-          if (newProgress >= 1) {
-            setMediaFullyExpanded(true);
-            isAnimating = false;
-          }
-        }
-      }
-    };
-
-    const handleTouchEnd = () => {
-      // Reset si l'utilisateur n'a pas assez swipé
-      if (!mediaFullyExpanded && scrollProgress < 0.15) {
-        setScrollProgress(0);
-      }
-      isAnimating = false;
-    };
-
-    const handleScroll = () => {
-      // Permettre le scroll natif quand l'animation est terminée
-      if (mediaFullyExpanded) {
-        return;
-      }
-
-      // Sur mobile, utiliser le scroll pour piloter l'animation
-      const scrollY = window.scrollY;
-      if (scrollY > 0 && scrollY < 300) {
-        const newProgress = Math.min(scrollY / 300, 1);
+        const touchDelta = (touchStartY - touchCurrentY) * 0.002;
+        const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
         setScrollProgress(newProgress);
 
         if (newProgress >= 1) {
           setMediaFullyExpanded(true);
         }
-      } else if (scrollY === 0) {
-        setScrollProgress(0);
       }
     };
 
-    // Desktop: wheel event
+    const handleTouchEnd = () => {
+      if (mediaFullyExpanded && scrollProgress >= 0.95) {
+        return;
+      }
+    };
+
+    const handleScroll = () => {
+      if (!mediaFullyExpanded && window.scrollY > 0) {
+        window.scrollTo(0, 0);
+      }
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: false });
-
-    // Mobile: touch events
-    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-    // Utiliser le scroll comme fallback
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
+    window.addEventListener('scroll', handleScroll, { passive: false });
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
@@ -130,8 +94,8 @@ const ScrollExpandMedia = ({
 
   return (
     <div className="bg-white text-gray-900">
-  <section className='relative flex flex-col items-center justify-start'>
-    <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-visible bg-white'>
+      <section className='relative flex flex-col items-center justify-start'>
+        <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white'>
       
       {/* Image de fond */}
       <motion.div
@@ -145,7 +109,7 @@ const ScrollExpandMedia = ({
 
       {/* Vidéo qui s'agrandit */}
       <motion.div
-        className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl pointer-events-none'
+        className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl'
         style={{
           width: `${mediaWidth}px`,
           height: `${mediaHeight}px`,
@@ -159,7 +123,7 @@ const ScrollExpandMedia = ({
 
       {/* Titre et bouton initiaux */}
       <motion.div
-        className='relative z-20 flex flex-col items-center justify-center text-center px-4 pointer-events-auto'
+        className='relative z-20 flex flex-col items-center justify-center text-center px-4'
         style={{ opacity: initialContentOpacity, display: initialContentOpacity <= 0 ? 'none' : 'flex' }}
       >
          <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-2xl'>
@@ -170,40 +134,29 @@ const ScrollExpandMedia = ({
               {initialTitle.split(' ')[1]}
             </motion.span>
          </h1>
-
-         {/* Indicateur de swipe pour mobile */}
-         <motion.div
-           className="mt-12 md:hidden flex flex-col items-center gap-2"
-           animate={{ y: [0, 10, 0] }}
-           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-         >
-           <p className="text-white text-sm font-semibold drop-shadow-lg">Glissez vers le haut</p>
-           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-           </svg>
-         </motion.div>
-
          <a
             href="#services"
-            className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl hidden md:block"
+            className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl"
           >
             Découvrir nos services
           </a>
       </motion.div>
 
+        </div>
+
+        {/* Contenu après animation */}
+        {mediaFullyExpanded && (
+          <motion.div
+            className='relative w-full'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </section>
     </div>
-    
-    {/* Contenu après animation */}
-    <motion.div
-      className='relative w-full'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {children}
-    </motion.div>
-  </section>
-</div>
   );
 };
 

@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" aria-labelledby="services-title" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* En-tête */}
         <motion.div
@@ -15,7 +15,7 @@ export default function ServicesGrid() {
           viewport={{ once: true }}
           className="!text-center mb-20"
         >
-          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
+          <h2 id="services-title" className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
             Nos Services
           </h2>
           <p className="!text-xl !text-gray-600 !text-center max-w-2xl !mx-auto">

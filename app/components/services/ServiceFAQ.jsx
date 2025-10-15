@@ -1,6 +1,11 @@
 'use client';
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ServiceFAQ({ faqs }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
   if (!faqs || faqs.length === 0) return null;
 
   return (
@@ -9,15 +14,36 @@ export default function ServiceFAQ({ faqs }) {
         <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 !mb-16 !text-center">
           Questions Fréquentes
         </h2>
-        <div className="space-y-8">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white !p-8 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="!text-xl font-bold !text-gray-900 !mb-4 flex items-start gap-3">
-                <span className="!text-blue-600">Q:</span> {faq.q}
-              </h3>
-              <p className="!text-gray-600 !text-base pl-8">
-                <span className="font-semibold !text-blue-600">R:</span> {faq.a}
-              </p>
+            <div key={index} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full !p-6 flex items-center justify-between gap-4 text-left hover:bg-gray-50 transition-colors"
+              >
+                <h3 className="!text-xl font-bold !text-gray-900 flex items-start gap-3">
+                  <span className="!text-blue-600">Q:</span> {faq.q}
+                </h3>
+                <ChevronDown
+                  className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform ${
+                    openIndex === index ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="!text-gray-600 !text-base px-6 pb-6 pl-14">
+                      <span className="font-semibold !text-blue-600">R:</span> {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>

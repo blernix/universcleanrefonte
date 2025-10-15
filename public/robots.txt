@@ -1,0 +1,21 @@
+# Robots.txt pour Univers Clean 77
+# Ce fichier indique aux moteurs de recherche comment crawler le site
+
+# Règles pour tous les robots
+User-agent: *
+Allow: /
+
+# Bloquer les fichiers système et administratifs (si présents)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap (généré automatiquement par Next.js)
+Sitemap: https://univers-clean77.fr/sitemap.xml
+
+# Robots spécifiques (optionnel)
+# User-agent: Googlebot
+# Allow: /
+
+# User-agent: Bingbot
+# Allow: /

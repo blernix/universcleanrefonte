@@ -13,6 +13,8 @@ import ContactForm from './components/ContactForm';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import SectionSeparator from './components/SectionSeparator';
+import PopupPromo from './components/PopupPromo';
+import SkipLinks from './components/SkipLinks';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,9 +45,10 @@ export default function HomePage() {
 
   return (
     <>
+      <SkipLinks />
       {showHeader && <Header onOpenModal={() => handleOpenModal('general')} />}
 
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <Hero onOpenModal={() => handleOpenModal('general')} />
 
         <SectionSeparator variant="light" />
@@ -71,6 +74,8 @@ export default function HomePage() {
       </main>
 
       <Footer />
+
+      <PopupPromo />
 
       <Modal
         isOpen={isModalOpen}

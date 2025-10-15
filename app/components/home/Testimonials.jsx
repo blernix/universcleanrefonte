@@ -25,7 +25,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="avis" className="py-20 bg-gray-50">
+    <section id="avis" aria-labelledby="avis-title" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 id="avis-title" className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Ils nous font confiance
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto text-center">

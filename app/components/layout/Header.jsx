@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Menu, X, ChevronDown } from 'lucide-react';
 import { servicesData } from '@/app/data/services';
 
@@ -80,13 +81,23 @@ export default function Header({ onOpenModal }) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <span className="text-2xl font-bold text-blue-600">Univers</span>
+           <div className="relative w-10 h-10 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-1.5 shadow-sm">
+              <Image
+                src="/logo_univers_clean.png"
+                alt="Logo Univers Clean"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="text-2xl font-bold text-gray-900">Univers</span>
+            
             <span className="text-2xl font-bold text-gray-900">Clean</span>
             <span className="text-sm text-gray-600">77</span>
           </Link>
 
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav role="navigation" aria-label="Navigation principale" className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               link.hasDropdown ? (
                 <div
@@ -106,41 +117,39 @@ export default function Header({ onOpenModal }) {
                       {/* Services Automobile */}
                       <div className="px-4 pb-3 mb-3 border-b border-gray-100">
                         <p className="text-xs font-bold text-gray-500 uppercase mb-3">Automobile</p>
-                        {servicesByCategory.automobile.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/services/${service.slug}`}
-                            className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors group"
-                            onClick={() => setIsServicesOpen(false)}
-                          >
-                            <p className="font-semibold text-gray-900 group-hover:text-blue-600 text-sm">
-                              {service.title}
-                            </p>
-                            <p className="text-xs text-gray-500 mt-0.5">
-                              {service.shortDescription}
-                            </p>
-                          </Link>
-                        ))}
+                        <div className="!space-y-1">
+                          {servicesByCategory.automobile.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors group"
+                              onClick={() => setIsServicesOpen(false)}
+                            >
+                              <p className="font-semibold text-gray-900 group-hover:text-blue-600 text-sm">
+                                {service.title}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Services Mobilier */}
                       <div className="px-4">
                         <p className="text-xs font-bold text-gray-500 uppercase mb-3">Mobilier</p>
-                        {servicesByCategory.mobilier.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/services/${service.slug}`}
-                            className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors group"
-                            onClick={() => setIsServicesOpen(false)}
-                          >
-                            <p className="font-semibold text-gray-900 group-hover:text-blue-600 text-sm">
-                              {service.title}
-                            </p>
-                            <p className="text-xs text-gray-500 mt-0.5">
-                              {service.shortDescription}
-                            </p>
-                          </Link>
-                        ))}
+                        <div className="space-y-1">
+                          {servicesByCategory.mobilier.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors group"
+                              onClick={() => setIsServicesOpen(false)}
+                            >
+                              <p className="font-semibold text-gray-900 group-hover:text-blue-600 text-sm">
+                                {service.title}
+                              </p>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -192,7 +201,7 @@ export default function Header({ onOpenModal }) {
         {/* Menu Mobile */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 animate-fadeIn">
-            <nav className="flex flex-col gap-3">
+            <nav role="navigation" aria-label="Navigation mobile" className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 link.hasDropdown ? (
                   <div key={link.label}>
@@ -210,39 +219,41 @@ export default function Header({ onOpenModal }) {
                         {/* Services Automobile */}
                         <div>
                           <p className="text-xs font-bold text-gray-500 uppercase mb-2">Automobile</p>
-                          {servicesByCategory.automobile.map((service) => (
-                            <Link
-                              key={service.slug}
-                              href={`/services/${service.slug}`}
-                              className="block py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors"
-                              onClick={() => {
-                                setIsMenuOpen(false);
-                                setIsMobileServicesOpen(false);
-                              }}
-                            >
-                              <p className="font-semibold text-gray-900 text-sm">{service.title}</p>
-                              <p className="text-xs text-gray-500 mt-0.5">{service.shortDescription}</p>
-                            </Link>
-                          ))}
+                          <div className="space-y-1">
+                            {servicesByCategory.automobile.map((service) => (
+                              <Link
+                                key={service.slug}
+                                href={`/services/${service.slug}`}
+                                className="block py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors"
+                                onClick={() => {
+                                  setIsMenuOpen(false);
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                <p className="font-semibold text-gray-900 text-sm">{service.title}</p>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
 
                         {/* Services Mobilier */}
                         <div className="pt-3 border-t border-gray-100">
                           <p className="text-xs font-bold text-gray-500 uppercase mb-2">Mobilier</p>
-                          {servicesByCategory.mobilier.map((service) => (
-                            <Link
-                              key={service.slug}
-                              href={`/services/${service.slug}`}
-                              className="block py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors"
-                              onClick={() => {
-                                setIsMenuOpen(false);
-                                setIsMobileServicesOpen(false);
-                              }}
-                            >
-                              <p className="font-semibold text-gray-900 text-sm">{service.title}</p>
-                              <p className="text-xs text-gray-500 mt-0.5">{service.shortDescription}</p>
-                            </Link>
-                          ))}
+                          <div className="space-y-1">
+                            {servicesByCategory.mobilier.map((service) => (
+                              <Link
+                                key={service.slug}
+                                href={`/services/${service.slug}`}
+                                className="block py-2 px-3 rounded-lg hover:bg-blue-50 transition-colors"
+                                onClick={() => {
+                                  setIsMenuOpen(false);
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                <p className="font-semibold text-gray-900 text-sm">{service.title}</p>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     )}
