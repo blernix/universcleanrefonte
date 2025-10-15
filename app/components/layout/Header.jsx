@@ -85,13 +85,14 @@ export default function Header({ onOpenModal }) {
               <Image
                 src="/logo_univers_clean.png"
                 alt="Logo Univers Clean"
-                fill
-                className="object-contain"
+                width={40}
+                height={40}
+                className="object-contain w-full h-full"
                 priority
               />
             </div>
             <span className="text-2xl font-bold text-gray-900">Univers</span>
-            
+
             <span className="text-2xl font-bold text-gray-900">Clean</span>
             <span className="text-sm text-gray-600">77</span>
           </Link>

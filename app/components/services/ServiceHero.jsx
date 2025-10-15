@@ -162,8 +162,9 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
                   <Image
                     src={service.heroImage}
                     alt={service.heroImageAlt}
-                    fill
-                    className="!object-cover !rounded-[1.5rem] sm:!rounded-[2.5rem]"
+                    width={800}
+                    height={800}
+                    className="!object-cover !rounded-[1.5rem] sm:!rounded-[2.5rem] !w-full !h-full"
                     priority
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -259,8 +260,9 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
                 <Image
                   src={service.heroImage}
                   alt={service.heroImageAlt}
-                  fill
-                  className="!object-cover !rounded-[1.5rem] sm:!rounded-[2.5rem]"
+                  width={800}
+                  height={800}
+                  className="!object-cover !rounded-[1.5rem] sm:!rounded-[2.5rem] !w-full !h-full"
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
