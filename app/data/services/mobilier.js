@@ -74,22 +74,40 @@ export const mobilierServices = [
     image: '/services/matelas-hero.jpg',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
-    price: 'Sur devis',
-    priceDetails: {
-      '1personne': 'Sur devis',
-      '2personnes': 'Sur devis',
-      'queensize': 'Sur devis',
-      'kingsize': 'Sur devis'
-    },
     description: 'Nettoyage en profondeur de votre matelas pour un sommeil sain et réparateur. Traitement professionnel contre acariens, allergènes et taches organiques.',
-    benefits: [
-      'Élimination acariens et allergènes',
-      'Désinfection complète',
-      'Détachage (sang, urine, sueur)',
-      'Désodorisation neutralisante',
-      'Amélioration qualité du sommeil',
-      'Produits textiles adaptés',
-      'Respect des fibres et matériaux'
+    beforeAfterImages: [
+      {
+        before: '/services/matelas_avant.webp',
+        after: '/services/matelas_apres.webp',
+        alt: 'Nettoyage matelas'
+      }
+    ],
+    formulas: [
+      {
+        name: 'Nettoyage Standard',
+        price: {
+          'enfant': '50€',
+          '1place': '60€',
+          '2places': '80€'
+        },
+        duration: {
+          'enfant': '30 min',
+          '1place': '45 min',
+          '2places': '60 min'
+        },
+        description: 'Nettoyage complet de votre matelas avec traitement anti-acariens.',
+        benefits: [
+          'Aspiration profonde en surface et en profondeur',
+          'Détachage ciblé (sang, urine, sueur)',
+          'Injection-extraction avec produits textiles professionnels',
+          'Traitement antibactérien et anti-acariens',
+          'Désinfection complète du matelas',
+          'Désodorisation neutralisante',
+          'Élimination des allergènes',
+          'Amélioration de la qualité du sommeil',
+          'Séchage optimisé en 6-12h'
+        ]
+      }
     ],
     process: [
       { step: 1, title: 'Aspiration profonde', desc: 'Élimination poussières et débris' },
@@ -119,8 +137,7 @@ export const canapeTypes = [
 
 // Tailles de matelas pour formulaire
 export const matelasSizes = [
-  { value: '1personne', label: '1 personne (90x190)' },
-  { value: '2personnes', label: '2 personnes (140x190)' },
-  { value: 'queensize', label: 'Queen size (160x200)' },
-  { value: 'kingsize', label: 'King size (180x200)' }
+  { value: 'enfant', label: 'Matelas enfant' },
+  { value: '1place', label: 'Matelas 1 place' },
+  { value: '2places', label: 'Matelas 2 places' }
 ];

@@ -54,10 +54,10 @@ export default function About() {
                   transition={{ duration: 6, repeat: Infinity }}
                 />
                 <div className="relative z-10 flex flex-col items-center !text-center">
-                  <div className="bg-blue-50 p-4 rounded-full mb-6 shadow-sm">
+                  <div className="bg-blue-50 p-4 rounded-full !mb-6 shadow-sm">
                     <Icon className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h3 className="!text-2xl font-semibold !text-gray-900 mb-3 !text-center">
+                  <h3 className="!text-2xl font-semibold !text-gray-900 !mb-3 !text-center">
                     {value.title}
                   </h3>
                   <p className="!text-gray-600 leading-relaxed !text-center">

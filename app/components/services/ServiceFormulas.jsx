@@ -6,6 +6,7 @@ export default function ServiceFormulas({
   service,
   isAutomobile,
   isCanape,
+  isMatelas,
   hasFormulas,
   selectedFormula,
   setSelectedFormula,
@@ -13,7 +14,8 @@ export default function ServiceFormulas({
   setSelectedVehicleClass,
   selectedCanapeSize,
   setSelectedCanapeSize,
-  onOpenModal
+  selectedMatelasSize,
+  setSelectedMatelasSize
 }) {
   // Si pas de formules, afficher la version simple avec tarifs
   if (!hasFormulas) {
@@ -33,12 +35,14 @@ export default function ServiceFormulas({
                 <p className="text-3xl font-bold text-blue-600">{service.price}</p>
                 <p className="text-sm text-gray-500 mt-2">Tarif adapté selon la taille</p>
               </div>
-              <button
-                onClick={onOpenModal}
-                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+              <a
+                href="https://app.dispoo.fr/website/368-univers-clean/step1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors block text-center no-underline"
               >
                 Obtenir mon devis précis
-              </button>
+              </a>
             </div>
           </div>
 
@@ -123,9 +127,31 @@ export default function ServiceFormulas({
               ))}
             </div>
           )}
+
+          {isMatelas && (
+            <div className="!mt-10 flex justify-center gap-5 flex-wrap">
+              {[
+                { value: 'enfant', label: 'Matelas enfant' },
+                { value: '1place', label: 'Matelas 1 place' },
+                { value: '2places', label: 'Matelas 2 places' }
+              ].map((matelasSize) => (
+                <button
+                  key={matelasSize.value}
+                  onClick={() => setSelectedMatelasSize(matelasSize.value)}
+                  className={`!px-8 !py-4 rounded-full font-bold !text-lg transition-all ${
+                    selectedMatelasSize === matelasSize.value
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {matelasSize.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className={`grid gap-10 ${service.formulas.length === 1 ? 'md:grid-cols-1 max-w-2xl mx-auto' : 'md:grid-cols-3'}`}>
           {service.formulas.map((formula, index) => (
             <motion.div
               key={index}
@@ -154,7 +180,9 @@ export default function ServiceFormulas({
                     ? formula.price[selectedVehicleClass]
                     : isCanape
                       ? formula.price[selectedCanapeSize]
-                      : formula.price?.classe1 || 'Sur devis'}
+                      : isMatelas
+                        ? formula.price[selectedMatelasSize]
+                        : formula.price?.classe1 || 'Sur devis'}
                 </p>
                 <p className={`!text-sm !mt-4 ${selectedFormula === index ? 'text-blue-100' : 'text-gray-500'}`}>
                   {formula.description}
@@ -172,16 +200,18 @@ export default function ServiceFormulas({
                 ))}
               </div>
 
-              <button
-                onClick={() => onOpenModal()}
-                className={`w-full !mt-10 !py-4 rounded-full font-bold !text-lg transition-all ${
+              <a
+                href="https://app.dispoo.fr/website/368-univers-clean/step1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full !mt-10 !py-4 rounded-full font-bold !text-lg transition-all block text-center no-underline ${
                   selectedFormula === index
                     ? 'bg-white text-blue-600 hover:bg-gray-100'
                     : 'bg-blue-600 text-white hover:bg-blue-700'
                 }`}
               >
                 Choisir {formula.name}
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>

@@ -21,6 +21,23 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }) {
   const startDrag = useCallback(() => setIsDragging(true), []);
   const stopDrag = useCallback(() => setIsDragging(false), []);
 
+  // Support clavier pour l'accessibilité
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setSliderPosition((prev) => Math.max(prev - 5, 0));
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      setSliderPosition((prev) => Math.min(prev + 5, 100));
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      setSliderPosition(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      setSliderPosition(100);
+    }
+  }, []);
+
   useEffect(() => {
     if (!isDragging) return;
 
@@ -100,12 +117,21 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }) {
           <div className="!absolute !inset-y-0 !-right-[2px] !w-[2px] !bg-black/20"></div>
 
           {/* Poignée tactile redesignée */}
-          <div
-            className={`!absolute !top-1/2 !left-1/2 !-translate-x-1/2 !-translate-y-1/2 !w-16 !h-16 sm:!w-20 sm:!h-20 !bg-gradient-to-br !from-blue-500 !via-blue-600 !to-indigo-600 !rounded-full !shadow-[0_8px_32px_rgba(0,0,0,0.4)] !flex !items-center !justify-center !cursor-grab active:!cursor-grabbing !transition-all !duration-300 !border-4 !border-white !backdrop-blur-md ${
+          <button
+            type="button"
+            tabIndex={0}
+            role="slider"
+            aria-label="Curseur de comparaison avant/après"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.round(sliderPosition)}
+            aria-valuetext={`${Math.round(sliderPosition)}% vers la photo après`}
+            className={`!absolute !top-1/2 !left-1/2 !-translate-x-1/2 !-translate-y-1/2 !w-16 !h-16 sm:!w-20 sm:!h-20 !bg-gradient-to-br !from-blue-500 !via-blue-600 !to-indigo-600 !rounded-full !shadow-[0_8px_32px_rgba(0,0,0,0.4)] !flex !items-center !justify-center !cursor-grab active:!cursor-grabbing !transition-all !duration-300 !border-4 !border-white !backdrop-blur-md focus:!ring-4 focus:!ring-blue-400 focus:!ring-offset-2 focus:!outline-none ${
               isDragging ? '!scale-110 !shadow-[0_12px_48px_rgba(59,130,246,0.6)]' : isHovering ? '!scale-105 !shadow-[0_10px_40px_rgba(59,130,246,0.5)]' : ''
             }`}
             onMouseDown={startDrag}
             onTouchStart={startDrag}
+            onKeyDown={handleKeyDown}
           >
             {/* Cercle intérieur pour effet de profondeur */}
             <div className="!absolute !inset-2 !bg-white/10 !rounded-full !backdrop-blur-sm"></div>
@@ -123,7 +149,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, alt }) {
                 Glissez
               </div>
             )}
-          </div>
+          </button>
 
           {/* Lignes décoratives en haut et en bas */}
           <div className="!absolute !top-0 !left-1/2 !-translate-x-1/2 !w-12 !h-12 !bg-gradient-to-b !from-white !to-transparent !opacity-30 !blur-sm"></div>

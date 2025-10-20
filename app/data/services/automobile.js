@@ -248,9 +248,9 @@ export const automobileServices = [
       {
         name: 'Ultimate',
         price: {
-          'classe1': '530€',
-          'classe2': '530€',
-          'classe3': '530€'
+          'classe1': '490€',
+          'classe2': '490€',
+          'classe3': '490€'
         },
         priceNote: 'Grande voiture +40€',
         description: 'Le soin haut de gamme intégral. Votre véhicule comme neuf sous tous les angles.',

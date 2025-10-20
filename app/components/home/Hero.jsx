@@ -2,7 +2,84 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Moteur d'animation scroll expansion
+// Version mobile simplifiée
+const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
+  return (
+    <div className="bg-white text-gray-900">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16">
+        {/* Fond statique */}
+        <div className="absolute inset-0 z-0">
+          <img src={bgImageSrc} alt="Fond Univers Clean" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        {/* Contenu centré */}
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          {/* Titre */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <h1 className="text-5xl font-extrabold text-white drop-shadow-2xl mb-2">
+              {title.split(' ')[0]}
+            </h1>
+            <h1 className="text-5xl font-extrabold text-blue-500 drop-shadow-2xl">
+              {title.split(' ')[1]}
+            </h1>
+          </motion.div>
+
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="text-3xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+              Nettoyage professionnel à domicile
+            </h2>
+
+            <p className="text-xl mb-6 text-white font-medium drop-shadow-lg">
+              <strong>Voiture • Canapé • Matelas • Mobilier</strong>
+            </p>
+
+            <p className="text-base mb-12 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+              Plus de 10 ans d'expérience. Produits professionnels haut de gamme (Koch Chemie, CarPro).
+              Intervention à La Genevraye (77) et 30 km alentour.
+            </p>
+          </motion.div>
+
+          {/* Boutons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col gap-4"
+          >
+            <a
+              href="https://app.dispoo.fr/website/368-univers-clean/step1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transition-all no-underline"
+            >
+              Obtenir mon devis gratuit
+            </a>
+
+            <a
+              href="tel:+33782364263"
+              className="bg-white text-blue-600 border-2 border-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-50 transition-all"
+            >
+              📞 Appeler maintenant
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Version desktop avec animation complexe
 const ScrollExpandMedia = ({
   mediaSrc,
   bgImageSrc,
@@ -96,7 +173,7 @@ const ScrollExpandMedia = ({
     <div className="bg-white text-gray-900">
       <section className='relative flex flex-col items-center justify-start'>
         <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white'>
-      
+
       {/* Image de fond */}
       <motion.div
         className='absolute inset-0 z-0'
@@ -160,14 +237,39 @@ const ScrollExpandMedia = ({
   );
 };
 
-export default function Hero({ onOpenModal }) {
-  
+export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const heroContent = {
     videoSrc: '/videoHero.mp4',
     backgroundSrc: '/hero2.jpg',
     title: "Univers Clean",
   };
 
+  useEffect(() => {
+    // Détection mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Version mobile simplifiée
+  if (isMobile) {
+    return (
+      <SimpleHero
+        videoSrc={heroContent.videoSrc}
+        bgImageSrc={heroContent.backgroundSrc}
+        title={heroContent.title}
+      />
+    );
+  }
+
+  // Version desktop avec animation complexe
   return (
     <ScrollExpandMedia
       mediaSrc={heroContent.videoSrc}
@@ -177,21 +279,21 @@ export default function Hero({ onOpenModal }) {
       {/* Contenu après l'animation */}
       <div className="min-h-screen bg-white text-gray-900 flex items-center justify-center">
   <div className="max-w-5xl mx-auto text-center px-6 py-16">
-    
+
     {/* Titre miroir */}
     <div className="flex justify-center gap-4 mb-8">
-      <motion.h2 
-        initial={{x: '-50vw'}} 
-        animate={{x: 0}} 
-        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}} 
+      <motion.h2
+        initial={{x: '-50vw'}}
+        animate={{x: 0}}
+        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}}
         className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
       >
         Univers
       </motion.h2>
-      <motion.h2 
-        initial={{x: '50vw'}} 
-        animate={{x: 0}} 
-        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}} 
+      <motion.h2
+        initial={{x: '50vw'}}
+        animate={{x: 0}}
+        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}}
         className="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight"
       >
         Clean
@@ -199,9 +301,9 @@ export default function Hero({ onOpenModal }) {
     </div>
 
     {/* Contenu principal */}
-    <motion.div 
-      initial={{opacity: 0}} 
-      animate={{opacity: 1}} 
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
       transition={{duration: 0.7, delay: 0.5}}
     >
       <h3 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
@@ -212,16 +314,18 @@ export default function Hero({ onOpenModal }) {
         <strong>Voiture • Canapé • Matelas • Mobilier</strong>
       </p>
 
-      <p className="!text-lg md:!text-xl mb-12 !text-gray-600 max-w-3xl !mx-auto leading-relaxed !text-center">
+      <p className="text-lg md:text-xl mb-12 text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Plus de 10 ans d'expérience. Produits professionnels haut de gamme (Koch Chemie, CarPro).
         Intervention à La Genevraye (77) et 30 km alentour.
       </p>
 
       {/* Boutons */}
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-<motion.button
-  onClick={onOpenModal}
-  className="bg-blue-600 text-white !px-8 !py-4 rounded-full font-bold !text-2xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 border-none cursor-pointer"
+<motion.a
+  href="https://app.dispoo.fr/website/368-univers-clean/step1"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-2xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 no-underline block text-center"
   animate={{ y: [0, -8, 0] }}
   transition={{
     duration: 1.8,
@@ -231,11 +335,11 @@ export default function Hero({ onOpenModal }) {
   }}
 >
   Obtenir mon devis gratuit
-</motion.button>
+</motion.a>
 
 <a
   href="tel:+33782364263"
-  className="bg-white text-blue-600 border-2 border-blue-600 !px-8 !py-4 rounded-full font-bold !text-2xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
+  className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-full font-bold text-2xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
 >
   📞 Appeler maintenant
 </a>

@@ -46,18 +46,18 @@ export default function HomePage() {
   return (
     <>
       <SkipLinks />
-      {showHeader && <Header onOpenModal={() => handleOpenModal('general')} />}
+      {showHeader && <Header onOpenModal={handleOpenModal} />}
 
       <main id="main-content" className="min-h-screen">
-        <Hero onOpenModal={() => handleOpenModal('general')} />
+        <Hero />
 
         <SectionSeparator variant="light" />
         <ServicesGrid />
 
-        <SectionSeparator variant="gray" />
+        
         <WhyUs />
 
-        <SectionSeparator variant="reverseLight" />
+<SectionSeparator variant="gray" />
         <About />
 
         <SectionSeparator variant="blue" />
@@ -69,8 +69,8 @@ export default function HomePage() {
         <SectionSeparator variant="gray" />
         <FAQ />
 
-        <SectionSeparator variant="reverseBlue" />
-        <CTABanner onOpenModal={() => handleOpenModal('general')} />
+        <SectionSeparator variant="blue" />
+        <CTABanner />
       </main>
 
       <Footer />

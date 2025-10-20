@@ -73,7 +73,7 @@ const jsonLd = {
   name: 'Univers Clean 77',
   image: 'https://univers-clean77.fr/logo_univers_clean.png',
   url: 'https://univers-clean77.fr',
-  telephone: '+33XXXXXXXXX', // À remplacer par le vrai numéro
+  telephone: '+33782364263', // À remplacer par le vrai numéro
   priceRange: '€€',
 
   address: {

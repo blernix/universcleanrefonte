@@ -21,8 +21,8 @@ export default function ServiceFAQ({ faqs }) {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full !p-6 flex items-center justify-between gap-4 text-left hover:bg-gray-50 transition-colors"
               >
-                <h3 className="!text-xl font-bold !text-gray-900 flex items-start gap-3">
-                  <span className="!text-blue-600">Q:</span> {faq.q}
+                <h3 className="!text-xl font-bold !text-gray-900">
+                  {faq.q}
                 </h3>
                 <ChevronDown
                   className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform ${
@@ -38,8 +38,8 @@ export default function ServiceFAQ({ faqs }) {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="!text-gray-600 !text-base px-6 pb-6 pl-14">
-                      <span className="font-semibold !text-blue-600">R:</span> {faq.a}
+                    <p className="!text-gray-600 !text-base !px-8 !pb-8 !pt-6 leading-relaxed">
+                      {faq.a}
                     </p>
                   </motion.div>
                 )}

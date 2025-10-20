@@ -2,9 +2,9 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail } from 'lucide-react';
 
-export default function CTABanner({ onOpenModal }) {
+export default function CTABanner() {
   return (
-    <section className="relative overflow-hidden py-32 mt-32 mb-40 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white">
+    <section className="relative overflow-hidden py-32   bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white">
       {/* Éléments décoratifs */}
       <div className="absolute top-[-10%] left-[-10%] w-[30rem] h-[30rem] bg-blue-500/20 rounded-full blur-3xl" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] bg-blue-400/20 rounded-full blur-3xl" />
@@ -26,15 +26,17 @@ export default function CTABanner({ onOpenModal }) {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 !mb-20">
-            <motion.button
-              onClick={onOpenModal}
-              className="bg-white text-blue-700 !px-10 !py-6 rounded-xl font-bold !text-xl shadow-xl hover:bg-blue-50 transition-all hover:scale-105 flex items-center gap-3"
+            <motion.a
+              href="https://app.dispoo.fr/website/368-univers-clean/step1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-blue-700 !px-10 !py-6 rounded-xl font-bold !text-xl shadow-xl hover:bg-blue-50 transition-all hover:scale-105 flex items-center gap-3 no-underline"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail className="w-6 h-6" />
               Devis gratuit en ligne
-            </motion.button>
+            </motion.a>
 
             <a
               href="tel:+33782364263"

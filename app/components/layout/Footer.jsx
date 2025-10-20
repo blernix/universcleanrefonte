@@ -21,7 +21,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0B1120] text-gray-300 border-t border-blue-900/40 mt-2.5">
+    <footer className="bg-[#0B1120] text-gray-300 border-t border-blue-900/40 ">
       <div className="container mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Colonne 1 : Identité */}
         <div>

@@ -114,7 +114,8 @@ export default function Header({ onOpenModal }) {
 
                   {/* Dropdown Desktop */}
                   {isServicesOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-4 animate-fadeIn">
+                    <div className="absolute top-full left-0 pt-2 w-80">
+                      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-4 animate-fadeIn">
                       {/* Services Automobile */}
                       <div className="px-4 pb-3 mb-3 border-b border-gray-100">
                         <p className="text-xs font-bold text-gray-500 uppercase mb-3">Automobile</p>
@@ -153,6 +154,7 @@ export default function Header({ onOpenModal }) {
                         </div>
                       </div>
                     </div>
+                    </div>
                   )}
                 </div>
               ) : (
@@ -178,7 +180,7 @@ export default function Header({ onOpenModal }) {
               <span className="font-medium">07 82 36 42 63</span>
             </a>
             <button
-              onClick={onOpenModal}
+              onClick={() => onOpenModal && onOpenModal()}
               className="btn-primary"
             >
               Devis gratuit
@@ -279,8 +281,8 @@ export default function Header({ onOpenModal }) {
               </a>
               <button
                 onClick={() => {
-                  onOpenModal();
                   setIsMenuOpen(false);
+                  onOpenModal && onOpenModal();
                 }}
                 className="btn-primary w-full mt-2"
               >

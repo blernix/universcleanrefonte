@@ -24,11 +24,13 @@ export default function ServicePageClient({ service }) {
   const [selectedFormula, setSelectedFormula] = useState(service.formulas ? 0 : null);
   const [selectedVehicleClass, setSelectedVehicleClass] = useState('classe1');
   const [selectedCanapeSize, setSelectedCanapeSize] = useState('2-3places');
+  const [selectedMatelasSize, setSelectedMatelasSize] = useState('1place');
 
   if (!service) notFound();
 
   const isAutomobile = service.category === 'automobile';
   const isCanape = service.slug === 'nettoyage-canape';
+  const isMatelas = service.slug === 'nettoyage-matelas';
   const hasFormulas = service.formulas && service.formulas.length > 0;
   const isInteriorOrExterior = service.slug === 'nettoyage-voiture-interieur' || service.slug === 'nettoyage-voiture-exterieur';
 
@@ -70,7 +72,6 @@ export default function ServicePageClient({ service }) {
           service={service}
           isAutomobile={isAutomobile}
           hasFormulas={hasFormulas}
-          onOpenModal={() => setIsModalOpen(true)}
         />
 
         <SectionSeparator variant="light" />
@@ -80,6 +81,7 @@ export default function ServicePageClient({ service }) {
           service={service}
           isAutomobile={isAutomobile}
           isCanape={isCanape}
+          isMatelas={isMatelas}
           hasFormulas={hasFormulas}
           selectedFormula={selectedFormula}
           setSelectedFormula={setSelectedFormula}
@@ -87,7 +89,8 @@ export default function ServicePageClient({ service }) {
           setSelectedVehicleClass={setSelectedVehicleClass}
           selectedCanapeSize={selectedCanapeSize}
           setSelectedCanapeSize={setSelectedCanapeSize}
-          onOpenModal={() => setIsModalOpen(true)}
+          selectedMatelasSize={selectedMatelasSize}
+          setSelectedMatelasSize={setSelectedMatelasSize}
         />
 
         {/* Conversion Section (Interior/Exterior → Complete) */}
@@ -158,7 +161,7 @@ export default function ServicePageClient({ service }) {
         <SectionSeparator variant="blue" />
 
         {/* CTA Section */}
-        <ServiceCTA onOpenModal={() => setIsModalOpen(true)} />
+        <ServiceCTA />
       </main>
 
       <Footer />
