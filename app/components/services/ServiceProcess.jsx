@@ -162,7 +162,7 @@ export default function ServiceProcess({ process }) {
           <div className="!inline-flex !items-center !gap-2 !bg-gradient-to-r !from-blue-50 !to-purple-50 !px-8 !py-4 !rounded-full !border-2 !border-blue-100">
             <CheckCircle2 className="!w-6 !h-6 !text-green-500" />
             <p className="!text-lg !font-semibold !text-gray-700">
-              Résultat garanti ou remboursé
+              Résultat garanti
             </p>
           </div>
         </motion.div>

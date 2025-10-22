@@ -9,7 +9,9 @@ import SectionSeparator from '@/app/components/SectionSeparator';
 
 // Import service components
 import ServiceHero from '@/app/components/services/ServiceHero';
+import ServiceFormulasIntro from '@/app/components/services/ServiceFormulasIntro';
 import ServiceFormulas from '@/app/components/services/ServiceFormulas';
+import ServiceComparison from '@/app/components/services/ServiceComparison';
 import ServiceConversion from '@/app/components/services/ServiceConversion';
 import ServiceProcess from '@/app/components/services/ServiceProcess';
 import ServiceBenefits from '@/app/components/services/ServiceBenefits';
@@ -41,19 +43,39 @@ export default function ServicePageClient({ service }) {
     const currentFormula = service.formulas[selectedFormula];
     const currentPrice = parseInt(currentFormula?.price[selectedVehicleClass]?.replace('€', '') || 0);
 
-    // Prix estimé si on prend les deux services séparés
-    const estimatedCombinedPrice = currentPrice * 2;
+    // Prix des services séparés selon la formule
+    const interiorPrices = {
+      0: { classe1: 60, classe2: 70, classe3: 80 },    // Start
+      1: { classe1: 110, classe2: 130, classe3: 150 }, // Confort
+      2: { classe1: 295, classe2: 295, classe3: 295 }  // Ultimate
+    };
 
-    // Prix avec 20% de réduction
-    const completePrice = Math.round(estimatedCombinedPrice * 0.8);
+    const exteriorPrices = {
+      0: { classe1: 50, classe2: 60, classe3: 70 },    // Start
+      1: { classe1: 95, classe2: 115, classe3: 135 },  // Confort
+      2: { classe1: 249, classe2: 249, classe3: 249 }  // Ultimate
+    };
+
+    // Prix réels du service Complet
+    const completePrices = {
+      0: { classe1: 100, classe2: 120, classe3: 140 },  // Start
+      1: { classe1: 190, classe2: 230, classe3: 270 },  // Confort
+      2: { classe1: 490, classe2: 490, classe3: 490 }   // Ultimate
+    };
+
+    const estimatedCombinedPrice = interiorPrices[selectedFormula][selectedVehicleClass] +
+                                    exteriorPrices[selectedFormula][selectedVehicleClass];
+
+    const completePrice = completePrices[selectedFormula][selectedVehicleClass];
     const savings = estimatedCombinedPrice - completePrice;
+    const discountPercent = Math.round((savings / estimatedCombinedPrice) * 100);
 
     return {
       currentPrice,
       estimatedCombinedPrice,
       completePrice,
       savings,
-      discount: 20
+      discount: discountPercent
     };
   };
 
@@ -75,6 +97,12 @@ export default function ServicePageClient({ service }) {
         />
 
         <SectionSeparator variant="light" />
+
+        {/* Formulas Introduction */}
+        <ServiceFormulasIntro
+          formulasDescription={service.formulasDescription}
+          title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}
+        />
 
         {/* Formulas Section */}
         <ServiceFormulas
@@ -105,6 +133,14 @@ export default function ServicePageClient({ service }) {
               selectedVehicleClass={selectedVehicleClass}
               setSelectedVehicleClass={setSelectedVehicleClass}
             />
+          </>
+        )}
+
+        {/* Comparison Section (si plusieurs formules) */}
+        {hasFormulas && service.formulas.length > 1 && (
+          <>
+            <SectionSeparator variant="reverseLight" />
+            <ServiceComparison service={service} />
           </>
         )}
 

@@ -1,6 +1,7 @@
 'use client';
-import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ServiceFormulas({
   service,
@@ -17,6 +18,15 @@ export default function ServiceFormulas({
   selectedMatelasSize,
   setSelectedMatelasSize
 }) {
+  // État pour gérer l'expansion de chaque carte
+  const [expandedCards, setExpandedCards] = useState({});
+
+  const toggleCardExpansion = (index) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
   // Si pas de formules, afficher la version simple avec tarifs
   if (!hasFormulas) {
     return (
@@ -151,7 +161,7 @@ export default function ServiceFormulas({
           )}
         </div>
 
-        <div className={`grid gap-10 ${service.formulas.length === 1 ? 'md:grid-cols-1 max-w-2xl mx-auto' : 'md:grid-cols-3'}`}>
+        <div className={`grid gap-10 ${service.formulas.length === 1 ? 'md:grid-cols-1 max-w-2xl mx-auto' : 'md:grid-cols-3 md:grid-rows-1 md:auto-rows-fr'}`}>
           {service.formulas.map((formula, index) => (
             <motion.div
               key={index}
@@ -159,7 +169,7 @@ export default function ServiceFormulas({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setSelectedFormula(index)}
-              className={`relative cursor-pointer rounded-2xl !p-10 transition-all ${
+              className={`relative cursor-pointer rounded-2xl !p-10 transition-all flex flex-col ${
                 selectedFormula === index
                   ? 'bg-blue-600 text-white shadow-2xl scale-105'
                   : 'bg-gray-50 text-gray-900 hover:shadow-lg'
@@ -189,15 +199,64 @@ export default function ServiceFormulas({
                 </p>
               </div>
 
-              <div className="space-y-4">
-                {formula.benefits.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${selectedFormula === index ? 'text-blue-200' : 'text-green-500'}`} />
-                    <p className={`!text-base ${selectedFormula === index ? 'text-white' : 'text-gray-700'}`}>
-                      {benefit}
-                    </p>
-                  </div>
-                ))}
+              {/* Section des benefits avec flex-grow pour pousser le bouton en bas */}
+              <div className="flex-grow space-y-4">
+                {/* Déterminer combien d'items afficher */}
+                {(() => {
+                  const maxItemsCollapsed = 5;
+                  const isExpanded = expandedCards[index];
+                  const visibleBenefits = isExpanded ? formula.benefits : formula.benefits.slice(0, maxItemsCollapsed);
+                  const hasMore = formula.benefits.length > maxItemsCollapsed;
+
+                  return (
+                    <>
+                      <AnimatePresence initial={false}>
+                        {visibleBenefits.map((benefit, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex items-start gap-4"
+                          >
+                            <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${selectedFormula === index ? 'text-blue-200' : 'text-green-500'}`} />
+                            <p className={`!text-base ${selectedFormula === index ? 'text-white' : 'text-gray-700'}`}>
+                              {benefit}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </AnimatePresence>
+
+                      {/* Bouton Voir plus/moins */}
+                      {hasMore && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleCardExpansion(index);
+                          }}
+                          className={`w-full flex items-center justify-center gap-2 !mt-6 !py-3 rounded-lg font-semibold !text-sm transition-all ${
+                            selectedFormula === index
+                              ? 'bg-white/20 text-white hover:bg-white/30'
+                              : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                          }`}
+                        >
+                          {isExpanded ? (
+                            <>
+                              <ChevronUp className="w-4 h-4" />
+                              Voir moins
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown className="w-4 h-4" />
+                              Voir tous les détails ({formula.benefits.length - maxItemsCollapsed} de plus)
+                            </>
+                          )}
+                        </button>
+                      )}
+                    </>
+                  );
+                })()}
               </div>
 
               <a
@@ -209,6 +268,7 @@ export default function ServiceFormulas({
                     ? 'bg-white text-blue-600 hover:bg-gray-100'
                     : 'bg-blue-600 text-white hover:bg-blue-700'
                 }`}
+                style={{ marginTop: 'auto', paddingTop: '2.5rem' }}
               >
                 Choisir {formula.name}
               </a>

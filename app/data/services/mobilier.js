@@ -9,10 +9,22 @@ export const mobilierServices = [
     heroTitle: 'Offrez une seconde vie à votre canapé',
     heroSubtitle: 'Couleurs ravivées, fraîcheur retrouvée, confort assuré',
     shortDescription: 'Redonnez vie à vos textiles. Couleurs éclatantes, hygiène renforcée.',
-    image: '/services/canape.webp',
+    image: '/services/canape-hero.webp',
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
     category: 'mobilier',
     description: 'Nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Élimination des taches, ravivage des couleurs, neutralisation des odeurs et réduction des allergènes.',
+    formulasDescription: `Redonnez vie à vos textiles d'intérieur grâce à un nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Nos prestations sont spécialement conçues pour éliminer les taches, raviver les couleurs, neutraliser les mauvaises odeurs et réduire les allergènes accumulés dans vos tissus.
+
+Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
+
+Des résultats visibles et durables :
+• Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
+• Hygiène renforcée : poussières et allergènes sont éliminés.
+• Fraîcheur garantie : les mauvaises odeurs disparaissent.
+
+Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.
+
+Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et tapis retrouvent confort, éclat et hygiène.`,
     beforeAfterImages: [
       {
         before: '/services/canape_bleu_avant.webp',
@@ -59,7 +71,7 @@ export const mobilierServices = [
       { q: 'Les produits sont-ils sans danger pour les enfants et animaux ?', a: 'Oui, absolument. Nous utilisons des produits spécifiques textiles, non toxiques, sans danger pour enfants et animaux. Formules respectueuses de la santé et de l\'environnement.' },
       { q: 'Nettoyez-vous aussi le cuir ?', a: 'Oui, nous avons un traitement spécifique pour le cuir avec hydratation.' }
     ],
-    heroImage: '/services/canape-hero.png',
+    heroImage: '/services/canape-hero.webp',
     heroImageAlt: 'Technicien professionnel nettoyant un canapé à domicile avec matériel d\'injection-extraction'
   },
 
@@ -71,10 +83,22 @@ export const mobilierServices = [
     heroTitle: 'Dormez sur vos deux oreilles',
     heroSubtitle: 'Un matelas sain pour un sommeil réparateur',
     shortDescription: 'Sommeil sain. Élimination acariens, allergènes et taches.',
-    image: '/services/matelas-hero.jpg',
+    image: '/services/chambre-hero.webp',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
     description: 'Nettoyage en profondeur de votre matelas pour un sommeil sain et réparateur. Traitement professionnel contre acariens, allergènes et taches organiques.',
+    formulasDescription: `Redonnez vie à vos textiles d'intérieur grâce à un nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Nos prestations sont spécialement conçues pour éliminer les taches, raviver les couleurs, neutraliser les mauvaises odeurs et réduire les allergènes accumulés dans vos tissus.
+
+Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
+
+Des résultats visibles et durables :
+• Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
+• Hygiène renforcée : poussières et allergènes sont éliminés.
+• Fraîcheur garantie : les mauvaises odeurs disparaissent.
+
+Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.
+
+Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et tapis retrouvent confort, éclat et hygiène.`,
     beforeAfterImages: [
       {
         before: '/services/matelas_avant.webp',
@@ -120,7 +144,7 @@ export const mobilierServices = [
       { q: 'À quelle fréquence nettoyer son matelas ?', a: 'Recommandé tous les 6 à 12 mois pour maintenir une hygiène optimale.' },
       { q: 'Est-ce efficace contre les punaises de lit ?', a: 'Non, les punaises de lit nécessitent un traitement spécialisé différent.' }
     ],
-    heroImage: '/services/matelas-hero.jpg',
+    heroImage: '/services/chambre-hero.webp',
     heroImageAlt: 'Traitement professionnel anti-acariens et désinfection de matelas à domicile'
   }
 ];
