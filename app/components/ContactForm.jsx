@@ -110,24 +110,14 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
       urgence: formData.urgence || 'Non urgent',
     };
 
-    // Logs de debug
-    console.log('🔧 EmailJS Config:', {
-      serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      templateParams
-    });
-
     emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
       templateParams,
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    ).then((response) => {
-       console.log('✅ Email envoyé avec succès !', response);
+    ).then(() => {
        setSubmitStatus('success');
-    }, (error) => {
-       console.error('❌ Erreur lors de l\'envoi:', error);
+    }, () => {
        setSubmitStatus('error');
     }).finally(() => {
        setIsSubmitting(false);
@@ -225,7 +215,7 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
         </div>
         <h3 className="!text-3xl font-bold !text-gray-900 !mb-4">Une erreur est survenue</h3>
         <p className="!text-gray-600 !mb-8 !text-lg max-w-md mx-auto">
-          Veuillez réessayer. Si le problème persiste, contactez-nous directement par téléphone au <span className="font-bold !text-blue-600">06 XX XX XX XX</span>.
+          Veuillez réessayer. Si le problème persiste, contactez-nous directement par téléphone au <a href="tel:+33782364263" className="font-bold !text-blue-600 hover:underline">07 82 36 42 63</a>.
         </p>
         <button
           onClick={() => setSubmitStatus(null)}
