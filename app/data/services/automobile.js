@@ -64,7 +64,7 @@ Plus vous montez en gamme, plus le nettoyage devient complet et précis : du sim
           'Nettoyage des plastiques',
           'Nettoyage du tableau de bord',
           'Nettoyage des panneaux de porte',
-          'Nettoyage des moquettes',
+          'Brossage et nettoyage des moquettes',
           'Nettoyage des tapis (injection-extraction)',
           'Nettoyage des vitres',
           'Parfum d\'ambiance'
@@ -86,6 +86,7 @@ Plus vous montez en gamme, plus le nettoyage devient complet et précis : du sim
           'Nettoyage du tableau de bord',
           'Nettoyage des panneaux de porte',
           'Nettoyage des grilles d\'aération (vapeur)',
+          'Brossage et nettoyage des moquettes',
           'Nettoyage des moquettes (injection-extraction)',
           'Nettoyage des tapis (injection-extraction)',
           'Nettoyage des sièges en cuir (avec entretien)',
@@ -274,15 +275,15 @@ Offrez-lui le meilleur : un nettoyage complet signé Univers Clean.`,
           'Nettoyage des pneus',
           'Finition brillance',
           'Dressing des pneus',
-          '💰 Économie vs prestations séparées'
+          
         ]
       },
       {
         name: 'Confort',
         price: {
-          'classe1': '190€',
-          'classe2': '230€',
-          'classe3': '270€'
+          'classe1': '185€',
+          'classe2': '220€',
+          'classe3': '255€'
         },
         description: 'Nettoyage en profondeur dedans comme dehors.',
         benefits: [
@@ -304,7 +305,7 @@ Offrez-lui le meilleur : un nettoyage complet signé Univers Clean.`,
           'Décontamination ferreuse de la carrosserie',
           'Finition brillance',
           'Dressing des pneus',
-          '💰 Économie vs prestations séparées'
+          
         ]
       },
       {

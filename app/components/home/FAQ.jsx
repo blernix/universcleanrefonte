@@ -7,8 +7,28 @@ import { globalFAQ } from '@/app/data/global';
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
+  // Schema FAQPage pour Google Rich Results
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: globalFAQ.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  };
+
   return (
     <section id="faq" aria-labelledby="faq-title" className="!py-32 bg-gradient-to-b from-gray-50 to-white">
+      {/* Schema FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="container mx-auto px-8 max-w-4xl">
         <h2 id="faq-title" className="!text-4xl md:!text-5xl font-bold !text-gray-900 !mb-16 !text-center">
           Questions Fréquentes

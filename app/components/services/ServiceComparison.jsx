@@ -63,6 +63,16 @@ export default function ServiceComparison({ service }) {
       // Comparaison exacte
       if (bLower === benefitLower) return true;
 
+      // Si l'un des benefits contient des parenthèses avec méthode spécifique (ex: "injection-extraction", "brossage")
+      // On exige une correspondance EXACTE pour éviter les faux positifs
+      const benefitHasMethod = benefitLower.includes('(') && benefitLower.includes(')');
+      const bHasMethod = bLower.includes('(') && bLower.includes(')');
+
+      if (benefitHasMethod || bHasMethod) {
+        // Pour les benefits avec méthode, seule la comparaison exacte compte
+        return false;
+      }
+
       // Si le benefit de la formule CONTIENT le benefit recherché
       // Ex: "Nettoyage complet des plastiques" contient "Nettoyage des plastiques"
       if (bLower.includes(benefitLower)) return true;
@@ -212,7 +222,9 @@ export default function ServiceComparison({ service }) {
                           {benefit}
                         </td>
                         {service.formulas.map((formula, formulaIndex) => {
-                          const has = hasBenefit(formula, benefit);
+                          // Ultimate a automatiquement toutes les prestations
+                          const isUltimate = formula.name === 'Ultimate';
+                          const has = isUltimate || hasBenefit(formula, benefit);
                           return (
                             <td key={formulaIndex} className="py-4 px-6 text-center">
                               {has ? (
@@ -278,8 +290,9 @@ export default function ServiceComparison({ service }) {
                     // Calculer les has pour les 2 formules
                     const formula1 = service.formulas[selectedFormulas[0]];
                     const formula2 = service.formulas[selectedFormulas[1]];
-                    const has1 = hasBenefit(formula1, benefit);
-                    const has2 = hasBenefit(formula2, benefit);
+                    // Ultimate a automatiquement toutes les prestations
+                    const has1 = formula1.name === 'Ultimate' || hasBenefit(formula1, benefit);
+                    const has2 = formula2.name === 'Ultimate' || hasBenefit(formula2, benefit);
 
                     return (
                       <div key={benefitIndex} className="p-4">

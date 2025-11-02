@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SmoothAnchor from "./components/SmoothAnchor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -73,22 +74,46 @@ const jsonLd = {
   name: 'Univers Clean 77',
   image: 'https://univers-clean77.fr/logo_univers_clean.png',
   url: 'https://univers-clean77.fr',
-  telephone: '+33782364263', // À remplacer par le vrai numéro
+  telephone: '+33782364263',
+  email: 'universclean77@gmail.com',
   priceRange: '€€',
 
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Seine-et-Marne',
+    streetAddress: 'La Genevraye',
+    addressLocality: 'La Genevraye',
     addressRegion: 'Île-de-France',
-    postalCode: '77000',
+    postalCode: '77690',
     addressCountry: 'FR',
   },
+
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 48.348611,
+    longitude: 2.674722
+  },
+
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday'],
+      opens: '09:00',
+      closes: '17:00'
+    }
+  ],
 
   areaServed: [
     { '@type': 'City', name: 'Melun' },
     { '@type': 'City', name: 'Fontainebleau' },
     { '@type': 'City', name: 'Meaux' },
     { '@type': 'City', name: 'Provins' },
+    { '@type': 'City', name: 'La Genevraye' },
   ],
 
   hasOfferCatalog: {
@@ -172,6 +197,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
+        {/* Système de navigation smooth avec fade */}
+        <SmoothAnchor />
 
         {children}
       </body>

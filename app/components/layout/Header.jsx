@@ -94,7 +94,7 @@ export default function Header({ onOpenModal }) {
             <span className="text-2xl font-bold text-gray-900">Univers</span>
 
             <span className="text-2xl font-bold text-gray-900">Clean</span>
-            <span className="text-sm text-gray-600">77</span>
+            
           </Link>
 
           {/* Navigation Desktop */}

@@ -2,53 +2,97 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Version mobile simplifiée
+// Version mobile avec carrousel d'images
 const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Images du carrousel (ajoute hero-accueil-2.webp quand tu l'auras)
+  const slides = [
+    { src: '/services/hero-accueil-1.webp', alt: 'Nettoyage automobile professionnel' },
+    { src: '/services/hero-accueil-3.webp', alt: 'Nettoyage matelas professionnel' },
+    // Décommenter quand hero-accueil-2.webp sera ajouté :
+     { src: '/services/hero-accueil-2.webp', alt: 'Nettoyage canapé professionnel' },
+  ];
+
+  useEffect(() => {
+    // Carrousel automatique toutes les 4 secondes
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   return (
     <div className="bg-white text-gray-900">
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16">
-        {/* Fond statique */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16 overflow-hidden">
+        {/* Carrousel d'images de fond */}
         <div className="absolute inset-0 z-0">
-          <img src={bgImageSrc} alt="Fond Univers Clean" className="w-full h-full object-cover" />
+          {slides.map((slide, index) => (
+            <motion.div
+              key={slide.src}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: currentSlide === index ? 1 : 0,
+                scale: currentSlide === index ? 1 : 1.1,
+              }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
+              className="absolute inset-0"
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          ))}
+
+          {/* Overlay sombre */}
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Contenu centré */}
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          {/* Titre */}
-          <motion.div
+          {/* H1 optimisé SEO */}
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="text-3xl font-extrabold text-white drop-shadow-2xl mb-4"
           >
-            <h1 className="text-5xl font-extrabold text-white drop-shadow-2xl mb-2">
-              {title.split(' ')[0]}
-            </h1>
-            <h1 className="text-5xl font-extrabold text-blue-500 drop-shadow-2xl">
-              {title.split(' ')[1]}
-            </h1>
-          </motion.div>
+            Nettoyage professionnel à domicile
+          </motion.h1>
 
-          {/* Description */}
-          <motion.div
+          {/* H2 avec services et localisation */}
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl font-bold mb-4 leading-tight text-white drop-shadow-lg"
           >
-            <h2 className="text-3xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-              Nettoyage professionnel à domicile
-            </h2>
+            Voiture • Canapé • Matelas en Seine-et-Marne (77)
+          </motion.h2>
 
-            <p className="text-xl mb-6 text-white font-medium drop-shadow-lg">
-              <strong>Voiture • Canapé • Matelas • Mobilier</strong>
-            </p>
+          {/* Nom de la marque */}
+          {/* <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg font-semibold mb-6 text-blue-400 drop-shadow-lg"
+          >
+            {title}
+          </motion.p> */}
 
-            <p className="text-base mb-12 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-              Plus de 10 ans d'expérience. Produits professionnels haut de gamme (Koch Chemie, CarPro).
-              Intervention à La Genevraye (77) et 30 km alentour.
-            </p>
-          </motion.div>
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base mb-12 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+          >
+            Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
+            Intervention à La Genevraye (77) et 30 km alentour.
+          </motion.p>
 
           {/* Boutons */}
           <motion.div
@@ -57,20 +101,29 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col gap-4"
           >
-            <a
+            {/* CTA principal avec micro-bounce */}
+            <motion.a
               href="https://app.dispoo.fr/website/368-univers-clean/step1"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transition-all no-underline"
+              animate={{ y: [0, -4, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatDelay: 2,
+                ease: "easeInOut",
+                delay: 1.0
+              }}
             >
               Obtenir mon devis gratuit
-            </a>
+            </motion.a>
 
             <a
-              href="tel:+33782364263"
+              href="#services"
               className="bg-white text-blue-600 border-2 border-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-50 transition-all"
             >
-              📞 Appeler maintenant
+              Découvrir nos services
             </a>
           </motion.div>
         </div>
@@ -79,166 +132,146 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
   );
 };
 
-// Version desktop avec animation complexe
-const ScrollExpandMedia = ({
+// Version desktop élégante avec photo et effet Ken Burns
+const DesktopHero = ({
   mediaSrc,
   bgImageSrc,
   initialTitle,
   children
 }) => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [mediaFullyExpanded, setMediaFullyExpanded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    setScrollProgress(0);
-    setMediaFullyExpanded(false);
-  }, [mediaSrc]);
-
-  useEffect(() => {
-    let touchStartY = 0;
-    let touchStartProgress = 0;
-
-    const handleWheel = (e) => {
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY === 0) {
-        e.preventDefault();
-        setMediaFullyExpanded(false);
-        setScrollProgress(0.99);
-      }
-      else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        const scrollDelta = e.deltaY * 0.001;
-        const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1);
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-        }
-      }
-    };
-
-    const handleTouchStart = (e) => {
-      if (!mediaFullyExpanded) {
-        touchStartY = e.touches[0].clientY;
-        touchStartProgress = scrollProgress;
-      }
-    };
-
-    const handleTouchMove = (e) => {
-      if (!mediaFullyExpanded) {
-        e.preventDefault();
-        const touchCurrentY = e.touches[0].clientY;
-        const touchDelta = (touchStartY - touchCurrentY) * 0.002;
-        const newProgress = Math.min(Math.max(touchStartProgress + touchDelta, 0), 1);
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-        }
-      }
-    };
-
-    const handleTouchEnd = () => {
-      if (mediaFullyExpanded && scrollProgress >= 0.95) {
-        return;
-      }
-    };
-
     const handleScroll = () => {
-      if (!mediaFullyExpanded && window.scrollY > 0) {
-        window.scrollTo(0, 0);
-      }
+      setScrollY(window.scrollY);
     };
 
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('touchend', handleTouchEnd, { passive: false });
-    window.addEventListener('scroll', handleScroll, { passive: false });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrollProgress, mediaFullyExpanded]);
-
-  const mediaWidth = 300 + scrollProgress * 1250;
-  const mediaHeight = 400 + scrollProgress * 400;
-  const initialTextTranslateX = scrollProgress * 150;
-  const initialContentOpacity = 1 - scrollProgress * 2.5;
+  // Calculer l'opacité du hero en fonction du scroll (disparaît progressivement)
+  const heroOpacity = Math.max(0, 1 - scrollY / 600);
+  const heroScale = 1 + (scrollY / 2000); // Léger zoom lors du scroll
 
   return (
     <div className="bg-white text-gray-900">
-      <section className='relative flex flex-col items-center justify-start'>
-        <div className='sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white'>
+      {/* Hero Section avec effet parallax */}
+      <section className='relative h-screen flex flex-col items-center justify-center overflow-hidden'>
+        {/* Photo de fond avec effet Ken Burns */}
+        <motion.div
+          className='absolute inset-0 z-0'
+          style={{ opacity: heroOpacity }}
+        >
+          <motion.img
+            src="/services/hero_accueil.webp"
+            alt='Univers Clean - Nettoyage professionnel'
+            className='w-full h-full object-cover'
+            animate={{
+              scale: [1, 1.1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            }}
+            style={{
+              transform: `scale(${heroScale})`,
+            }}
+          />
+          <div className='absolute inset-0 bg-black/40' />
+        </motion.div>
 
-      {/* Image de fond */}
-      <motion.div
-        className='absolute inset-0 z-0'
-        animate={{ opacity: 1 - scrollProgress }}
-        transition={{ duration: 0.1 }}
-      >
-        <img src={bgImageSrc} alt='Fond Univers Clean' className='w-full h-full object-cover' />
-        <div className='absolute inset-0 bg-white/20' />
-      </motion.div>
-
-      {/* Vidéo qui s'agrandit */}
-      <motion.div
-        className='absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl'
-        style={{
-          width: `${mediaWidth}px`,
-          height: `${mediaHeight}px`,
-          maxWidth: '95vw',
-          maxHeight: '85vh',
-        }}
-      >
-        <video src={mediaSrc} autoPlay muted loop playsInline className='w-full h-full object-cover' />
-        <motion.div className='absolute inset-0 bg-black/20' animate={{ opacity: 0.3 - scrollProgress * 0.3 }} />
-      </motion.div>
-
-      {/* Titre et bouton initiaux */}
-      <motion.div
-        className='relative z-20 flex flex-col items-center justify-center text-center px-4'
-        style={{ opacity: initialContentOpacity, display: initialContentOpacity <= 0 ? 'none' : 'flex' }}
-      >
-         <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-2xl'>
-            <motion.span className="block" style={{ transform: `translateX(-${initialTextTranslateX}vw)` }}>
-              {initialTitle.split(' ')[0]}
-            </motion.span>
-            <motion.span className="block text-blue-500" style={{ transform: `translateX(${initialTextTranslateX}vw)` }}>
-              {initialTitle.split(' ')[1]}
-            </motion.span>
-         </h1>
-         <a
-            href="#services"
-            className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-blue-700 shadow-2xl"
+        {/* Contenu centré */}
+        <div className='relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6'>
+          {/* H1 optimisé SEO */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className='text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl mb-4'
           >
-            Découvrir nos services
-          </a>
-      </motion.div>
+            Nettoyage professionnel à domicile
+          </motion.h1>
 
+          {/* H2 avec services et localisation (SEO) */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
+          >
+            Voiture • Canapé • Matelas en Seine-et-Marne (77)
+          </motion.h2>
+
+          {/* Nom de la marque */}
+          {/* <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-xl md:text-2xl font-semibold mb-6 text-blue-400 drop-shadow-lg"
+          >
+            {initialTitle}
+          </motion.p> */}
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-base md:text-lg mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+          >
+            Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
+            Intervention à La Genevraye (77) et 30 km alentour.
+          </motion.p>
+
+          {/* Boutons CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            {/* CTA principal avec bounce */}
+            <motion.a
+              href="https://app.dispoo.fr/website/368-univers-clean/step1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 no-underline"
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                repeatDelay: 1,
+                ease: "easeInOut",
+                delay: 1.5
+              }}
+            >
+              Obtenir mon devis gratuit
+            </motion.a>
+
+            <a
+              href="tel:+33782364263"
+              className="bg-white text-blue-600 border-2 border-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
+            >
+              📞 Appeler maintenant
+            </a>
+          </motion.div>
         </div>
 
-        {/* Contenu après animation */}
-        {mediaFullyExpanded && (
-          <motion.div
-            className='relative w-full'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {children}
-          </motion.div>
-        )}
       </section>
+
+      {/* Contenu de la page */}
+      <div className='relative w-full bg-white'>
+        {children}
+      </div>
     </div>
   );
 };
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileOrTouch, setIsMobileOrTouch] = useState(false);
 
   const heroContent = {
     videoSrc: '/videoHero.mp4',
@@ -247,19 +280,21 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    // Détection mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    // Détection mobile OU tactile (tablette incluse)
+    const checkMobileOrTouch = () => {
+      const isMobileWidth = window.innerWidth < 768;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      setIsMobileOrTouch(isMobileWidth || isTouchDevice);
     };
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    checkMobileOrTouch();
+    window.addEventListener('resize', checkMobileOrTouch);
 
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobileOrTouch);
   }, []);
 
-  // Version mobile simplifiée
-  if (isMobile) {
+  // Version mobile/tablette simplifiée avec carrousel
+  if (isMobileOrTouch) {
     return (
       <SimpleHero
         videoSrc={heroContent.videoSrc}
@@ -269,84 +304,14 @@ export default function Hero() {
     );
   }
 
-  // Version desktop avec animation complexe
+  // Version desktop élégante avec photo
   return (
-    <ScrollExpandMedia
+    <DesktopHero
       mediaSrc={heroContent.videoSrc}
       bgImageSrc={heroContent.backgroundSrc}
       initialTitle={heroContent.title}
     >
-      {/* Contenu après l'animation */}
-      <div className="min-h-screen bg-white text-gray-900 flex items-center justify-center">
-  <div className="max-w-5xl mx-auto text-center px-6 py-16">
-
-    {/* Titre miroir */}
-    <div className="flex justify-center gap-4 mb-8">
-      <motion.h2
-        initial={{x: '-50vw'}}
-        animate={{x: 0}}
-        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}}
-        className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight"
-      >
-        Univers
-      </motion.h2>
-      <motion.h2
-        initial={{x: '50vw'}}
-        animate={{x: 0}}
-        transition={{duration: 0.7, ease: 'easeOut', delay: 0.2}}
-        className="text-4xl md:text-5xl font-extrabold text-blue-600 tracking-tight"
-      >
-        Clean
-      </motion.h2>
-    </div>
-
-    {/* Contenu principal */}
-    <motion.div
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      transition={{duration: 0.7, delay: 0.5}}
-    >
-      <h3 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
-        Nettoyage professionnel à domicile
-      </h3>
-
-      <p className="text-2xl mb-6 text-gray-700 font-medium">
-        <strong>Voiture • Canapé • Matelas • Mobilier</strong>
-      </p>
-
-      <p className="text-lg md:text-xl mb-12 text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Plus de 10 ans d'expérience. Produits professionnels haut de gamme (Koch Chemie, CarPro).
-        Intervention à La Genevraye (77) et 30 km alentour.
-      </p>
-
-      {/* Boutons */}
-      <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-<motion.a
-  href="https://app.dispoo.fr/website/368-univers-clean/step1"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-2xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 no-underline block text-center"
-  animate={{ y: [0, -8, 0] }}
-  transition={{
-    duration: 1.8,
-    repeat: Infinity,
-    repeatDelay: 1,
-    ease: "easeInOut"
-  }}
->
-  Obtenir mon devis gratuit
-</motion.a>
-
-<a
-  href="tel:+33782364263"
-  className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-full font-bold text-2xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
->
-  📞 Appeler maintenant
-</a>
-      </div>
-    </motion.div>
-  </div>
-</div>
-    </ScrollExpandMedia>
+      {/* Sections de la page (après le hero) */}
+    </DesktopHero>
   );
 }
