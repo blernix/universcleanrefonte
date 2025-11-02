@@ -121,14 +121,27 @@ export default function Footer() {
 
       {/* Bas de page */}
       <div className="border-t border-blue-900/30 mt-10">
-        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
-          <p>© {currentYear} Univers Clean 77 — Tous droits réservés.</p>
-          <div className="flex gap-6">
-            <a href="/mentions-legales" className="hover:text-blue-400 transition-colors">
-              Mentions légales
-            </a>
-            <a href="/politique-confidentialite" className="hover:text-blue-400 transition-colors">
-              Politique de confidentialité
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4 mb-3">
+            <p>© {currentYear} Univers Clean 77 — Tous droits réservés.</p>
+            <div className="flex gap-6">
+              <a href="/mentions-legales" className="hover:text-blue-400 transition-colors">
+                Mentions légales
+              </a>
+              <a href="/politique-confidentialite" className="hover:text-blue-400 transition-colors">
+                Politique de confidentialité
+              </a>
+            </div>
+          </div>
+          <div className="text-center text-xs text-gray-600">
+            Site créé par l'agence{' '}
+            <a
+              href="https://killian-lecrut.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              Killian Lecrut
             </a>
           </div>
         </div>

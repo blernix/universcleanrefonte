@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Confirmation de votre demande - Univers Clean 77</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body, .body-wrapper {
+                background-color: #0B1120 !important;
+            }
+            .container {
+                background-color: #1a1f2e !important;
+                border-color: #2d3748 !important;
+            }
+            .header {
+                background-color: #1e40af !important;
+            }
+            h2, p {
+                color: #e0e0e0 !important;
+            }
+            .info-box {
+                background-color: #2d3748 !important;
+                border-left-color: #3b82f6 !important;
+            }
+            .footer {
+                background-color: #1a1f2e !important;
+                border-top-color: #2d3748 !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .content {
+            padding: 32px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-weight: 700;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+        .header .tagline {
+            color: #bfdbfe;
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+        .info-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        .info-box p {
+            margin: 0;
+            color: #1e40af;
+            font-weight: 600;
+        }
+        .footer {
+            background-color: #f9fafb;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        .footer p {
+            color: #6b7280;
+            font-size: 13px;
+            margin: 4px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: #ffffff !important;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body class="body-wrapper" style="margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Inter', Arial, sans-serif;">
+    <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+        <tr>
+            <td align="center" style="padding: 24px 16px;">
+                <table role="presentation" class="container" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden;">
+                    <!-- Header -->
+                    <tr>
+                        <td class="header" style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); padding: 32px 24px; text-align: center;">
+                            <h1 style="color: #ffffff; font-weight: 700; margin: 0; font-size: 28px;">Univers Clean 77</h1>
+                            <p class="tagline" style="color: #bfdbfe; font-size: 14px; margin-top: 8px;">Nettoyage professionnel à domicile</p>
+                        </td>
+                    </tr>
+
+                    <!-- Contenu -->
+                    <tr>
+                        <td class="content" style="padding: 32px;">
+                            <h2 style="color: #111827; margin-top: 0; font-size: 22px; font-weight: 700;">Bonjour {{name}},</h2>
+
+                            <p style="color: #374151; font-size: 16px; line-height: 1.7; margin: 16px 0;">
+                                Merci d'avoir contacté <strong>Univers Clean 77</strong> ! Nous avons bien reçu votre demande concernant :
+                            </p>
+
+                            <div class="info-box" style="background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px 20px; border-radius: 8px; margin: 24px 0;">
+                                <p style="margin: 0; color: #1e40af; font-weight: 600;">{{subject}}</p>
+                            </div>
+
+                            <p style="color: #374151; font-size: 16px; line-height: 1.7; margin: 16px 0;">
+                                Notre équipe examine votre demande avec attention et vous répondra dans un <strong>délai maximum de 24 heures</strong>.
+                            </p>
+
+                            <p style="color: #374151; font-size: 16px; line-height: 1.7; margin: 16px 0;">
+                                En attendant, n'hésitez pas à consulter notre site pour découvrir l'ensemble de nos services et nos tarifs :
+                            </p>
+
+                            <div style="text-align: center; margin: 32px 0;">
+                                <a href="https://univers-clean77.fr" class="cta-button" style="display: inline-block; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: #ffffff !important; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);">
+                                    🌐 Visiter notre site
+                                </a>
+                            </div>
+
+                            <p style="color: #374151; font-size: 16px; line-height: 1.7; margin: 24px 0 16px 0;">
+                                <strong>Pourquoi choisir Univers Clean 77 ?</strong>
+                            </p>
+                            <ul style="color: #374151; font-size: 15px; line-height: 1.7; margin: 0; padding-left: 24px;">
+                                <li style="margin-bottom: 8px;">✨ Plus de 10 ans d'expérience</li>
+                                <li style="margin-bottom: 8px;">🏆 Produits professionnels haut de gamme</li>
+                                <li style="margin-bottom: 8px;">🚗 Intervention à domicile en Seine-et-Marne</li>
+                                <li style="margin-bottom: 8px;">💯 Satisfaction garantie</li>
+                            </ul>
+
+                            <p style="color: #374151; font-size: 16px; line-height: 1.7; margin: 24px 0 8px 0;">
+                                À très bientôt,
+                            </p>
+                            <p style="color: #1e40af; font-size: 16px; font-weight: 700; margin: 0;">
+                                L'équipe Univers Clean 77
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="footer" style="background-color: #f9fafb; padding: 24px; text-align: center; border-top: 1px solid #e5e7eb;">
+                            <p style="color: #6b7280; font-size: 13px; margin: 4px 0;">
+                                <strong>Univers Clean 77</strong> - Nettoyage professionnel à domicile
+                            </p>
+                            <p style="color: #6b7280; font-size: 13px; margin: 4px 0;">
+                                📞 <a href="tel:+33782364263" style="color: #2563eb; text-decoration: none;">07 82 36 42 63</a> •
+                                📧 <a href="mailto:universclean77@gmail.com" style="color: #2563eb; text-decoration: none;">universclean77@gmail.com</a>
+                            </p>
+                            <p style="color: #6b7280; font-size: 13px; margin: 4px 0;">
+                                🌐 <a href="https://univers-clean77.fr" style="color: #2563eb; text-decoration: none;">univers-clean77.fr</a>
+                            </p>
+                            <p style="color: #9ca3af; font-size: 12px; margin-top: 12px;">
+                                Seine-et-Marne (77) • Île-de-France
+                            </p>
+                            <p style="color: #9ca3af; font-size: 11px; margin-top: 16px; font-style: italic;">
+                                Vous recevez cet email car vous avez contacté Univers Clean 77 via notre formulaire de contact.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

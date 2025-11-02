@@ -9,8 +9,8 @@ export default function MentionsLegalesPage() {
       <SkipLinks />
       <Header />
 
-      <main id="main-content" className="min-h-screen bg-white">
-        <div className="container mx-auto px-6 py-20 max-w-4xl">
+      <main id="main-content" className="min-h-screen bg-white pt-32 pb-20">
+        <div className="container mx-auto px-6 max-w-4xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Mentions Légales</h1>
 
           <div className="prose prose-lg max-w-none">
@@ -59,10 +59,11 @@ export default function MentionsLegalesPage() {
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Hébergement</h2>
               <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="mb-2"><strong>Hébergeur :</strong> Vercel Inc.</p>
-                <p className="mb-2">340 S Lemon Ave #4133</p>
-                <p className="mb-2">Walnut, CA 91789</p>
-                <p>États-Unis</p>
+                <p className="mb-2"><strong>Hébergeur :</strong> Hostinger International Ltd.</p>
+                <p className="mb-2">61 Lordou Vironos Street</p>
+                <p className="mb-2">6023 Larnaca</p>
+                <p className="mb-2">Chypre</p>
+                <p className="mt-4 text-sm text-gray-600"><strong>Serveur :</strong> VPS situé en France</p>
               </div>
             </section>
 
@@ -98,9 +99,17 @@ export default function MentionsLegalesPage() {
             {/* Crédits */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Crédits</h2>
-              <p className="text-gray-700">
-                Conception et développement : Site web créé avec Next.js
-              </p>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <p className="text-gray-700 mb-2">
+                  <strong>Conception et développement :</strong> Killian Lecrut
+                </p>
+                <p className="text-gray-700 mb-2">
+                  <strong>Site web :</strong> <a href="https://killian-lecrut.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">killian-lecrut.com</a>
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Technologies : Next.js 15, React, Tailwind CSS
+                </p>
+              </div>
             </section>
 
             {/* Données personnelles */}

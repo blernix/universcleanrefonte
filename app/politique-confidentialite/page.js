@@ -9,8 +9,8 @@ export default function PolitiqueConfidentialitePage() {
       <SkipLinks />
       <Header />
 
-      <main id="main-content" className="min-h-screen bg-white">
-        <div className="container mx-auto px-6 py-20 max-w-4xl">
+      <main id="main-content" className="min-h-screen bg-white pt-32 pb-20">
+        <div className="container mx-auto px-6 max-w-4xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Politique de Confidentialité</h1>
 
           <p className="text-gray-600 mb-8 text-sm">
@@ -106,9 +106,19 @@ export default function PolitiqueConfidentialitePage() {
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>Le personnel d'Univers Clean habilité à traiter les demandes de devis et d'intervention</li>
-                <li>Nos prestataires techniques (hébergement web, outils d'analyse)</li>
+                <li>Nos prestataires techniques (hébergement web, outils d'analyse, service d'envoi d'emails)</li>
                 <li>Les autorités compétentes en cas d'obligation légale</li>
               </ul>
+
+              <div className="bg-blue-50 p-6 rounded-lg mt-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Prestataires utilisés</h3>
+                <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                  <li><strong>Hostinger International Ltd.</strong> : Hébergement web (serveur VPS en France)</li>
+                  <li><strong>EmailJS</strong> : Service d'envoi d'emails pour le formulaire de contact</li>
+                  <li><strong>Google LLC</strong> : Analytics et Tag Manager (analyse d'audience et publicité)</li>
+                </ul>
+              </div>
+
               <p className="text-gray-700 mt-4">
                 Vos données ne sont jamais vendues à des tiers.
               </p>
@@ -177,28 +187,68 @@ export default function PolitiqueConfidentialitePage() {
                 Notre site utilise des cookies et technologies similaires pour :
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>Analyser l'audience et le trafic du site (Google Tag Manager)</li>
+                <li>Analyser l'audience et le trafic du site (Google Analytics)</li>
+                <li>Mesurer l'efficacité de nos campagnes publicitaires (Google Ads)</li>
                 <li>Améliorer votre expérience de navigation</li>
-                <li>Mémoriser vos préférences</li>
+                <li>Mémoriser vos préférences concernant les cookies</li>
               </ul>
 
-              <p className="text-gray-700 mb-4">
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <p className="text-gray-700 font-medium">
+                  ⚠️ Une bannière de consentement vous permettra de gérer vos préférences cookies lors de votre première visite.
+                </p>
+              </div>
+
+              <p className="text-gray-700 mb-6">
                 Vous pouvez à tout moment paramétrer votre navigateur pour refuser les cookies ou être informé de leur dépôt. Cependant, certaines fonctionnalités du site peuvent ne pas fonctionner correctement si vous désactivez les cookies.
               </p>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Cookies utilisés</h3>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <p className="mb-2"><strong>Google Tag Manager :</strong> Outil d'analyse d'audience</p>
-                <p className="text-sm text-gray-600">Finalité : Statistiques de visite et amélioration du site</p>
-                <p className="text-sm text-gray-600">Durée : 13 mois</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Cookies utilisés</h3>
+
+              <div className="space-y-4">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <p className="mb-2 font-semibold text-gray-900">Google Tag Manager</p>
+                  <p className="text-sm text-gray-700 mb-2">Outil de gestion de balises et cookies</p>
+                  <p className="text-sm text-gray-600"><strong>Finalité :</strong> Gestion centralisée des outils d'analyse et de publicité</p>
+                  <p className="text-sm text-gray-600"><strong>Durée :</strong> 13 mois</p>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <p className="mb-2 font-semibold text-gray-900">Google Analytics</p>
+                  <p className="text-sm text-gray-700 mb-2">Outil d'analyse d'audience (prévu)</p>
+                  <p className="text-sm text-gray-600"><strong>Finalité :</strong> Statistiques de visite, analyse du comportement des utilisateurs</p>
+                  <p className="text-sm text-gray-600"><strong>Durée :</strong> 13 mois</p>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <p className="mb-2 font-semibold text-gray-900">Google Ads</p>
+                  <p className="text-sm text-gray-700 mb-2">Outil publicitaire (prévu)</p>
+                  <p className="text-sm text-gray-600"><strong>Finalité :</strong> Mesure de performance des campagnes publicitaires, reciblage</p>
+                  <p className="text-sm text-gray-600"><strong>Durée :</strong> 13 mois</p>
+                </div>
               </div>
+
+              <p className="text-gray-700 mt-6">
+                Pour plus d'informations sur les cookies Google : <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Politique cookies de Google</a>
+              </p>
             </section>
 
             {/* Transfert de données */}
             <section className="mb-10">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Transfert de données hors UE</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Hébergement et transfert de données</h2>
+              <div className="bg-gray-50 p-6 rounded-lg mb-4">
+                <p className="text-gray-700 mb-2">
+                  <strong>Hébergeur :</strong> Hostinger International Ltd.
+                </p>
+                <p className="text-gray-700 mb-2">
+                  61 Lordou Vironos Street, 6023 Larnaca, Chypre
+                </p>
+                <p className="text-gray-700 text-sm">
+                  Serveur : VPS situé en France (données stockées en France)
+                </p>
+              </div>
               <p className="text-gray-700">
-                Certains de nos prestataires (notamment l'hébergeur Vercel) peuvent être situés en dehors de l'Union Européenne. Dans ce cas, nous nous assurons que des garanties appropriées sont en place pour protéger vos données, conformément au RGPD.
+                Certains de nos prestataires peuvent être situés en dehors de l'Union Européenne. Dans ce cas, nous nous assurons que des garanties appropriées sont en place pour protéger vos données, conformément au RGPD.
               </p>
             </section>
 

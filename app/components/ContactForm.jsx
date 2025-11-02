@@ -17,11 +17,11 @@ export const formFieldsConfig = {
   },
   'nettoyage-voiture-interieur': {
     subject: 'Demande de devis - Nettoyage Voiture Intérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'message'],
+    fields: ['name', 'email', 'phone', 'vehicleClass', 'urgence', 'message'],
   },
   'nettoyage-voiture-exterieur': {
     subject: 'Demande de devis - Nettoyage Voiture Extérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'message'],
+    fields: ['name', 'email', 'phone', 'vehicleClass', 'urgence', 'message'],
   },
   'nettoyage-voiture-complet': {
     subject: 'Demande de devis - Nettoyage Voiture Complet',
@@ -29,7 +29,7 @@ export const formFieldsConfig = {
   },
   'general': {
     subject: 'Demande d\'information générale',
-    fields: ['name', 'email', 'phone', 'message'],
+    fields: ['name', 'email', 'phone', 'urgence', 'message'],
   }
 };
 
@@ -44,7 +44,7 @@ const initialFormData = {
   urgence: 'Non urgent'
 };
 
-export default function ContactForm({ formType = 'general', onClose }) {
+export default function ContactForm({ formType = 'general', onClose, onSuccess }) {
   const config = formFieldsConfig[formType];
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
@@ -97,27 +97,37 @@ export default function ContactForm({ formType = 'general', onClose }) {
 
   const handleFinalSend = () => {
     setIsSubmitting(true);
-    
+
     const templateParams = {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
       subject: config.subject,
       message: formData.message,
-      canapeType: formData.canapeType || 'Non spécifié',
-      matelasSize: formData.matelasSize || 'Non spécifié',
-      vehicleClass: formData.vehicleClass || 'Non spécifié',
+      canapeType: formData.canapeType || undefined,
+      matelasSize: formData.matelasSize || undefined,
+      vehicleClass: formData.vehicleClass || undefined,
       urgence: formData.urgence || 'Non urgent',
     };
+
+    // Logs de debug
+    console.log('🔧 EmailJS Config:', {
+      serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      templateParams
+    });
 
     emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
       templateParams,
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    ).then(() => {
+    ).then((response) => {
+       console.log('✅ Email envoyé avec succès !', response);
        setSubmitStatus('success');
-    }, () => {
+    }, (error) => {
+       console.error('❌ Erreur lors de l\'envoi:', error);
        setSubmitStatus('error');
     }).finally(() => {
        setIsSubmitting(false);
@@ -190,7 +200,12 @@ export default function ContactForm({ formType = 'general', onClose }) {
             setSubmitStatus(null);
             setFormData(initialFormData);
             setTouched({});
-            onClose();
+            // Appelle onSuccess en priorité (ferme la modale), sinon onClose
+            if (onSuccess) {
+              onSuccess();
+            } else if (onClose) {
+              onClose();
+            }
           }}
           className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-4 !px-8 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
         >

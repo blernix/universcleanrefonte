@@ -46,7 +46,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://www.googletagmanager.com",
+              "connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
