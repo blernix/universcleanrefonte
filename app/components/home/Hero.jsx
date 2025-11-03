@@ -9,9 +9,10 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
   // Images du carrousel (ajoute hero-accueil-2.webp quand tu l'auras)
   const slides = [
     { src: '/services/hero-accueil-1.webp', alt: 'Nettoyage automobile professionnel' },
+    { src: '/services/hero-accueil-2.webp', alt: 'Nettoyage canapé professionnel' },
     { src: '/services/hero-accueil-3.webp', alt: 'Nettoyage matelas professionnel' },
-    // Décommenter quand hero-accueil-2.webp sera ajouté :
-     { src: '/services/hero-accueil-2.webp', alt: 'Nettoyage canapé professionnel' },
+   
+     
   ];
 
   useEffect(() => {
@@ -116,7 +117,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
                 delay: 1.0
               }}
             >
-              Obtenir mon devis gratuit
+              Prendre rendez-vous
             </motion.a>
 
             <a
@@ -248,7 +249,7 @@ const DesktopHero = ({
                 delay: 1.5
               }}
             >
-              Obtenir mon devis gratuit
+              Prendre rendez-vous
             </motion.a>
 
             <a

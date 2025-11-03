@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, Facebook, Instagram } from 'lucide-react';
 import { servicesData } from '@/app/data/services';
 
 export default function Header({ onOpenModal }) {
@@ -77,7 +77,7 @@ export default function Header({ onOpenModal }) {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="mx-auto px-4 lg:px-6 max-w-[1400px]">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -98,7 +98,7 @@ export default function Header({ onOpenModal }) {
           </Link>
 
           {/* Navigation Desktop */}
-          <nav role="navigation" aria-label="Navigation principale" className="hidden md:flex items-center gap-8">
+          <nav role="navigation" aria-label="Navigation principale" className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               link.hasDropdown ? (
                 <div
@@ -171,17 +171,41 @@ export default function Header({ onOpenModal }) {
           </nav>
 
           {/* CTA Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2 lg:gap-3">
+            {/* Réseaux sociaux */}
+            <div className="flex items-center gap-1">
+              <a
+                href="https://www.facebook.com/universclean77"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook Univers Clean 77"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/universclean77/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram Univers Clean 77"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+
+            <div className="w-px h-6 bg-gray-300"></div>
+
             <a
               href="tel:+33782364263"
-              className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-1.5 text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap"
             >
-              <Phone className="w-5 h-5" />
-              <span className="font-medium">07 82 36 42 63</span>
+              <Phone className="w-4 h-4" />
+              <span className="font-medium text-sm lg:text-base">07 82 36 42 63</span>
             </a>
             <button
               onClick={() => onOpenModal && onOpenModal()}
-              className="btn-primary"
+              className="btn-primary whitespace-nowrap"
             >
               Devis gratuit
             </button>
@@ -272,6 +296,33 @@ export default function Header({ onOpenModal }) {
                   </Link>
                 )
               ))}
+
+              {/* Séparateur */}
+              <div className="border-t border-gray-200 my-3"></div>
+
+              {/* Réseaux sociaux Mobile */}
+              <div className="flex items-center gap-3 py-2">
+                <span className="text-sm font-medium text-gray-700">Suivez-nous :</span>
+                <a
+                  href="https://www.facebook.com/universclean77"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook Univers Clean 77"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/universclean77/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram Univers Clean 77"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+
               <a
                 href="tel:+33782364263"
                 className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors py-2"

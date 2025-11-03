@@ -46,7 +46,7 @@ export default function ServicesGrid() {
                     
                     {/* Badge prix */}
                     <div className="absolute top-4 right-4 bg-blue-600 text-white !px-4 !py-1.5 rounded-full font-semibold text-sm shadow-lg">
-                      {service.formulas ? `Dès ${service.formulas[0].price.classe1}` : service.price}
+                      {service.formulas ? `Dès ${Object.values(service.formulas[0].price)[0]}` : service.price}
                     </div>
 
                     {/* Badge catégorie */}

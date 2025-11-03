@@ -120,7 +120,7 @@ Plus vous montez en gamme, plus le nettoyage devient complet et précis : du sim
     heroTitle: 'Faites rayonner votre carrosserie',
     heroSubtitle: 'Brillance éclatante et protection longue durée',
     shortDescription: 'Du rafraîchissement express à la protection céramique 6 mois.',
-    image: '/services/porsche-hero.webp',
+    image: '/services/voiture_exterieur.webp',
     imageAlt: 'Voiture de luxe avec carrosserie brillante après nettoyage extérieur professionnel',
     category: 'automobile',
     description: 'Trois formules adaptées pour redonner éclat et protection à votre carrosserie, du simple lavage au soin premium.',
@@ -219,7 +219,7 @@ En résumé, plus vous montez en gamme, plus le nettoyage devient précis, profo
       { q: 'La protection dure combien de temps ?', a: 'Jusqu\'à 6 mois avec la formule Ultimate (protection céramique).' },
       { q: 'Lavez-vous les jantes ?', a: 'Oui, jantes et passages de roues inclus dans toutes les formules.' }
     ],
-    heroImage: '/services/porsche-hero.webp',
+    heroImage: '/services/voiture_exterieur.webp',
     heroImageAlt: 'Professionnel appliquant une protection céramique sur carrosserie de voiture'
   },
 

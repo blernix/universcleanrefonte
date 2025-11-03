@@ -102,6 +102,7 @@ export default function ServicePageClient({ service }) {
         <ServiceFormulasIntro
           formulasDescription={service.formulasDescription}
           title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}
+          serviceSlug={service.slug}
         />
 
         {/* Formulas Section */}
