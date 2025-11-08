@@ -37,6 +37,9 @@ export default function Testimonials() {
     '@type': 'LocalBusiness',
     '@id': 'https://univers-clean77.fr#business',
     name: 'Univers Clean 77',
+    telephone: '+33782364263',
+    priceRange: '€€',
+    image: 'https://univers-clean77.fr/logo_univers_clean.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '4 Rue de la Ferme',
@@ -80,6 +83,9 @@ export default function Testimonials() {
         provider: {
           '@type': 'LocalBusiness',
           name: 'Univers Clean 77',
+          telephone: '+33782364263',
+          priceRange: '€€',
+          image: 'https://univers-clean77.fr/logo_univers_clean.png',
           address: {
             '@type': 'PostalAddress',
             streetAddress: '4 Rue de la Ferme',
