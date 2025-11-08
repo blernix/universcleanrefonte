@@ -76,7 +76,7 @@ const jsonLd = {
 
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'La Genevraye',
+    streetAddress: '4 Rue de la Ferme',
     addressLocality: 'La Genevraye',
     addressRegion: 'Île-de-France',
     postalCode: '77690',

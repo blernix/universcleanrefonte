@@ -52,7 +52,7 @@ export default function ServiceSchema({ service }) {
       image: 'https://univers-clean77.fr/logo.png',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'La Genevraye',
+        streetAddress: '4 Rue de la Ferme',
         addressLocality: 'La Genevraye',
         postalCode: '77690',
         addressRegion: 'Île-de-France',
@@ -173,6 +173,7 @@ export default function ServiceSchema({ service }) {
     email: 'contact@univers-clean77.fr',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '4 Rue de la Ferme',
       addressLocality: 'La Genevraye',
       postalCode: '77690',
       addressRegion: 'Île-de-France',
@@ -180,8 +181,8 @@ export default function ServiceSchema({ service }) {
     },
     sameAs: [
       // Ajouter ici les liens réseaux sociaux quand disponibles
-      // 'https://www.facebook.com/universclean77',
-      // 'https://www.instagram.com/universclean77'
+      'https://www.facebook.com/universclean77',
+      'https://www.instagram.com/universclean77/'
     ]
   };
 

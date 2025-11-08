@@ -37,6 +37,14 @@ export default function Testimonials() {
     '@type': 'LocalBusiness',
     '@id': 'https://univers-clean77.fr#business',
     name: 'Univers Clean 77',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '4 Rue de la Ferme',
+      addressLocality: 'La Genevraye',
+      addressRegion: 'Île-de-France',
+      postalCode: '77690',
+      addressCountry: 'FR'
+    },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: averageRating.toFixed(1),
@@ -71,7 +79,15 @@ export default function Testimonials() {
         name: testimonial.service,
         provider: {
           '@type': 'LocalBusiness',
-          name: 'Univers Clean 77'
+          name: 'Univers Clean 77',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '4 Rue de la Ferme',
+            addressLocality: 'La Genevraye',
+            addressRegion: 'Île-de-France',
+            postalCode: '77690',
+            addressCountry: 'FR'
+          }
         }
       }
     }))

@@ -37,7 +37,7 @@ export const globalFAQ = [
 
 export const aboutContent = {
   intro: {
-    title: 'À propos dUnivers Clean',
+    title: `À propos d'Univers Clean`,
     subtitle: 'La passion du nettoyage au service de la perfection',
     content: `Née d'une passion pour le detailing automobile, Univers Clean allie rigueur professionnelle et exigence artisanale. Après plus de dix ans d'expérience dans les plus grandes concessions, nous proposons aujourd'hui des prestations haut de gamme pour redonner éclat et confort à votre intérieur comme à votre véhicule.`
   },

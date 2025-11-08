@@ -59,7 +59,7 @@ export default function ServicePageClient({ service }) {
     // Prix réels du service Complet
     const completePrices = {
       0: { classe1: 100, classe2: 120, classe3: 140 },  // Start
-      1: { classe1: 190, classe2: 230, classe3: 270 },  // Confort
+      1: { classe1: 185, classe2: 220, classe3: 255 },  // Confort
       2: { classe1: 490, classe2: 490, classe3: 490 }   // Ultimate
     };
 
