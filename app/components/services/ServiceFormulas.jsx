@@ -16,7 +16,8 @@ export default function ServiceFormulas({
   selectedCanapeSize,
   setSelectedCanapeSize,
   selectedMatelasSize,
-  setSelectedMatelasSize
+  setSelectedMatelasSize,
+  onOpenModal
 }) {
   // État pour gérer l'expansion de chaque carte
   const [expandedCards, setExpandedCards] = useState({});
@@ -45,14 +46,12 @@ export default function ServiceFormulas({
                 <p className="text-3xl font-bold text-blue-600">{service.price}</p>
                 <p className="text-sm text-gray-500 mt-2">Tarif adapté selon la taille</p>
               </div>
-              <a
-                href="https://app.dispoo.fr/website/368-univers-clean/step1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors block text-center no-underline"
+              <button
+                onClick={() => onOpenModal && onOpenModal()}
+                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
               >
                 Obtenir mon devis précis
-              </a>
+              </button>
             </div>
           </div>
 
@@ -259,11 +258,12 @@ export default function ServiceFormulas({
                 })()}
               </div>
 
-              <a
-                href="https://app.dispoo.fr/website/368-univers-clean/step1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full !mt-10 !py-4 rounded-full font-bold !text-lg transition-all block text-center no-underline ${
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenModal();
+                }}
+                className={`w-full !mt-10 !py-4 rounded-full font-bold !text-lg transition-all ${
                   selectedFormula === index
                     ? 'bg-white text-blue-600 hover:bg-gray-100'
                     : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -271,7 +271,7 @@ export default function ServiceFormulas({
                 style={{ marginTop: 'auto', paddingTop: '2.5rem' }}
               >
                 Choisir {formula.name}
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>

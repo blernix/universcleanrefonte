@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Phone, Menu, X, ChevronDown, Facebook, Instagram } from 'lucide-react';
 import { servicesData } from '@/app/data/services';
 
-export default function Header({ onOpenModal }) {
+export default function Header({ onOpenModal, onOpenRedirectModal }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -172,7 +172,7 @@ export default function Header({ onOpenModal }) {
 
           {/* CTA Desktop */}
           <div className="hidden md:flex items-center gap-2 lg:gap-3">
-            {/* Réseaux sociaux */}
+            {/* Réseaux sociaux + Téléphone */}
             <div className="flex items-center gap-1">
               <a
                 href="https://www.facebook.com/universclean77"
@@ -192,22 +192,28 @@ export default function Header({ onOpenModal }) {
               >
                 <Instagram className="w-5 h-5" />
               </a>
+              <a
+                href="tel:+33782364263"
+                aria-label="Appeler Univers Clean"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
             </div>
 
             <div className="w-px h-6 bg-gray-300"></div>
 
-            <a
-              href="tel:+33782364263"
-              className="flex items-center gap-1.5 text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap"
-            >
-              <Phone className="w-4 h-4" />
-              <span className="font-medium text-sm lg:text-base">07 82 36 42 63</span>
-            </a>
             <button
-              onClick={() => onOpenModal && onOpenModal()}
+              onClick={() => onOpenRedirectModal && onOpenRedirectModal()}
               className="btn-primary whitespace-nowrap"
             >
-              Devis gratuit
+              Rendez-vous
+            </button>
+            <button
+              onClick={() => onOpenModal && onOpenModal('general')}
+              className="btn-primary whitespace-nowrap"
+            >
+              Mon Devis gratuit
             </button>
           </div>
 
@@ -300,7 +306,7 @@ export default function Header({ onOpenModal }) {
               {/* Séparateur */}
               <div className="border-t border-gray-200 my-3"></div>
 
-              {/* Réseaux sociaux Mobile */}
+              {/* Réseaux sociaux + Téléphone Mobile */}
               <div className="flex items-center gap-3 py-2">
                 <span className="text-sm font-medium text-gray-700">Suivez-nous :</span>
                 <a
@@ -321,23 +327,32 @@ export default function Header({ onOpenModal }) {
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
+                <a
+                  href="tel:+33782364263"
+                  aria-label="Appeler Univers Clean"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                </a>
               </div>
 
-              <a
-                href="tel:+33782364263"
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors py-2"
-              >
-                <Phone className="w-5 h-5" />
-                <span className="font-medium">07 82 36 42 63</span>
-              </a>
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
-                  onOpenModal && onOpenModal();
+                  onOpenRedirectModal && onOpenRedirectModal();
                 }}
                 className="btn-primary w-full mt-2"
               >
-                Devis gratuit
+                Rendez-vous
+              </button>
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  onOpenModal && onOpenModal('general');
+                }}
+                className="btn-primary w-full mt-2"
+              >
+                Mon Devis gratuit
               </button>
             </nav>
           </div>

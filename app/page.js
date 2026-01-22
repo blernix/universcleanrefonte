@@ -15,11 +15,13 @@ import Footer from './components/layout/Footer';
 import SectionSeparator from './components/SectionSeparator';
 import PopupPromo from './components/PopupPromo';
 import SkipLinks from './components/SkipLinks';
+import RedirectConfirmModal from './components/RedirectConfirmModal';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('general');
   const [showHeader, setShowHeader] = useState(false);
+  const [showRedirectModal, setShowRedirectModal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,13 +45,18 @@ export default function HomePage() {
     setSelectedService('general');
   };
 
+  const handleRedirectToBooking = () => {
+    setShowRedirectModal(false);
+    window.open('https://app.dispoo.fr/website/368-univers-clean/step1', '_blank');
+  };
+
   return (
     <>
       <SkipLinks />
-      {showHeader && <Header onOpenModal={handleOpenModal} />}
+      {showHeader && <Header onOpenModal={handleOpenModal} onOpenRedirectModal={() => setShowRedirectModal(true)} />}
 
       <main id="main-content" className="min-h-screen">
-        <Hero />
+        <Hero onOpenModal={handleOpenModal} />
 
         <SectionSeparator variant="light" />
         <ServicesGrid />
@@ -70,7 +77,7 @@ export default function HomePage() {
         <FAQ />
 
         <SectionSeparator variant="blue" />
-        <CTABanner />
+        <CTABanner onOpenModal={handleOpenModal} />
       </main>
 
       <Footer />
@@ -87,6 +94,12 @@ export default function HomePage() {
           onSuccess={handleCloseModal}
         />
       </Modal>
+
+      <RedirectConfirmModal
+        isOpen={showRedirectModal}
+        onClose={() => setShowRedirectModal(false)}
+        onConfirm={handleRedirectToBooking}
+      />
     </>
   );
 }

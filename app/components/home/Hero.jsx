@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Version mobile avec carrousel d'images
-const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
+const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Images du carrousel (ajoute hero-accueil-2.webp quand tu l'auras)
@@ -103,11 +103,9 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
             className="flex flex-col gap-4"
           >
             {/* CTA principal avec micro-bounce */}
-            <motion.a
-              href="https://app.dispoo.fr/website/368-univers-clean/step1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transition-all no-underline"
+            <motion.button
+              onClick={() => onOpenModal && onOpenModal('general')}
+              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transition-all"
               animate={{ y: [0, -4, 0] }}
               transition={{
                 duration: 1.5,
@@ -117,8 +115,8 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title }) => {
                 delay: 1.0
               }}
             >
-              Prendre rendez-vous
-            </motion.a>
+              Mon devis gratuit
+            </motion.button>
 
             <a
               href="#services"
@@ -138,7 +136,8 @@ const DesktopHero = ({
   mediaSrc,
   bgImageSrc,
   initialTitle,
-  children
+  children,
+  onOpenModal
 }) => {
   const [scrollY, setScrollY] = useState(0);
 
@@ -235,11 +234,9 @@ const DesktopHero = ({
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             {/* CTA principal avec bounce */}
-            <motion.a
-              href="https://app.dispoo.fr/website/368-univers-clean/step1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 no-underline"
+            <motion.button
+              onClick={() => onOpenModal && onOpenModal('general')}
+              className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
               animate={{ y: [0, -8, 0] }}
               transition={{
                 duration: 1.8,
@@ -249,8 +246,8 @@ const DesktopHero = ({
                 delay: 1.5
               }}
             >
-              Prendre rendez-vous
-            </motion.a>
+              Mon devis gratuit
+            </motion.button>
 
             <a
               href="tel:+33782364263"
@@ -271,7 +268,7 @@ const DesktopHero = ({
   );
 };
 
-export default function Hero() {
+export default function Hero({ onOpenModal }) {
   const [isMobileOrTouch, setIsMobileOrTouch] = useState(false);
 
   const heroContent = {
@@ -301,6 +298,7 @@ export default function Hero() {
         videoSrc={heroContent.videoSrc}
         bgImageSrc={heroContent.backgroundSrc}
         title={heroContent.title}
+        onOpenModal={onOpenModal}
       />
     );
   }
@@ -311,6 +309,7 @@ export default function Hero() {
       mediaSrc={heroContent.videoSrc}
       bgImageSrc={heroContent.backgroundSrc}
       initialTitle={heroContent.title}
+      onOpenModal={onOpenModal}
     >
       {/* Sections de la page (après le hero) */}
     </DesktopHero>

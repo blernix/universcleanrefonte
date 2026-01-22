@@ -6,6 +6,7 @@ import ContactForm from '@/app/components/ContactForm';
 import Header from '@/app/components/layout/Header';
 import Footer from '@/app/components/layout/Footer';
 import SectionSeparator from '@/app/components/SectionSeparator';
+import RedirectConfirmModal from '@/app/components/RedirectConfirmModal';
 
 // Import service components
 import ServiceHero from '@/app/components/services/ServiceHero';
@@ -22,13 +23,19 @@ import ServiceSchema from '@/app/components/services/ServiceSchema';
 import BeforeAfterSlider from '@/app/components/services/BeforeAfterSlider';
 
 export default function ServicePageClient({ service }) {
+  if (!service) notFound();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showRedirectModal, setShowRedirectModal] = useState(false);
   const [selectedFormula, setSelectedFormula] = useState(service.formulas ? 0 : null);
   const [selectedVehicleClass, setSelectedVehicleClass] = useState('classe1');
   const [selectedCanapeSize, setSelectedCanapeSize] = useState('2-3places');
   const [selectedMatelasSize, setSelectedMatelasSize] = useState('1place');
 
-  if (!service) notFound();
+  const handleRedirectToBooking = () => {
+    setShowRedirectModal(false);
+    window.open('https://app.dispoo.fr/website/368-univers-clean/step1', '_blank');
+  };
 
   const isAutomobile = service.category === 'automobile';
   const isCanape = service.slug === 'nettoyage-canape';
@@ -86,7 +93,7 @@ export default function ServicePageClient({ service }) {
       {/* Schema.org JSON-LD for SEO */}
       <ServiceSchema service={service} />
 
-      <Header onOpenModal={() => setIsModalOpen(true)} />
+      <Header onOpenModal={() => setIsModalOpen(true)} onOpenRedirectModal={() => setShowRedirectModal(true)} />
 
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -94,6 +101,7 @@ export default function ServicePageClient({ service }) {
           service={service}
           isAutomobile={isAutomobile}
           hasFormulas={hasFormulas}
+          onOpenModal={() => setIsModalOpen(true)}
         />
 
         <SectionSeparator variant="light" />
@@ -120,6 +128,7 @@ export default function ServicePageClient({ service }) {
           setSelectedCanapeSize={setSelectedCanapeSize}
           selectedMatelasSize={selectedMatelasSize}
           setSelectedMatelasSize={setSelectedMatelasSize}
+          onOpenModal={() => setIsModalOpen(true)}
         />
 
         {/* Conversion Section (Interior/Exterior → Complete) */}
@@ -141,7 +150,7 @@ export default function ServicePageClient({ service }) {
         {hasFormulas && service.formulas.length > 1 && (
           <>
             <SectionSeparator variant="reverseLight" />
-            <ServiceComparison service={service} />
+            <ServiceComparison service={service} onOpenModal={() => setIsModalOpen(true)} />
           </>
         )}
 
@@ -198,7 +207,7 @@ export default function ServicePageClient({ service }) {
         <SectionSeparator variant="blue" />
 
         {/* CTA Section */}
-        <ServiceCTA />
+        <ServiceCTA onOpenModal={() => setIsModalOpen(true)} />
       </main>
 
       <Footer />
@@ -207,6 +216,12 @@ export default function ServicePageClient({ service }) {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={`Devis ${service.title}`}>
         <ContactForm formType={service.slug} onSuccess={() => setIsModalOpen(false)} />
       </Modal>
+
+      <RedirectConfirmModal
+        isOpen={showRedirectModal}
+        onClose={() => setShowRedirectModal(false)}
+        onConfirm={handleRedirectToBooking}
+      />
     </>
   );
 }

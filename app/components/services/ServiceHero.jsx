@@ -4,7 +4,7 @@ import { Sparkles, Truck, MessageSquare, Phone, ArrowRight, Star } from 'lucide-
 import Image from 'next/image';
 import SectionSeparator from '@/app/components/SectionSeparator';
 
-export default function ServiceHero({ service, isAutomobile, hasFormulas }) {
+export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpenModal }) {
   // Calculer le prix minimum dynamiquement
   const getMinPrice = () => {
     if (!service.formulas || service.formulas.length === 0) return null;
@@ -146,18 +146,16 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas }) {
 
             {/* CTAs - Order 3 sur mobile, cachés sur desktop */}
             <div className="!flex !flex-col sm:!flex-row !gap-4 !pt-4 !justify-center lg:!justify-start !order-3 lg:!hidden">
-              <motion.a
-                href="https://app.dispoo.fr/website/368-univers-clean/step1"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => onOpenModal && onOpenModal()}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="!inline-flex !items-center !justify-center !gap-3 !bg-blue-600 hover:!bg-blue-700 !text-white !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-lg hover:!shadow-xl !transition-all !duration-300"
               >
                 <Phone className="!w-6 !h-6" />
-                <span>Prendre RDV Maintenant</span>
+                <span>Mon devis gratuit</span>
                 <ArrowRight className="!w-5 !h-5" />
-              </motion.a>
+              </motion.button>
 
               <motion.a
                 href="tel:+33782364263"
@@ -236,18 +234,16 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas }) {
 
             {/* CTAs - Desktop uniquement, sous la photo */}
             <div className="!flex !flex-col !gap-4 !w-full">
-              <motion.a
-                href="https://app.dispoo.fr/website/368-univers-clean/step1"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => onOpenModal && onOpenModal()}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="!inline-flex !items-center !justify-center !gap-3 !bg-blue-600 hover:!bg-blue-700 !text-white !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-lg hover:!shadow-xl !transition-all !duration-300"
               >
                 <Phone className="!w-6 !h-6" />
-                <span>Prendre RDV Maintenant</span>
+                <span>Mon devis gratuit</span>
                 <ArrowRight className="!w-5 !h-5" />
-              </motion.a>
+              </motion.button>
 
               <motion.a
                 href="tel:+33782364263"

@@ -33,7 +33,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
       },
       {
         before: '/services/canape_gris_avant.webp',
-        after: '/services/capae_gris_apres.webp',
+        after: '/services/canape_gris_apres.webp',
         alt: 'Nettoyage canapé gris'
       }
     ],

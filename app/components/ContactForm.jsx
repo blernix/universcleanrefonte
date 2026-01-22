@@ -9,27 +9,27 @@ import { vehicleClasses, canapeTypes, matelasSizes } from '@/app/data/services';
 export const formFieldsConfig = {
   'nettoyage-canape': {
     subject: 'Demande de devis - Nettoyage Canapé',
-    fields: ['name', 'email', 'phone', 'canapeType', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'canapeType', 'ville', 'message'],
   },
   'nettoyage-matelas': {
     subject: 'Demande de devis - Nettoyage Matelas',
-    fields: ['name', 'email', 'phone', 'matelasSize', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'matelasSize', 'ville', 'message'],
   },
   'nettoyage-voiture-interieur': {
     subject: 'Demande de devis - Nettoyage Voiture Intérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
   },
   'nettoyage-voiture-exterieur': {
     subject: 'Demande de devis - Nettoyage Voiture Extérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
   },
   'nettoyage-voiture-complet': {
     subject: 'Demande de devis - Nettoyage Voiture Complet',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
   },
   'general': {
     subject: 'Demande d\'information générale',
-    fields: ['name', 'email', 'phone', 'urgence', 'message'],
+    fields: ['name', 'email', 'phone', 'ville', 'message'],
   }
 };
 
@@ -41,11 +41,13 @@ const initialFormData = {
   canapeType: '', 
   matelasSize: '', 
   vehicleClass: '', 
-  urgence: 'Non urgent'
+  ville: ''
 };
 
 export default function ContactForm({ formType = 'general', onClose, onSuccess }) {
-  const config = formFieldsConfig[formType];
+  // Protection : si formType n'existe pas ou n'est pas valide, utiliser 'general'
+  const validFormType = formFieldsConfig[formType] ? formType : 'general';
+  const config = formFieldsConfig[validFormType];
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
@@ -107,7 +109,7 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
       canapeType: formData.canapeType || undefined,
       matelasSize: formData.matelasSize || undefined,
       vehicleClass: formData.vehicleClass || undefined,
-      urgence: formData.urgence || 'Non urgent',
+      ville: formData.ville || '',
     };
 
     emailjs.send(
@@ -143,7 +145,7 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
                    field === 'canapeType' ? 'Type de canapé' :
                    field === 'matelasSize' ? 'Taille matelas' :
                    field === 'vehicleClass' ? 'Classe véhicule' :
-                   field === 'urgence' ? 'Urgence' :
+                   field === 'ville' ? 'Ville' :
                    'Message'}
                 </span>
                 <p className="!text-gray-900 whitespace-pre-wrap break-words !mt-2 !text-base">{formData[field]}</p>
@@ -165,7 +167,8 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
             className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold !py-4 !px-8 rounded-xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98]"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
+            <Loader2 size={18} className={`animate-spin ${isSubmitting ? '' : 'hidden'}`} />
+            <Send size={18} className={isSubmitting ? 'hidden' : ''} />
             {isSubmitting ? 'Envoi en cours...' : 'Confirmer et envoyer'}
           </button>
         </div>
@@ -373,23 +376,21 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
           </div>
         )}
 
-        {/* Urgence */}
-        {config.fields.includes('urgence') && (
+        {/* Ville */}
+        {config.fields.includes('ville') && (
           <div className="group">
-            <label htmlFor="urgence" className="block !text-sm font-semibold !text-gray-800 !mb-3">
-              Délai souhaité
+            <label htmlFor="ville" className="block !text-sm font-semibold !text-gray-800 !mb-3">
+              Ville (optionnel)
             </label>
-            <select
-              id="urgence"
-              value={formData.urgence}
+            <input
+              type="text"
+              id="ville"
+              value={formData.ville}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
-            >
-              <option value="Non urgent">Pas urgent (sous 1 semaine)</option>
-              <option value="Urgent">Urgent (sous 48h)</option>
-              <option value="Très urgent">Très urgent (aujourd'hui/demain)</option>
-            </select>
+              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none"
+              placeholder="Ex: Paris, Melun, Fontainebleau..."
+            />
           </div>
         )}
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Sparkles } from 'lucide-react';
 
-export default function ServiceComparison({ service }) {
+export default function ServiceComparison({ service, onOpenModal }) {
   const [selectedFormulas, setSelectedFormulas] = useState([0, 2]); // Par défaut: Start vs Ultimate
 
   if (!service.formulas || service.formulas.length < 2) return null;
@@ -347,14 +347,12 @@ export default function ServiceComparison({ service }) {
           className="text-center mt-12"
         >
           <p className="text-gray-600 mb-6">Prêt à choisir votre formule ?</p>
-          <a
-            href="https://app.dispoo.fr/website/368-univers-clean/step1"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => onOpenModal && onOpenModal()}
             className="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all hover:scale-105 shadow-lg"
           >
-            Obtenir mon devis gratuit
-          </a>
+            Mon devis gratuit
+          </button>
         </motion.div>
       </div>
     </section>

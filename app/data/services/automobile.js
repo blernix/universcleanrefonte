@@ -133,13 +133,13 @@ Enfin, la formule Ultimate représente le niveau le plus abouti. Ici, chaque dé
 En résumé, plus vous montez en gamme, plus le nettoyage devient précis, profond et durable : du simple rafraîchissement au soin premium qui protège et sublime votre véhicule.`,
     beforeAfterImages: [
       {
-        before: '/services/jante_bleu_avant.webp',
-        after: '/services/jante_bleu_apres.webp',
+        before: '/services/exterieur1_avant.webp',
+        after: '/services/exterieur1_apres.webp',
         alt: 'Nettoyage jantes bleues'
       },
       {
-        before: '/services/jante_gris_avant.webp',
-        after: '/services/jante_gris_apres.webp',
+        before: '/services/exterieur2_avant.webp',
+        after: '/services/exterieur2_apres.webp',
         alt: 'Nettoyage jantes grises'
       }
     ],
@@ -247,8 +247,8 @@ Offrez-lui le meilleur : un nettoyage complet signé Univers Clean.`,
         alt: 'Nettoyage intérieur BMW'
       },
       {
-        before: '/services/jante_bleu_avant.webp',
-        after: '/services/jante_bleu_apres.webp',
+        before: '/services/exterieur1_avant.webp',
+        after: '/services/exterieur1_apres.webp',
         alt: 'Nettoyage jantes'
       }
     ],

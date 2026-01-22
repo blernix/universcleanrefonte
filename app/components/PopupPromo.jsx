@@ -17,7 +17,7 @@ export default function PopupPromo() {
         setIsOpen(true);
         setShowTrigger(true);
         localStorage.setItem("hasSeenPopup", "true");
-      }, 3000); // Affiche après 3 secondes
+      }, 10000); // Affiche après 3 secondes
 
       return () => clearTimeout(timer);
     } else {
