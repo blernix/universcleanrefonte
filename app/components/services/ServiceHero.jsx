@@ -70,8 +70,8 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
               {service.description || service.shortDescription}
             </p>
 
-            {/* Info formules */}
-            {hasFormulas && (
+            {/* Info formules - Afficher uniquement s'il y a plus d'une formule */}
+            {hasFormulas && service.formulas.length > 1 && (
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

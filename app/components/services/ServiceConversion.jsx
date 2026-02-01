@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 export default function ServiceConversion({
   service,
   savingsData,
-  selectedFormula,
-  setSelectedFormula,
   selectedVehicleClass,
   setSelectedVehicleClass
 }) {
@@ -34,54 +32,29 @@ export default function ServiceConversion({
             Économisez <span className="!text-yellow-400 font-bold">{savingsData.discount}%</span> en choisissant le nettoyage complet !
           </p>
 
-          {/* Sélecteurs de formule et véhicule */}
-          <div className="flex flex-col gap-6 bg-white/20 backdrop-blur-md !px-8 !py-6 rounded-2xl border border-white/30 max-w-4xl !mx-auto">
-            <div className="!text-center">
-              <p className="!text-blue-100 !text-sm !mb-3">Modifiez vos options pour voir l'économie :</p>
+          {/* Sélecteur de classe de véhicule */}
+          <div className="bg-white/20 backdrop-blur-md !px-8 !py-6 rounded-2xl border border-white/30 max-w-4xl !mx-auto">
+            <div className="!text-center !mb-4">
+              <p className="!text-blue-100 !text-sm">Sélectionnez votre type de véhicule pour voir l'économie :</p>
             </div>
-
-            {/* Sélecteur de formule */}
-            <div>
-              <label className="!text-blue-200 !text-sm font-semibold block !mb-3">Formule :</label>
-              <div className="flex flex-wrap justify-center gap-3">
-                {service.formulas.map((formula, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedFormula(index)}
-                    className={`!px-6 !py-3 rounded-full font-bold !text-base transition-all ${
-                      selectedFormula === index
-                        ? 'bg-white text-blue-600 shadow-lg'
-                        : 'bg-white/20 text-white hover:bg-white/30'
-                    }`}
-                  >
-                    {formula.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Sélecteur de classe de véhicule */}
-            <div>
-              <label className="!text-blue-200 !text-sm font-semibold block !mb-3">Type de véhicule :</label>
-              <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  { value: 'classe1', label: 'Citadine' },
-                  { value: 'classe2', label: 'Berline' },
-                  { value: 'classe3', label: 'SUV/Prestige' }
-                ].map((vehicleClass) => (
-                  <button
-                    key={vehicleClass.value}
-                    onClick={() => setSelectedVehicleClass(vehicleClass.value)}
-                    className={`!px-6 !py-3 rounded-full font-bold !text-base transition-all ${
-                      selectedVehicleClass === vehicleClass.value
-                        ? 'bg-white text-blue-600 shadow-lg'
-                        : 'bg-white/20 text-white hover:bg-white/30'
-                    }`}
-                  >
-                    {vehicleClass.label}
-                  </button>
-                ))}
-              </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { value: 'classe1', label: 'Citadine' },
+                { value: 'classe2', label: 'Berline' },
+                { value: 'classe3', label: 'SUV/Prestige' }
+              ].map((vehicleClass) => (
+                <button
+                  key={vehicleClass.value}
+                  onClick={() => setSelectedVehicleClass(vehicleClass.value)}
+                  className={`!px-6 !py-3 rounded-full font-bold !text-base transition-all ${
+                    selectedVehicleClass === vehicleClass.value
+                      ? 'bg-white text-blue-600 shadow-lg'
+                      : 'bg-white/20 text-white hover:bg-white/30'
+                  }`}
+                >
+                  {vehicleClass.label}
+                </button>
+              ))}
             </div>
           </div>
         </motion.div>

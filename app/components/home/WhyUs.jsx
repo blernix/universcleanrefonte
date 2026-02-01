@@ -39,8 +39,8 @@ export default function WhyUs() {
             Notre Différence
           </h2>
           <p className="!text-xl !text-gray-600 max-w-3xl !mx-auto !text-center">
-            La qualité avant tout. Des produits spécifiques pour chaque prestation,
-            une passion qui me pousse à redonner vie à tout ce que je nettoie.
+            Chez Univers Clean, notre différence, c'est l'exigence du résultat.
+            Nous utilisons des méthodes professionnelles, des produits efficaces et un soin du détail que l'on voit vraiment après notre passage. Nous ne faisons pas juste propre, nous faisons impeccable.
           </p>
         </motion.div>
 

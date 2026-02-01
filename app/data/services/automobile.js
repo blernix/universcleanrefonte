@@ -14,13 +14,9 @@ export const automobileServices = [
     imageAlt: 'Intérieur de voiture propre et désinfecté après nettoyage professionnel',
     category: 'automobile',
     description: 'Redonnez vie à l\'habitacle de votre véhicule avec nos trois formules adaptées à vos besoins, du simple rafraîchissement au nettoyage haut de gamme.',
-    formulasDescription: `La formule Start est pensée pour les voitures entretenues régulièrement et qui nécessitent simplement un rafraîchissement rapide. Dépoussiérage des plastiques, aspiration de l'habitacle, nettoyage des vitres et parfum d'ambiance : un soin express qui redonne immédiatement confort et propreté à votre intérieur.
+    formulasDescription: `Notre prestation de nettoyage intérieur redonne vie à l'habitacle de votre véhicule. Nous effectuons un nettoyage complet des plastiques, du tableau de bord et des panneaux de porte, suivi d'un nettoyage en profondeur des moquettes et des tapis. Les vitres sont nettoyées pour une visibilité parfaite, et nous terminons par un parfum d'ambiance pour une sensation de fraîcheur immédiate.
 
-Si votre véhicule mérite une attention plus poussée, la formule Confort reprend cette base et va plus loin. Les plastiques et les moquettes sont nettoyés plus en détail avec des outils adaptés, les tapis et surtapis passent à l'injection-extraction pour un rendu impeccable, tandis que les vitres et le parfum d'ambiance viennent parfaire l'ensemble. On gagne ici en profondeur et en qualité de nettoyage, pour un habitacle visiblement plus sain et agréable.
-
-Enfin, la formule Ultimate offre le niveau le plus abouti du nettoyage intérieur. Chaque élément est travaillé avec minutie : plastiques et tableau de bord au pinceau et à la vapeur, sièges en tissu ou en cuir nettoyés et traités en profondeur (avec hydratation et nourrissage pour le cuir), moquettes et tapis passés à l'injection-extraction, et application d'une protection UV sur les plastiques pour leur redonner éclat et durabilité. Résultat : un intérieur comme neuf, propre, élégant et protégé dans le temps.
-
-Plus vous montez en gamme, plus le nettoyage devient complet et précis : du simple rafraîchissement au soin premium qui redonne vie et valeur à votre habitacle.`,
+Pour un résultat encore plus abouti, nous proposons également le nettoyage des sièges en profondeur* (en supplément), qu'ils soient en tissu ou en cuir. Résultat : un intérieur propre, sain et agréable, qui retrouve tout son confort.`,
     beforeAfterImages: [
       {
         before: '/services/interieur_bm_avant.webp',
@@ -35,65 +31,20 @@ Plus vous montez en gamme, plus le nettoyage devient complet et précis : du sim
     ],
     formulas: [
       {
-        name: 'Start',
-        price: {
-          'classe1': '60€',
-          'classe2': '70€',
-          'classe3': '80€'
-        },
-        description: 'Pensée pour les voitures entretenues régulièrement qui nécessitent un rafraîchissement rapide.',
-        benefits: [
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage des vitres',
-          'Parfum d\'ambiance'
-        ]
-      },
-      {
-        name: 'Confort',
+        name: 'Nettoyage Intérieur',
         price: {
           'classe1': '110€',
           'classe2': '130€',
           'classe3': '150€'
         },
-        description: 'Pour une attention plus poussée avec nettoyage en profondeur des plastiques et moquettes.',
+        description: 'Nettoyage complet de l\'intérieur de votre véhicule pour un habitacle propre et sain.',
         benefits: [
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage du tableau de bord',
-          'Nettoyage des panneaux de porte',
-          'Brossage et nettoyage des moquettes',
-          'Nettoyage des tapis (injection-extraction)',
+          'Nettoyage complet des plastiques, tableau de bord, panneaux de porte',
+          'Nettoyage complet des moquettes',
+          'Nettoyage des tapis',
           'Nettoyage des vitres',
-          'Parfum d\'ambiance'
-        ]
-      },
-      {
-        name: 'Ultimate',
-        price: {
-          'classe1': '295€',
-          'classe2': '295€',
-          'classe3': '295€'
-        },
-        priceNote: 'Grande voiture +20€',
-        description: 'Le niveau le plus abouti du nettoyage intérieur. Chaque élément travaillé avec minutie.',
-        benefits: [
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage du tableau de bord',
-          'Nettoyage des panneaux de porte',
-          'Nettoyage des grilles d\'aération (vapeur)',
-          'Brossage et nettoyage des moquettes',
-          'Nettoyage des moquettes (injection-extraction)',
-          'Nettoyage des tapis (injection-extraction)',
-          'Nettoyage des sièges en cuir (avec entretien)',
-          'Nettoyage des sièges en tissu (injection-extraction)',
-          'Protection UV des plastiques',
-          'Nettoyage des vitres',
-          'Parfum d\'ambiance'
+          'Parfum d\'ambiance',
+          '(Nettoyage des sièges en profondeur*)'
         ]
       }
     ],
@@ -124,13 +75,9 @@ Plus vous montez en gamme, plus le nettoyage devient complet et précis : du sim
     imageAlt: 'Voiture de luxe avec carrosserie brillante après nettoyage extérieur professionnel',
     category: 'automobile',
     description: 'Trois formules adaptées pour redonner éclat et protection à votre carrosserie, du simple lavage au soin premium.',
-    formulasDescription: `Tout commence avec la formule Start, idéale pour les voitures entretenues régulièrement. Un prélavage, un lavage à la main, les jantes nettoyées, des vitres claires et un dressing des pneus : l'essentiel pour retrouver rapidement un extérieur propre et agréable à regarder.
+    formulasDescription: `Notre prestation de nettoyage extérieur redonne éclat et brillance à votre carrosserie. Nous commençons par un prélavage soigné, suivi d'un nettoyage à la main de toute la carrosserie. Les jantes et pneus sont nettoyés en profondeur, puis nous appliquons une finition brillance pour sublimer la peinture. Les vitres sont nettoyées pour une transparence parfaite, et nous terminons par un dressing des pneus pour une finition impeccable.
 
-Pour ceux qui souhaitent aller plus loin, la formule Confort reprend cette base en ajoutant un nettoyage plus poussé des jantes et pneus avec dégraissage complet, ainsi qu'une décontamination ferreuse de la carrosserie. Ce traitement permet d'éliminer les particules invisibles incrustées et prépare la surface à recevoir une finition brillance, pour un éclat plus profond et durable.
-
-Enfin, la formule Ultimate représente le niveau le plus abouti. Ici, chaque détail est travaillé : prélavage minutieux au pinceau autour des logos, phares et poignées, nettoyage en profondeur des jantes jusqu'à l'intérieur, passages de roues dégraissés, dégoudronnage et clay bar pour une décontamination maximale. Une protection céramique est ensuite appliquée sur toute la carrosserie, les vitres et les jantes, offrant une brillance exceptionnelle et une protection durable pouvant tenir jusqu'à six mois. Le tout est finalisé par des vitres impeccables et un dressing des pneus.
-
-En résumé, plus vous montez en gamme, plus le nettoyage devient précis, profond et durable : du simple rafraîchissement au soin premium qui protège et sublime votre véhicule.`,
+Résultat : une carrosserie éclatante, des jantes comme neuves et un extérieur qui retrouve toute sa splendeur.`,
     beforeAfterImages: [
       {
         before: '/services/exterieur1_avant.webp',
@@ -145,63 +92,17 @@ En résumé, plus vous montez en gamme, plus le nettoyage devient précis, profo
     ],
     formulas: [
       {
-        name: 'Start',
+        name: 'Nettoyage Extérieur',
         price: {
-          'classe1': '50€',
-          'classe2': '60€',
-          'classe3': '70€'
+          'classe1': '100€',
+          'classe2': '120€',
+          'classe3': '140€'
         },
-        description: 'Idéale pour les voitures entretenues régulièrement. L\'essentiel pour un extérieur propre.',
+        description: 'Nettoyage complet de l\'extérieur de votre véhicule pour une carrosserie éclatante.',
         benefits: [
           'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
-          'Finition brillance',
-          'Nettoyage des vitres',
-          'Dressing des pneus'
-        ]
-      },
-      {
-        name: 'Confort',
-        price: {
-          'classe1': '95€',
-          'classe2': '115€',
-          'classe3': '135€'
-        },
-        description: 'Pour aller plus loin avec décontamination ferreuse et finition brillance.',
-        benefits: [
-          'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
-          'Décontamination ferreuse de la carrosserie',
-          'Finition brillance',
-          'Nettoyage des vitres',
-          'Dressing des pneus'
-        ]
-      },
-      {
-        name: 'Ultimate',
-        price: {
-          'classe1': '249€',
-          'classe2': '249€',
-          'classe3': '249€'
-        },
-        priceNote: 'Grande voiture +20€',
-        description: 'Le niveau le plus abouti. Chaque détail travaillé pour une brillance exceptionnelle.',
-        benefits: [
-          'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
-          'Nettoyage des passages de roues',
-          'Décontamination ferreuse de la carrosserie',
-          'Décontamination chimique de la carrosserie',
-          'Dégoudronnage de la carrosserie',
-          'Dégoudronnage des jantes',
-          'Décontamination mécanique (clay bar)',
-          'Protection céramique de la carrosserie',
+          'Nettoyage de la carrosserie à la main',
+          'Nettoyage des jantes, pneus',
           'Finition brillance',
           'Nettoyage des vitres',
           'Dressing des pneus'
@@ -235,9 +136,9 @@ En résumé, plus vous montez en gamme, plus le nettoyage devient précis, profo
     imageAlt: 'Véhicule entièrement nettoyé, intérieur impeccable et carrosserie brillante',
     category: 'automobile',
     description: 'Pourquoi choisir entre intérieur et extérieur ? Profitez d\'un service complet avec tarif avantageux.',
-    formulasDescription: `Pourquoi choisir entre l'intérieur et l'extérieur, quand vous pouvez offrir à votre voiture un nettoyage complet ? Avec nos trois formules Start, Confort et Ultimate, profitez d'un service sur mesure qui redonne vie à votre véhicule, dedans comme dehors.
+    formulasDescription: `Pourquoi choisir entre l'intérieur et l'extérieur, quand vous pouvez offrir à votre voiture un nettoyage complet ? Notre prestation complète combine le meilleur des deux prestations pour un résultat impeccable, dedans comme dehors.
 
-En choisissant le pack complet, vous bénéficiez non seulement d'un résultat impeccable, mais aussi d'un tarif avantageux par rapport à la prise séparée des prestations. Du simple rafraîchissement au soin haut de gamme avec protection durable, chaque formule est pensée pour répondre à vos besoins et sublimer votre véhicule sous tous les angles.
+En choisissant le pack complet, vous bénéficiez d'un tarif avantageux par rapport à la prise séparée des prestations. Un seul rendez-vous pour une transformation totale de votre véhicule : carrosserie éclatante, habitacle propre et sain, le tout avec une économie garantie.
 
 Offrez-lui le meilleur : un nettoyage complet signé Univers Clean.`,
     beforeAfterImages: [
@@ -254,100 +155,29 @@ Offrez-lui le meilleur : un nettoyage complet signé Univers Clean.`,
     ],
     formulas: [
       {
-        name: 'Start',
+        name: 'Nettoyage Complet',
         price: {
-          'classe1': '100€',
-          'classe2': '120€',
-          'classe3': '140€'
+          'classe1': '190€',
+          'classe2': '225€',
+          'classe3': '260€'
         },
-        description: 'Rafraîchissement complet intérieur + extérieur pour véhicules entretenus.',
+        description: 'Nettoyage complet intérieur + extérieur. Économisez en choisissant le pack complet.',
         benefits: [
-          '🚗 INTÉRIEUR :',
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage des vitres',
-          'Parfum d\'ambiance',
           '✨ EXTÉRIEUR :',
           'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
+          'Nettoyage de la carrosserie à la main',
+          'Nettoyage des jantes, pneus',
           'Finition brillance',
+          'Nettoyage des vitres',
           'Dressing des pneus',
-          
-        ]
-      },
-      {
-        name: 'Confort',
-        price: {
-          'classe1': '185€',
-          'classe2': '220€',
-          'classe3': '255€'
-        },
-        description: 'Nettoyage en profondeur dedans comme dehors.',
-        benefits: [
+          '',
           '🚗 INTÉRIEUR :',
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage du tableau de bord',
-          'Nettoyage des panneaux de porte',
-          'Nettoyage des moquettes',
-          'Nettoyage des tapis (injection-extraction)',
+          'Nettoyage complet des plastiques, tableau de bord, panneaux de porte',
+          'Nettoyage complet des moquettes',
+          'Nettoyage des tapis',
           'Nettoyage des vitres',
           'Parfum d\'ambiance',
-          '✨ EXTÉRIEUR :',
-          'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
-          'Décontamination ferreuse de la carrosserie',
-          'Finition brillance',
-          'Dressing des pneus',
-          
-        ]
-      },
-      {
-        name: 'Ultimate',
-        price: {
-          'classe1': '490€',
-          'classe2': '490€',
-          'classe3': '490€'
-        },
-        priceNote: 'Grande voiture +40€',
-        description: 'Le soin haut de gamme intégral. Votre véhicule comme neuf sous tous les angles.',
-        benefits: [
-          '🚗 INTÉRIEUR :',
-          'Aspiration de l\'habitacle',
-          'Dépoussiérage des plastiques',
-          'Nettoyage des plastiques',
-          'Nettoyage du tableau de bord',
-          'Nettoyage des panneaux de porte',
-          'Nettoyage des grilles d\'aération (vapeur)',
-          'Nettoyage des moquettes (injection-extraction)',
-          'Nettoyage des tapis (injection-extraction)',
-          'Nettoyage des sièges en cuir (avec entretien)',
-          'Nettoyage des sièges en tissu (injection-extraction)',
-          'Protection UV des plastiques',
-          'Nettoyage des vitres',
-          'Parfum d\'ambiance',
-          '✨ EXTÉRIEUR :',
-          'Prélavage de la carrosserie',
-          'Lavage de la carrosserie à la main',
-          'Nettoyage des jantes',
-          'Nettoyage des pneus',
-          'Nettoyage des passages de roues',
-          'Décontamination ferreuse de la carrosserie',
-          'Décontamination chimique de la carrosserie',
-          'Dégoudronnage de la carrosserie',
-          'Dégoudronnage des jantes',
-          'Décontamination mécanique (clay bar)',
-          'Protection céramique de la carrosserie',
-          'Finition brillance',
-          'Dressing des pneus',
-          '⭐ Protection totale intérieur + extérieur',
-          '💎 Idéal pour remise en état, revente ou collection'
+          '(Nettoyage des sièges en profondeur*)'
         ]
       }
     ],

@@ -38,23 +38,23 @@ export const globalFAQ = [
 export const aboutContent = {
   intro: {
     title: `À propos d'Univers Clean`,
-    subtitle: 'La passion du nettoyage au service de la perfection',
-    content: `Née d'une passion pour le detailing automobile, Univers Clean allie rigueur professionnelle et exigence artisanale. Après plus de dix ans d'expérience dans les plus grandes concessions, nous proposons aujourd'hui des prestations haut de gamme pour redonner éclat et confort à votre intérieur comme à votre véhicule.`
+    subtitle: 'Des prestations de qualité, efficaces et durables',
+    content: `Univers Clean est une entreprise spécialisée dans le nettoyage professionnel pour particuliers et professionnels, née d'une volonté simple : offrir des prestations de qualité, efficaces et durables, tout en redonnant une seconde vie aux surfaces et aux textiles du quotidien. Passionnés par le travail bien fait et soucieux du détail, nous avons créé Univers Clean pour répondre à un besoin réel : proposer des services de nettoyage approfondis, là où le nettoyage classique ne suffit plus. Aujourd'hui, nous intervenons sur une large gamme de prestations : nettoyage automobile, canapés, matelas, vitres, terrasses, ainsi que le nettoyage de fin de chantier. Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels.`
   },
   values: [
     {
-      title: 'Exigence & Passion',
-      text: `Chaque intervention est réalisée avec soin et précision, comme si c'était notre propre bien.`,
-      icon: 'Heart'
-    },
-    {
-      title: 'Produits Haut de Gamme',
-      text: `Nous sélectionnons les meilleures marques du detailing pour garantir sécurité, efficacité et durabilité.`,
+      title: 'Plus de 10 ans d\'expérience',
+      text: `Nous vous garantit un service de nettoyage professionnel, fiable et de haute qualité.`,
       icon: 'Award'
     },
     {
-      title: 'Respect & Confiance',
-      text: `Qu'il s'agisse d'une citadine, d'un canapé ou d'une supercar, chaque client bénéficie de la même attention.`,
+      title: 'Produit haut de gamme',
+      text: `Nous sélectionnons les meilleures marques pour garantir sécurité, efficacité et durabilité.`,
+      icon: 'Heart'
+    },
+    {
+      title: 'Respect & confiance',
+      text: `Nous intervenons chez vous comme si c'était chez nous : avec respect, discrétion et sérieux.`,
       icon: 'Users'
     }
   ]

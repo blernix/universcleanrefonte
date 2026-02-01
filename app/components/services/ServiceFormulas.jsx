@@ -32,46 +32,77 @@ export default function ServiceFormulas({
   if (!hasFormulas) {
     return (
       <section className="!py-32 bg-white">
-        <div className="container mx-auto px-8 grid lg:grid-cols-2 gap-20 items-center max-w-7xl">
-          {/* Image + Tarifs */}
-          <div className="relative">
-            <img
-              src={service.image}
-              alt={service.imageAlt}
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-            />
-            <div className="lg:absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 w-full lg:w-72">
-              <p className="font-bold text-gray-900 mb-3 text-lg">Tarifs</p>
-              <div className="text-center py-6">
-                <p className="text-3xl font-bold text-blue-600">{service.price}</p>
-                <p className="text-sm text-gray-500 mt-2">Tarif adapté selon la taille</p>
-              </div>
-              <button
-                onClick={() => onOpenModal && onOpenModal()}
-                className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Obtenir mon devis précis
-              </button>
-            </div>
-          </div>
-
-          {/* Texte */}
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              {isAutomobile ? "Un Soin Expert pour Votre Véhicule" : "Un Soin Expert et Respectueux pour Vos Textiles"}
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              {isAutomobile
-                ? "Nous utilisons des produits professionnels haut de gamme (Koch Chemie, CarPro) pour un résultat optimal."
-                : "Nous utilisons des solutions spécifiques qui pénètrent en profondeur dans les fibres tout en respectant leur délicatesse."}
-            </p>
-            <div className="space-y-5">
-              {service.benefits?.slice(0, 4).map((benefit, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                  <p className="font-medium text-gray-900">{benefit}</p>
-                </div>
+        <div className="container mx-auto px-8 max-w-7xl">
+          {/* Sélecteur de classe pour automobile */}
+          {isAutomobile && service.price && typeof service.price === 'object' && (
+            <div className="!mb-16 flex justify-center gap-5 flex-wrap">
+              {[
+                { value: 'classe1', label: 'Citadine' },
+                { value: 'classe2', label: 'Berline' },
+                { value: 'classe3', label: 'SUV/Prestige' }
+              ].map((vehicleClass) => (
+                <button
+                  key={vehicleClass.value}
+                  onClick={() => setSelectedVehicleClass(vehicleClass.value)}
+                  className={`!px-8 !py-4 rounded-full font-bold !text-lg transition-all ${
+                    selectedVehicleClass === vehicleClass.value
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {vehicleClass.label}
+                </button>
               ))}
+            </div>
+          )}
+
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Image + Tarifs */}
+            <div className="relative">
+              <img
+                src={service.image}
+                alt={service.imageAlt}
+                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+              />
+              <div className="lg:absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 w-full lg:w-72">
+                <p className="font-bold text-gray-900 mb-3 text-lg">Tarifs</p>
+                <div className="text-center py-6">
+                  <p className="text-3xl font-bold text-blue-600">
+                    {isAutomobile && typeof service.price === 'object'
+                      ? service.price[selectedVehicleClass]
+                      : service.price}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    {isAutomobile ? 'Prix selon classe de véhicule' : 'Tarif adapté selon la taille'}
+                  </p>
+                </div>
+                <button
+                  onClick={() => onOpenModal && onOpenModal()}
+                  className="mt-5 w-full bg-blue-600 text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Obtenir mon devis précis
+                </button>
+              </div>
+            </div>
+
+            {/* Texte et liste des prestations */}
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                {isAutomobile ? "Un Soin Expert pour Votre Véhicule" : "Un Soin Expert et Respectueux pour Vos Textiles"}
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                {isAutomobile
+                  ? "Nous utilisons des produits professionnels haut de gamme (Koch Chemie, CarPro) pour un résultat optimal."
+                  : "Nous utilisons des solutions spécifiques qui pénètrent en profondeur dans les fibres tout en respectant leur délicatesse."}
+              </p>
+              <div className="space-y-5">
+                {service.benefits?.map((benefit, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <p className="font-medium text-gray-900">{benefit}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

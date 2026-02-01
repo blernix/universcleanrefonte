@@ -47,33 +47,15 @@ export default function ServicePageClient({ service }) {
   const calculateSavings = () => {
     if (!isInteriorOrExterior) return null;
 
-    const currentFormula = service.formulas[selectedFormula];
-    const currentPrice = parseInt(currentFormula?.price[selectedVehicleClass]?.replace('€', '') || 0);
+    const currentPrice = parseInt(service.formulas?.[0]?.price?.[selectedVehicleClass]?.replace('€', '') || 0);
 
-    // Prix des services séparés selon la formule
-    const interiorPrices = {
-      0: { classe1: 60, classe2: 70, classe3: 80 },    // Start
-      1: { classe1: 110, classe2: 130, classe3: 150 }, // Confort
-      2: { classe1: 295, classe2: 295, classe3: 295 }  // Ultimate
-    };
+    // Prix des services séparés (nouvelle structure)
+    const interiorPrices = { classe1: 110, classe2: 130, classe3: 150 };
+    const exteriorPrices = { classe1: 100, classe2: 120, classe3: 140 };
+    const completePrices = { classe1: 190, classe2: 225, classe3: 260 };
 
-    const exteriorPrices = {
-      0: { classe1: 50, classe2: 60, classe3: 70 },    // Start
-      1: { classe1: 95, classe2: 115, classe3: 135 },  // Confort
-      2: { classe1: 249, classe2: 249, classe3: 249 }  // Ultimate
-    };
-
-    // Prix réels du service Complet
-    const completePrices = {
-      0: { classe1: 100, classe2: 120, classe3: 140 },  // Start
-      1: { classe1: 185, classe2: 220, classe3: 255 },  // Confort
-      2: { classe1: 490, classe2: 490, classe3: 490 }   // Ultimate
-    };
-
-    const estimatedCombinedPrice = interiorPrices[selectedFormula][selectedVehicleClass] +
-                                    exteriorPrices[selectedFormula][selectedVehicleClass];
-
-    const completePrice = completePrices[selectedFormula][selectedVehicleClass];
+    const estimatedCombinedPrice = interiorPrices[selectedVehicleClass] + exteriorPrices[selectedVehicleClass];
+    const completePrice = completePrices[selectedVehicleClass];
     const savings = estimatedCombinedPrice - completePrice;
     const discountPercent = Math.round((savings / estimatedCombinedPrice) * 100);
 
@@ -107,12 +89,7 @@ export default function ServicePageClient({ service }) {
         <SectionSeparator variant="light" />
 
         {/* Formulas Introduction */}
-        <ServiceFormulasIntro
-          formulasDescription={service.formulasDescription}
-          title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}
-          serviceSlug={service.slug}
-        />
-
+      
         {/* Formulas Section */}
         <ServiceFormulas
           service={service}
@@ -138,13 +115,17 @@ export default function ServicePageClient({ service }) {
             <ServiceConversion
               service={service}
               savingsData={savingsData}
-              selectedFormula={selectedFormula}
-              setSelectedFormula={setSelectedFormula}
               selectedVehicleClass={selectedVehicleClass}
               setSelectedVehicleClass={setSelectedVehicleClass}
             />
           </>
         )}
+          <ServiceFormulasIntro
+          formulasDescription={service.formulasDescription}
+          title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}
+          serviceSlug={service.slug}
+        />
+
 
         {/* Comparison Section (si plusieurs formules) */}
         {hasFormulas && service.formulas.length > 1 && (
