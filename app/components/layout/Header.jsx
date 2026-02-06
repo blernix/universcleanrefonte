@@ -203,12 +203,12 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
 
             <div className="w-px h-6 bg-gray-300"></div>
 
-            <button
+            {/* <button
               onClick={() => onOpenRedirectModal && onOpenRedirectModal()}
               className="btn-primary whitespace-nowrap"
             >
               Rendez-vous
-            </button>
+            </button> */}
             <button
               onClick={() => onOpenModal && onOpenModal('general')}
               className="btn-primary whitespace-nowrap"
@@ -336,7 +336,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                 </a>
               </div>
 
-              <button
+              {/* <button
                 onClick={() => {
                   setIsMenuOpen(false);
                   onOpenRedirectModal && onOpenRedirectModal();
@@ -344,7 +344,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                 className="btn-primary w-full mt-2"
               >
                 Rendez-vous
-              </button>
+              </button> */}
               <button
                 onClick={() => {
                   setIsMenuOpen(false);

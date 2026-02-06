@@ -116,7 +116,7 @@ export default function ServiceFormulas({
       <div className="container mx-auto px-8 max-w-7xl">
         <div className="!text-center !mb-20">
           <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 !mb-6 !text-center">
-            Choisissez Votre Formule
+            Choisissez Votre Catégorie
           </h2>
           <p className="!text-xl !text-gray-600 max-w-2xl !mx-auto !text-center">
             Trois niveaux de service pour répondre à tous vos besoins
