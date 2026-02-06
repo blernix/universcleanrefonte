@@ -119,7 +119,7 @@ export default function ServiceFormulas({
             Choisissez Votre Catégorie
           </h2>
           <p className="!text-xl !text-gray-600 max-w-2xl !mx-auto !text-center">
-            Trois niveaux de service pour répondre à tous vos besoins
+           Sélectionnez le modèle correspondant à votre profil
           </p>
 
           {isAutomobile && (
