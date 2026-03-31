@@ -5,6 +5,7 @@ import ServicesGrid from './components/home/ServicesGrid';
 import WhyUs from './components/home/WhyUs';
 import About from './components/home/About';
 import Process from './components/home/Process';
+import Partenaires from './components/home/Partenaires';
 import Testimonials from './components/home/Testimonials';
 import FAQ from './components/home/FAQ';
 import CTABanner from './components/home/CTABanner';
@@ -71,6 +72,9 @@ export default function HomePage() {
         <Process />
 
         <SectionSeparator variant="reverseGray" />
+        <Partenaires />
+
+        <SectionSeparator variant="gray" />
         <Testimonials />
 
         <SectionSeparator variant="gray" />

@@ -90,30 +90,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
               transition={{ duration: 0.7, delay: 0.2 }}
               className="!relative !flex !justify-center !items-center lg:!hidden !order-2"
             >
-              {/* Badge flottant - Prix/Formules */}
-              {minPrice && (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="!absolute !-top-4 !-right-4 sm:!-top-6 sm:!-right-6 !bg-green-600 !text-white !px-6 !py-3 !rounded-xl !shadow-lg !z-10"
-                >
-                  <p className="!text-xs !font-semibold !uppercase !tracking-wider">À partir de</p>
-                  <p className="!text-2xl !font-black">{minPrice}€</p>
-                </motion.div>
-              )}
 
-              {/* Badge "Sur devis" si pas de prix */}
-              {!minPrice && service.price === 'Sur devis' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="!absolute !-top-4 !-right-4 sm:!-top-6 sm:!-right-6 !bg-blue-600 !text-white !px-6 !py-3 !rounded-xl !shadow-lg !z-10"
-                >
-                  <p className="!text-sm !font-bold !uppercase !tracking-wider">Sur devis</p>
-                </motion.div>
-              )}
 
               {/* Badge flottant - Garantie */}
               <motion.div
@@ -178,30 +155,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
               transition={{ duration: 0.7, delay: 0.2 }}
               className="!relative !flex !justify-center !items-start"
             >
-            {/* Badge flottant - Prix/Formules */}
-            {minPrice && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="!absolute !-top-4 !-right-4 sm:!-top-6 sm:!-right-6 !bg-green-600 !text-white !px-6 !py-3 !rounded-xl !shadow-lg !z-10"
-              >
-                <p className="!text-xs !font-semibold !uppercase !tracking-wider">À partir de</p>
-                <p className="!text-2xl !font-black">{minPrice}€</p>
-              </motion.div>
-            )}
 
-            {/* Badge "Sur devis" si pas de prix */}
-            {!minPrice && service.price === 'Sur devis' && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="!absolute !-top-4 !-right-4 sm:!-top-6 sm:!-right-6 !bg-blue-600 !text-white !px-6 !py-3 !rounded-xl !shadow-lg !z-10"
-              >
-                <p className="!text-sm !font-bold !uppercase !tracking-wider">Sur devis</p>
-              </motion.div>
-            )}
 
             {/* Badge flottant - Garantie */}
             <motion.div

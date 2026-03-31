@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default function ServicesGrid() {
+  // Trier les services : mobilier d'abord, puis automobile
+  const sortedServices = [
+    ...servicesData.filter(service => service.category === 'mobilier'),
+    ...servicesData.filter(service => service.category === 'automobile')
+  ];
+
   return (
     <section id="services" aria-labelledby="services-title" className="py-24 bg-gray-50">
       <div className="container !mx-auto !px-4">
@@ -25,7 +31,7 @@ export default function ServicesGrid() {
 
         {/* Grille */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {servicesData.map((service, index) => (
+          {sortedServices.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 40 }}
@@ -43,22 +49,6 @@ export default function ServicesGrid() {
                       alt={service.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    
-                    {/* Badge prix */}
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white !px-4 !py-1.5 rounded-full font-semibold text-sm shadow-lg">
-                      {service.formulas
-                        ? `Dès ${Object.values(service.formulas[0].price)[0]}`
-                        : typeof service.price === 'object'
-                          ? `Dès ${service.price.classe1}`
-                          : service.price}
-                    </div>
-
-                    {/* Badge catégorie */}
-                    {service.category && (
-                      <div className="absolute top-4 left-4 bg-white/90 text-gray-800 !px-3 !py-1 rounded-full font-medium text-xs shadow-sm capitalize">
-                        {service.category}
-                      </div>
-                    )}
                   </div>
 
                   {/* Contenu */}

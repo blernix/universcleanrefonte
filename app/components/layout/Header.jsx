@@ -25,8 +25,9 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
 
   // Grouper les services par catégorie
   const servicesByCategory = {
-    automobile: servicesData.filter(s => s.category === 'automobile'),
-    mobilier: servicesData.filter(s => s.category === 'mobilier')
+    mobilier: servicesData.filter(s => s.category === 'mobilier'),
+    automobile: servicesData.filter(s => s.category === 'automobile')
+    
   };
 
   // Gestion du scroll pour masquer/afficher le header
@@ -73,7 +74,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 bg-white/5 backdrop-blur-xl shadow-none z-50 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
@@ -81,16 +82,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-           <div className="relative w-10 h-10 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-1.5 shadow-sm">
-              <Image
-                src="/logo_univers_clean.png"
-                alt="Logo Univers Clean"
-                width={40}
-                height={40}
-                className="object-contain w-full h-full"
-                priority
-              />
-            </div>
+          
             <span className="text-2xl font-bold text-gray-900">Univers</span>
 
             <span className="text-2xl font-bold text-gray-900">Clean</span>
@@ -107,7 +99,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                   onMouseEnter={() => setIsServicesOpen(true)}
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
-                  <button className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                  <button className="flex items-center gap-1 text-gray-800 hover:text-blue-600 transition-colors font-medium">
                     {link.label}
                     <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
@@ -116,11 +108,11 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                   {isServicesOpen && (
                     <div className="absolute top-full left-0 pt-2 w-80">
                       <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-4 animate-fadeIn">
-                      {/* Services Automobile */}
+                      {/* Services Mobilier */}
                       <div className="px-4 pb-3 mb-3 border-b border-gray-100">
-                        <p className="text-xs font-bold text-gray-500 uppercase mb-3">Automobile</p>
-                        <div className="!space-y-1">
-                          {servicesByCategory.automobile.map((service) => (
+                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Mobilier</p>
+                        <div className="space-y-1">
+                          {servicesByCategory.mobilier.map((service) => (
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
@@ -135,11 +127,11 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                         </div>
                       </div>
 
-                      {/* Services Mobilier */}
+                      {/* Services Automobile */}
                       <div className="px-4">
-                        <p className="text-xs font-bold text-gray-500 uppercase mb-3">Mobilier</p>
-                        <div className="space-y-1">
-                          {servicesByCategory.mobilier.map((service) => (
+                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Automobile</p>
+                        <div className="!space-y-1">
+                          {servicesByCategory.automobile.map((service) => (
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
@@ -162,7 +154,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                   key={link.label}
                   href={isHomePage && link.anchor ? link.anchor : link.href}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                  className="text-gray-800 hover:text-blue-600 transition-colors font-medium"
                 >
                   {link.label}
                 </Link>
@@ -179,7 +171,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook Univers Clean 77"
-                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -188,20 +180,20 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram Univers Clean 77"
-                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="tel:+33782364263"
                 aria-label="Appeler Univers Clean"
-                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                className="p-1.5 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
               >
                 <Phone className="w-5 h-5" />
               </a>
             </div>
 
-            <div className="w-px h-6 bg-gray-300"></div>
+             <div className="w-px h-6 bg-gray-300/50"></div>
 
             {/* <button
               onClick={() => onOpenRedirectModal && onOpenRedirectModal()}
@@ -238,22 +230,22 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
               {navLinks.map((link) => (
                 link.hasDropdown ? (
                   <div key={link.label}>
-                    <button
-                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                      className="w-full flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                    >
-                      {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                     <button
+                       onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                       className="w-full flex items-center justify-between text-gray-800 hover:text-blue-600 transition-colors font-medium py-2"
+                     >
+                       {link.label}
+                       <ChevronDown className={`w-4 h-4 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
                     </button>
 
                     {/* Dropdown Mobile */}
                     {isMobileServicesOpen && (
                       <div className="pl-4 mt-2 space-y-3 animate-fadeIn">
-                        {/* Services Automobile */}
+                        {/* Services Mobilier */}
                         <div>
-                          <p className="text-xs font-bold text-gray-500 uppercase mb-2">Automobile</p>
+                           <p className="text-xs font-bold text-gray-600 uppercase mb-2">Mobilier</p>
                           <div className="space-y-1">
-                            {servicesByCategory.automobile.map((service) => (
+                            {servicesByCategory.mobilier.map((service) => (
                               <Link
                                 key={service.slug}
                                 href={`/services/${service.slug}`}
@@ -269,11 +261,11 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                           </div>
                         </div>
 
-                        {/* Services Mobilier */}
+                        {/* Services Automobile */}
                         <div className="pt-3 border-t border-gray-100">
-                          <p className="text-xs font-bold text-gray-500 uppercase mb-2">Mobilier</p>
+                           <p className="text-xs font-bold text-gray-600 uppercase mb-2">Automobile</p>
                           <div className="space-y-1">
-                            {servicesByCategory.mobilier.map((service) => (
+                            {servicesByCategory.automobile.map((service) => (
                               <Link
                                 key={service.slug}
                                 href={`/services/${service.slug}`}
@@ -292,14 +284,14 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                     )}
                   </div>
                 ) : (
-                  <Link
-                    key={link.label}
-                    href={isHomePage && link.anchor ? link.anchor : link.href}
-                    onClick={(e) => handleNavClick(e, link)}
-                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                  >
-                    {link.label}
-                  </Link>
+                   <Link
+                     key={link.label}
+                     href={isHomePage && link.anchor ? link.anchor : link.href}
+                     onClick={(e) => handleNavClick(e, link)}
+                     className="text-gray-800 hover:text-blue-600 transition-colors font-medium py-2"
+                   >
+                     {link.label}
+                   </Link>
                 )
               ))}
 
@@ -308,29 +300,29 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
 
               {/* Réseaux sociaux + Téléphone Mobile */}
               <div className="flex items-center gap-3 py-2">
-                <span className="text-sm font-medium text-gray-700">Suivez-nous :</span>
-                <a
+                 <span className="text-sm font-medium text-gray-800">Suivez-nous :</span>
+                 <a
                   href="https://www.facebook.com/universclean77"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook Univers Clean 77"
-                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a
+                 <a
                   href="https://www.instagram.com/universclean77/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Univers Clean 77"
-                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a
+                 <a
                   href="tel:+33782364263"
                   aria-label="Appeler Univers Clean"
-                  className="p-2 rounded-full hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                  className="p-2 rounded-full hover:bg-blue-50 text-gray-800 hover:text-blue-600 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                 </a>

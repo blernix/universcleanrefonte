@@ -54,12 +54,26 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
 
         {/* Contenu centré */}
         <div className="relative z-10 max-w-5xl mx-auto text-center">
+          {/* Logo en gros */}
+           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-2"
+          >
+            <img
+              src="/logo_univers_clean.png"
+              alt="Logo Univers Clean"
+               className="w-72 h-72 object-contain drop-shadow-2xl mx-auto"
+            />
+          </motion.div>
+
           {/* H1 optimisé SEO */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl font-extrabold text-white drop-shadow-2xl mb-4"
+            className="text-xl font-extrabold text-white drop-shadow-2xl mb-4"
           >
             Nettoyage professionnel à domicile
           </motion.h1>
@@ -69,27 +83,17 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl font-bold mb-4 leading-tight text-white drop-shadow-lg"
+            className="text-base font-bold mb-4 leading-tight text-white drop-shadow-lg"
           >
             Voiture • Canapé • Matelas en Seine-et-Marne (77)
           </motion.h2>
-
-          {/* Nom de la marque */}
-          {/* <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg font-semibold mb-6 text-blue-400 drop-shadow-lg"
-          >
-            {title}
-          </motion.p> */}
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-base mb-12 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+            className="text-base mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
           >
             Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
             Intervention à La Genevraye (77) et 30 km alentour.
@@ -183,44 +187,48 @@ const DesktopHero = ({
           <div className='absolute inset-0 bg-black/40' />
         </motion.div>
 
-        {/* Contenu centré */}
+         {/* Contenu centré */}
         <div className='relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6'>
+          {/* Logo en gros */}
+           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-3"
+          >
+            <img
+              src="/logo_univers_clean.png"
+              alt="Logo Univers Clean"
+               className="w-80 h-80 object-contain drop-shadow-2xl"
+            />
+          </motion.div>
+
           {/* H1 optimisé SEO */}
-          <motion.h1
+           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-4xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl mb-4'
+            className='text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-2xl mb-4'
           >
             Nettoyage professionnel à domicile
           </motion.h1>
 
           {/* H2 avec services et localisation (SEO) */}
-          <motion.h2
+           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
+            className="text-lg md:text-2xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
           >
             Voiture • Canapé • Matelas en Seine-et-Marne (77)
           </motion.h2>
 
-          {/* Nom de la marque */}
-          {/* <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl font-semibold mb-6 text-blue-400 drop-shadow-lg"
-          >
-            {initialTitle}
-          </motion.p> */}
-
           {/* Description */}
-          <motion.p
+           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-base md:text-lg mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
+            className="text-base md:text-lg mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
           >
             Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
             Intervention à La Genevraye (77) et 30 km alentour.
