@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Sparkles } from 'lucide-react';
+import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
 
 export default function ServiceComparison({ service, onOpenModal }) {
   const [selectedFormulas, setSelectedFormulas] = useState([0, 2]); // Par défaut: Start vs Ultimate
@@ -261,7 +262,14 @@ export default function ServiceComparison({ service, onOpenModal }) {
                   <div key={position} className="py-4 px-4 bg-gradient-to-br from-blue-600 to-blue-700 text-center">
                     <div className="text-white font-bold text-lg mb-1">{formula.name}</div>
                     <div className="text-blue-100 text-xs">
-                      {formula.price?.classe1 || formula.price?.['2-3places'] || 'Sur devis'}
+                       {(service.slug === 'nettoyage-canape' || service.slug === 'nettoyage-matelas')
+                         ? (() => {
+                             const basePrice = formula.price?.['2-3places'] || formula.price?.enfant || 'Sur devis';
+                             if (basePrice === 'Sur devis') return basePrice;
+                             const { discounted } = calculateDiscountedPrice(basePrice);
+                             return discounted;
+                           })()
+                         : formula.price?.classe1 || formula.price?.['2-3places'] || 'Sur devis'}
                     </div>
                   </div>
                 );

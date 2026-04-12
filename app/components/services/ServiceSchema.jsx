@@ -1,33 +1,50 @@
 // Composant pour injecter les schemas JSON-LD dans les pages services
 // Optimisé pour le SEO et les rich snippets Google
+import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
 
 export default function ServiceSchema({ service }) {
+  // Fonction pour extraire tous les prix numériques d'une formule (après réduction si applicable)
+  const extractAllPriceNumbers = (formula) => {
+    if (!formula.price) return [];
+    const prices = [];
+    const isDiscounted = service.slug === 'nettoyage-canape' || service.slug === 'nettoyage-matelas';
+    
+    for (const key in formula.price) {
+      const priceStr = formula.price[key];
+      if (!priceStr || priceStr === 'Sur devis') continue;
+      
+      let finalPriceStr = priceStr;
+      if (isDiscounted) {
+        const { discounted } = calculateDiscountedPrice(priceStr);
+        finalPriceStr = discounted;
+      }
+      
+      // Convertir en nombre
+      const cleanPrice = finalPriceStr.replace('€', '').replace(',', '.');
+      const priceNum = parseFloat(cleanPrice);
+      if (!isNaN(priceNum)) {
+        prices.push(priceNum);
+      }
+    }
+    return prices;
+  };
+
   // Extraire le prix minimum
   const getMinPrice = () => {
     if (!service.formulas || service.formulas.length === 0) return null;
     const firstFormula = service.formulas[0];
-    if (!firstFormula.price) return null;
-
-    const priceValue = firstFormula.price.classe1 ||
-                       firstFormula.price['1places'] ||
-                       firstFormula.price['2-3places'] ||
-                       firstFormula.price['1personne'];
-
-    return priceValue ? parseInt(priceValue.replace('€', '')) : null;
+    const prices = extractAllPriceNumbers(firstFormula);
+    if (prices.length === 0) return null;
+    return Math.min(...prices);
   };
 
   // Extraire le prix maximum
   const getMaxPrice = () => {
     if (!service.formulas || service.formulas.length === 0) return null;
     const lastFormula = service.formulas[service.formulas.length - 1];
-    if (!lastFormula.price) return null;
-
-    const priceValue = lastFormula.price.classe3 ||
-                       lastFormula.price.U ||
-                       lastFormula.price.kingsize ||
-                       lastFormula.price.classe1;
-
-    return priceValue ? parseInt(priceValue.replace('€', '')) : null;
+    const prices = extractAllPriceNumbers(lastFormula);
+    if (prices.length === 0) return null;
+    return Math.max(...prices);
   };
 
   const minPrice = getMinPrice();

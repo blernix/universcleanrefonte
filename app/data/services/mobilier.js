@@ -41,7 +41,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
       {
         name: 'Nettoyage Standard',
         price: {
-          '1places': '59€',
+          'fauteuil': '59€',
           '2-3places': '79€',
           '3-4places': '109€',
           'angle': '119€',
@@ -110,9 +110,9 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
       {
         name: 'Nettoyage Standard',
         price: {
-          'enfant': '50€',
-          '1place': '60€',
-          '2places': '80€'
+           'enfant': '49€',
+           '1place': '59€',
+           '2places': '79€'
         },
         duration: {
           'enfant': '30 min',
@@ -151,7 +151,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
 
 // Tailles de canapé pour formulaire
 export const canapeTypes = [
-  { value: '1places', label: 'Canapé 1 place' },
+  { value: 'fauteuil', label: 'fauteuil' },
   { value: '2-3places', label: 'Canapé 2/3 places' },
   { value: '3-4places', label: 'Canapé 3/4 places' },
   { value: 'angle', label: 'Forme d\'angle' },

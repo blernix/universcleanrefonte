@@ -1,7 +1,8 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp, Info } from 'lucide-react';
 import { useState } from 'react';
+import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
 
 export default function ServiceFormulas({
   service,
@@ -147,7 +148,7 @@ export default function ServiceFormulas({
           {isCanape && (
             <div className="!mt-10 flex justify-center gap-5 flex-wrap">
               {[
-                { value: '1places', label: '1 place' },
+                { value: 'fauteuil', label: 'fauteuil' },
                 { value: '2-3places', label: '2-3 places' },
                 { value: '3-4places', label: '3-4 places' },
                 { value: 'angle', label: 'Angle' },
@@ -215,15 +216,55 @@ export default function ServiceFormulas({
                 <h3 className={`!text-3xl font-bold !mb-4 ${selectedFormula === index ? 'text-white' : 'text-blue-600'}`}>
                   {formula.name}
                 </h3>
-                <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
-                  {isAutomobile
-                    ? formula.price[selectedVehicleClass]
-                    : isCanape
-                      ? formula.price[selectedCanapeSize]
-                      : isMatelas
-                        ? formula.price[selectedMatelasSize]
-                        : formula.price?.classe1 || 'Sur devis'}
-                </p>
+                 {(isCanape || isMatelas) ? (
+                   <div className="flex flex-col items-center">
+                     {/* Prix barré (gris) */}
+                     <span className={`line-through !text-2xl ${
+                       selectedFormula === index ? 'text-blue-200' : 'text-gray-400'
+                     }`}>
+                       {isCanape
+                         ? formula.price[selectedCanapeSize]
+                         : formula.price[selectedMatelasSize]}
+                     </span>
+                     
+                     {/* Prix réduit avec info-bulle */}
+                     <div className="relative group inline-block">
+                       <span className={`!text-4xl font-extrabold ${
+                         selectedFormula === index ? 'text-white' : 'text-blue-600'
+                       }`}>
+                         {(() => {
+                           const basePrice = isCanape
+                             ? formula.price[selectedCanapeSize]
+                             : formula.price[selectedMatelasSize];
+                           const { discounted } = calculateDiscountedPrice(basePrice);
+                           return discounted;
+                         })()}
+                       </span>
+                       
+                        {/* Icône info avec tooltip */}
+                        <div className="absolute -top-1 -right-5 p-1 text-gray-400 opacity-80 hover:opacity-100 transition-opacity cursor-help z-10 rounded-full hover:bg-gray-100/30 group/tooltip" title="Prix après crédit d'impôt de 50%">
+                          <Info size={14} />
+                          <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 whitespace-nowrap z-20">
+                            Prix après crédit d'impôt de 50%
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                          </div>
+                        </div>
+                     </div>
+                     
+                     {/* Légende discrète */}
+                     <p className={`!text-xs !mt-2 ${
+                       selectedFormula === index ? 'text-blue-100' : 'text-gray-500'
+                     }`}>
+                       après réduction
+                     </p>
+                   </div>
+                 ) : (
+                   <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
+                     {isAutomobile
+                       ? formula.price[selectedVehicleClass]
+                       : formula.price?.classe1 || 'Sur devis'}
+                   </p>
+                 )}
                 <p className={`!text-sm !mt-4 ${selectedFormula === index ? 'text-blue-100' : 'text-gray-500'}`}>
                   {formula.description}
                 </p>
