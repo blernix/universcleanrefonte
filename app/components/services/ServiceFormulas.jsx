@@ -1,7 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown, ChevronUp, Info } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
 
 export default function ServiceFormulas({
@@ -22,6 +22,18 @@ export default function ServiceFormulas({
 }) {
   // État pour gérer l'expansion de chaque carte
   const [expandedCards, setExpandedCards] = useState({});
+  // État pour gérer la visibilité des tooltips (mobile) - index du tooltip visible ou null
+  const [visibleTooltipIndex, setVisibleTooltipIndex] = useState(null);
+  // État pour détecter si on est sur mobile
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Détection mobile côté client seulement
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const toggleCardExpansion = (index) => {
     setExpandedCards(prev => ({
@@ -29,6 +41,26 @@ export default function ServiceFormulas({
       [index]: !prev[index]
     }));
   };
+
+  const toggleTooltip = (index) => {
+    setVisibleTooltipIndex(prev => prev === index ? null : index);
+  };
+
+  // Fermer le tooltip quand on clique ailleurs (mobile seulement)
+  useEffect(() => {
+    if (!isMobile || visibleTooltipIndex === null) return;
+
+    const handleClickOutside = (event) => {
+      // Vérifier si le clic est sur une icône tooltip
+      const isTooltipClick = event.target.closest('[data-tooltip-icon]');
+      if (!isTooltipClick) {
+        setVisibleTooltipIndex(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile, visibleTooltipIndex]);
   // Si pas de formules, afficher la version simple avec tarifs
   if (!hasFormulas) {
     return (
@@ -241,14 +273,30 @@ export default function ServiceFormulas({
                          })()}
                        </span>
                        
-                        {/* Icône info avec tooltip */}
-                        <div className="absolute -top-1 -right-5 p-1 text-gray-400 opacity-80 hover:opacity-100 transition-opacity cursor-help z-10 rounded-full hover:bg-gray-100/30 group/tooltip" title="Prix après crédit d'impôt de 50%">
-                          <Info size={14} />
-                          <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 whitespace-nowrap z-20">
-                            Prix après crédit d'impôt de 50%
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                         {/* Icône info avec tooltip */}
+                          <div 
+                            className={`absolute -top-1 -right-5 p-1 text-gray-400 opacity-80 hover:opacity-100 transition-opacity cursor-help z-10 rounded-full hover:bg-gray-100/30 ${isMobile ? '' : 'group/tooltip'}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (isMobile) toggleTooltip(index);
+                            }}
+                            aria-label="Informations sur le prix"
+                            role="button"
+                            tabIndex={0}
+                            data-tooltip-icon
+                          >
+                            <Info size={14} />
+                            <div 
+                              className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded whitespace-nowrap z-20 transition-all duration-200 ${
+                                isMobile 
+                                  ? (visibleTooltipIndex === index ? 'opacity-100 visible' : 'opacity-0 invisible')
+                                  : 'opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible'
+                              }`}
+                            >
+                              Prix après crédit d'impôt de 50%
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                            </div>
                           </div>
-                        </div>
                      </div>
                      
                      {/* Légende discrète */}
