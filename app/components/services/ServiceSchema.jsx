@@ -2,7 +2,7 @@
 // Optimisé pour le SEO et les rich snippets Google
 import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
 
-export default function ServiceSchema({ service }) {
+export default function ServiceSchema({ service, ville }) {
   // Fonction pour extraire tous les prix numériques d'une formule (après réduction si applicable)
   const extractAllPriceNumbers = (formula) => {
     if (!formula.price) return [];
@@ -51,12 +51,20 @@ export default function ServiceSchema({ service }) {
   const maxPrice = getMaxPrice();
 
   // 1. Schema Service
+  const serviceName = ville ? `${service.title} à ${ville.nom}` : service.title;
+  const serviceDescription = ville
+    ? `${service.description} Intervention à ${ville.nom} (${ville.codePostal}) et ses environs. ${ville.description}`
+    : service.description;
+  const serviceUrl = ville
+    ? `https://univers-clean77.fr/services/${service.slug}/${ville.slug}`
+    : `https://univers-clean77.fr/services/${service.slug}`;
+
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `https://univers-clean77.fr/services/${service.slug}#service`,
-    name: service.title,
-    description: service.description,
+    '@id': `${serviceUrl}#service`,
+    name: serviceName,
+    description: serviceDescription,
     image: `https://univers-clean77.fr${service.heroImage}`,
     provider: {
       '@type': 'LocalBusiness',
@@ -95,18 +103,25 @@ export default function ServiceSchema({ service }) {
         }
       ],
       priceRange: minPrice && maxPrice ? `${minPrice}€ - ${maxPrice}€` : 'Sur devis',
-      areaServed: {
+      areaServed: ville ? {
+        '@type': 'City',
+        name: ville.nom,
+        sameAs: `https://fr.wikipedia.org/wiki/${encodeURIComponent(ville.nom.replaceAll(' ', '_'))}`
+      } : {
         '@type': 'GeoCircle',
         geoMidpoint: {
           '@type': 'GeoCoordinates',
           latitude: 48.348611,
           longitude: 2.674722
         },
-        geoRadius: '30000' // 30km en mètres
+        geoRadius: '30000'
       }
     },
     serviceType: service.category === 'automobile' ? 'Nettoyage Automobile' : 'Nettoyage Mobilier',
-    areaServed: {
+    areaServed: ville ? {
+      '@type': 'City',
+      name: ville.nom
+    } : {
       '@type': 'GeoCircle',
       geoMidpoint: {
         '@type': 'GeoCoordinates',
@@ -121,7 +136,7 @@ export default function ServiceSchema({ service }) {
       highPrice: maxPrice,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      url: `https://univers-clean77.fr/services/${service.slug}`,
+      url: serviceUrl,
       priceSpecification: service.formulas?.map((formula) => ({
         '@type': 'UnitPriceSpecification',
         name: formula.name,
@@ -133,7 +148,7 @@ export default function ServiceSchema({ service }) {
       price: 'Sur devis',
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      url: `https://univers-clean77.fr/services/${service.slug}`
+      url: serviceUrl
     }
   };
 
@@ -141,7 +156,26 @@ export default function ServiceSchema({ service }) {
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [
+    itemListElement: ville ? [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Accueil',
+        item: 'https://univers-clean77.fr'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: service.title,
+        item: `https://univers-clean77.fr/services/${service.slug}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: ville.nom,
+        item: `https://univers-clean77.fr/services/${service.slug}/${ville.slug}`
+      }
+    ] : [
       {
         '@type': 'ListItem',
         position: 1,

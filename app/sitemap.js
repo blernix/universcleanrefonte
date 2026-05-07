@@ -1,9 +1,9 @@
 // Génération automatique du sitemap pour le SEO
 // Ce fichier est lu par Next.js et génère automatiquement sitemap.xml
 
-import { servicesData } from '@/app/data/services';
+import { servicesData, mobilierServices } from '@/app/data/services';
+import { villes } from '@/app/data/villes';
 
-// Configuration pour l'export statique
 export const dynamic = 'force-static';
 export const revalidate = false;
 
@@ -11,37 +11,35 @@ export default function sitemap() {
   const baseUrl = 'https://univers-clean77.fr';
   const lastModifiedDate = new Date().toISOString();
 
-  // Pages statiques
   const staticPages = [
     {
       url: baseUrl,
       lastModified: lastModifiedDate,
       changeFrequency: 'monthly',
-      priority: 1.0, // Page d'accueil = priorité maximale
+      priority: 1.0,
     },
-    // Pages légales à ajouter quand elles seront créées
-    // {
-    //   url: `${baseUrl}/mentions-legales`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'yearly',
-    //   priority: 0.3,
-    // },
-    // {
-    //   url: `${baseUrl}/politique-confidentialite`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'yearly',
-    //   priority: 0.3,
-    // },
   ];
 
-  // Pages services (générées dynamiquement depuis les données)
+  // Pages services principales (tous les services)
   const servicePages = servicesData.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: lastModifiedDate,
     changeFrequency: 'monthly',
-    priority: 0.8, // Pages services = haute priorité
+    priority: 0.8,
   }));
 
-  // Combiner toutes les pages
-  return [...staticPages, ...servicePages];
+  // Pages services par ville
+  const cityPages = [];
+  for (const service of mobilierServices) {
+    for (const ville of villes) {
+      cityPages.push({
+        url: `${baseUrl}/services/${service.slug}/${ville.slug}`,
+        lastModified: lastModifiedDate,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      });
+    }
+  }
+
+  return [...staticPages, ...servicePages, ...cityPages];
 }

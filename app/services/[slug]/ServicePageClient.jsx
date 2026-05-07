@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { notFound } from 'next/navigation';
+import { MapPin, Sparkles, BadgeCheck } from 'lucide-react';
 import Modal from '@/app/components/Modal';
 import ContactForm from '@/app/components/ContactForm';
 import Header from '@/app/components/layout/Header';
@@ -21,8 +22,9 @@ import ServiceTestimonials from '@/app/components/services/ServiceTestimonials';
 import ServiceCTA from '@/app/components/services/ServiceCTA';
 import ServiceSchema from '@/app/components/services/ServiceSchema';
 import BeforeAfterSlider from '@/app/components/services/BeforeAfterSlider';
+import ZoneIntervention from '@/app/components/services/ZoneIntervention';
 
-export default function ServicePageClient({ service }) {
+export default function ServicePageClient({ service, ville }) {
   if (!service) notFound();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,6 +42,7 @@ export default function ServicePageClient({ service }) {
   const isAutomobile = service.category === 'automobile';
   const isCanape = service.slug === 'nettoyage-canape';
   const isMatelas = service.slug === 'nettoyage-matelas';
+  const isMobilier = service.category === 'mobilier';
   const hasFormulas = service.formulas && service.formulas.length > 0;
   const isInteriorOrExterior = service.slug === 'nettoyage-voiture-interieur' || service.slug === 'nettoyage-voiture-exterieur';
 
@@ -73,7 +76,7 @@ export default function ServicePageClient({ service }) {
   return (
     <>
       {/* Schema.org JSON-LD for SEO */}
-      <ServiceSchema service={service} />
+      <ServiceSchema service={service} ville={ville} />
 
       <Header onOpenModal={() => setIsModalOpen(true)} onOpenRedirectModal={() => setShowRedirectModal(true)} />
 
@@ -84,9 +87,45 @@ export default function ServicePageClient({ service }) {
           isAutomobile={isAutomobile}
           hasFormulas={hasFormulas}
           onOpenModal={() => setIsModalOpen(true)}
+          ville={ville}
         />
 
-        <SectionSeparator variant="light" />
+        {/* Bloc spécifique à la ville (SEO local) */}
+        {ville && (
+          <>
+            <section className="py-10 bg-white" aria-label={`Informations locales - ${ville.nom}`}>
+              <div className="container mx-auto px-4 max-w-7xl">
+                <div className="bg-gradient-to-r from-blue-50 via-white to-blue-50 border border-blue-100 rounded-2xl p-8 md:p-10">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mt-1">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                        {service.title} à {ville.nom}
+                      </h2>
+                      <p className="text-gray-700 text-lg leading-relaxed max-w-4xl">
+                        {ville.description}
+                      </p>
+                      <div className="flex flex-wrap gap-3 mt-5">
+                        <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-50 border border-green-200 text-green-700 rounded-full text-sm font-medium">
+                          <BadgeCheck className="w-4 h-4" />
+                          Déplacement offert — {ville.nom} ({ville.codePostal})
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-700 rounded-full text-sm font-medium">
+                          <Sparkles className="w-4 h-4" />
+                          Intervention sous 48h
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <SectionSeparator variant="light" />
+          </>
+        )}
 
         {/* Formulas Introduction */}
       
@@ -172,6 +211,17 @@ export default function ServicePageClient({ service }) {
                 </div>
               </div>
             </section>
+          </>
+        )}
+
+        {/* Zone d'intervention - toutes les pages mobilier */}
+        {isMobilier && (
+          <>
+            <SectionSeparator variant="light" />
+            <ZoneIntervention
+              serviceSlug={service.slug}
+              currentVilleSlug={ville?.slug || null}
+            />
           </>
         )}
 

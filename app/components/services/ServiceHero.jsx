@@ -4,7 +4,7 @@ import { Sparkles, Truck, MessageSquare, Phone, ArrowRight, Star } from 'lucide-
 import Image from 'next/image';
 import SectionSeparator from '@/app/components/SectionSeparator';
 
-export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpenModal }) {
+export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpenModal, ville }) {
   // Calculer le prix minimum dynamiquement
   const getMinPrice = () => {
     if (!service.formulas || service.formulas.length === 0) return null;
@@ -58,7 +58,12 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
             {/* Titre */}
             <h1 className="!text-4xl sm:!text-5xl md:!text-6xl lg:!text-7xl !font-black !leading-[1.1] !tracking-tight !text-gray-900">
               {service.heroTitle || service.title}
-              {service.heroSubtitle && (
+              {ville && (
+                <span className="!block !text-blue-600 !text-3xl sm:!text-4xl md:!text-5xl !mt-3 !font-black !leading-tight">
+                  à {ville.nom}
+                </span>
+              )}
+              {service.heroSubtitle && !ville && (
                 <span className="!block !text-gray-600 !text-2xl sm:!text-3xl md:!text-4xl !mt-4 !font-bold !leading-tight">
                   {service.heroSubtitle}
                 </span>
