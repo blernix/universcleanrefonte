@@ -66,7 +66,7 @@ export default function ServiceProcess({ process }) {
           transition={{ duration: 0.6 }}
         >
           <h2 className="!text-4xl md:!text-5xl !font-bold !text-gray-900 !mb-6 !text-center">
-            Notre Processus en {process.length} Étapes
+            Notre Processus
           </h2>
           <p className="!text-xl !text-gray-600 !mb-20 !text-center !max-w-3xl !mx-auto">
             Profitez d'un service professionnel sans quitter le confort de votre maison.
@@ -139,11 +139,6 @@ export default function ServiceProcess({ process }) {
                   {step.desc}
                 </p>
               </motion.div>
-
-              {/* Badge "Étape" en coin */}
-              <div className="!absolute !top-4 !right-4 !bg-blue-100 !text-blue-600 !text-xs !font-semibold !px-3 !py-1 !rounded-full !uppercase !tracking-wider">
-                Étape {step.step}
-              </div>
 
               {/* Effet de brillance au hover */}
               <div className="!absolute !inset-0 !bg-gradient-to-br !from-blue-400/0 !via-purple-400/0 !to-blue-400/0 group-hover:!from-blue-400/5 group-hover:!via-purple-400/5 group-hover:!to-blue-400/5 !rounded-3xl !transition-all !duration-500" />

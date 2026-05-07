@@ -122,14 +122,9 @@ export default function ServiceFormulasIntro({ formulasDescription, title, servi
                   viewport={{ once: true }}
                   className="bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all hover:border-blue-300"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm mt-1">
-                      {actualIndex}
-                    </div>
-                    <p className="text-base md:text-lg text-gray-700 leading-relaxed flex-1">
-                      {paragraph}
-                    </p>
-                  </div>
+                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                    {paragraph}
+                  </p>
                 </motion.div>
               );
             })}
@@ -188,20 +183,13 @@ export default function ServiceFormulasIntro({ formulasDescription, title, servi
                       : "bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all hover:border-blue-300"
                   }
                 >
-                  <div className="flex items-start gap-4">
-                    {!isFirstParagraph && (
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm mt-1">
-                        {index}
-                      </div>
-                    )}
-                    <p className={
-                      isFirstParagraph
-                        ? "text-lg md:text-xl text-white leading-relaxed font-medium"
-                        : "text-base md:text-lg text-gray-700 leading-relaxed flex-1"
-                    }>
-                      {paragraph}
-                    </p>
-                  </div>
+                  <p className={
+                    isFirstParagraph
+                      ? "text-lg md:text-xl text-white leading-relaxed font-medium"
+                      : "text-base md:text-lg text-gray-700 leading-relaxed"
+                  }>
+                    {paragraph}
+                  </p>
                 </motion.div>
               );
             })}
