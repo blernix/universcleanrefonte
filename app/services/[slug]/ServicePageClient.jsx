@@ -32,7 +32,7 @@ export default function ServicePageClient({ service, ville }) {
   const [selectedFormula, setSelectedFormula] = useState(service.formulas ? 0 : null);
   const [selectedVehicleClass, setSelectedVehicleClass] = useState('classe1');
   const [selectedCanapeSize, setSelectedCanapeSize] = useState('fauteuil');
-  const [selectedMatelasSize, setSelectedMatelasSize] = useState('enfant');
+  const [selectedMatelasSize, setSelectedMatelasSize] = useState('1place');
 
   const handleRedirectToBooking = () => {
     setShowRedirectModal(false);

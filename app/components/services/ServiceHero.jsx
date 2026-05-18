@@ -71,8 +71,8 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
             </h1>
 
             {/* Description */}
-            <p className="!text-base sm:!text-lg md:!text-xl !text-gray-600 !max-w-2xl !leading-relaxed !mx-auto lg:!mx-0">
-              {service.description || service.shortDescription}
+            <p className="!text-base sm:!text-lg md:!text-xl !text-gray-600 !max-w-2xl !leading-relaxed !mx-auto lg:!mx-0 whitespace-pre-line">
+              {service.heroDescription || service.description || service.shortDescription}
             </p>
 
             {/* Info formules - Afficher uniquement s'il y a plus d'une formule */}

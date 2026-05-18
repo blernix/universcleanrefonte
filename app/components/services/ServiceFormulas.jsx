@@ -1,8 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown, ChevronUp, Info } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
-import { calculateDiscountedPrice } from '@/app/utils/priceCalculations';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 export default function ServiceFormulas({
   service,
@@ -22,45 +21,14 @@ export default function ServiceFormulas({
 }) {
   // État pour gérer l'expansion de chaque carte
   const [expandedCards, setExpandedCards] = useState({});
-  // État pour gérer la visibilité des tooltips (mobile) - index du tooltip visible ou null
-  const [visibleTooltipIndex, setVisibleTooltipIndex] = useState(null);
-  // État pour détecter si on est sur mobile
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Détection mobile côté client seulement
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const toggleCardExpansion = (index) => {
     setExpandedCards(prev => ({
       ...prev,
-      [index]: !prev[index]
+    [index]: !prev[index]
     }));
   };
 
-  const toggleTooltip = (index) => {
-    setVisibleTooltipIndex(prev => prev === index ? null : index);
-  };
-
-  // Fermer le tooltip quand on clique ailleurs (mobile seulement)
-  useEffect(() => {
-    if (!isMobile || visibleTooltipIndex === null) return;
-
-    const handleClickOutside = (event) => {
-      // Vérifier si le clic est sur une icône tooltip
-      const isTooltipClick = event.target.closest('[data-tooltip-icon]');
-      if (!isTooltipClick) {
-        setVisibleTooltipIndex(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMobile, visibleTooltipIndex]);
   // Si pas de formules, afficher la version simple avec tarifs
   if (!hasFormulas) {
     return (
@@ -182,8 +150,7 @@ export default function ServiceFormulas({
               {[
                 { value: 'fauteuil', label: 'fauteuil' },
                 { value: '2-3places', label: '2-3 places' },
-                { value: '3-4places', label: '3-4 places' },
-                { value: 'angle', label: 'Angle' },
+                { value: '4-5places', label: '4-5 places' },
                 { value: 'U', label: 'Forme U' }
               ].map((canapeSize) => (
                 <button
@@ -204,9 +171,10 @@ export default function ServiceFormulas({
           {isMatelas && (
             <div className="!mt-10 flex justify-center gap-5 flex-wrap">
               {[
-                { value: 'enfant', label: 'Matelas enfant' },
                 { value: '1place', label: 'Matelas 1 place' },
-                { value: '2places', label: 'Matelas 2 places' }
+                { value: '2places-140', label: 'Matelas 2 places (140)' },
+                { value: '2places-160', label: 'Matelas 2 places (160)' },
+                { value: '2places-180', label: 'Matelas 2 places (180)' }
               ].map((matelasSize) => (
                 <button
                   key={matelasSize.value}
@@ -249,63 +217,11 @@ export default function ServiceFormulas({
                   {formula.name}
                 </h3>
                  {(isCanape || isMatelas) ? (
-                   <div className="flex flex-col items-center">
-                     {/* Prix barré (gris) */}
-                     <span className={`line-through !text-2xl ${
-                       selectedFormula === index ? 'text-blue-200' : 'text-gray-400'
-                     }`}>
-                       {isCanape
-                         ? formula.price[selectedCanapeSize]
-                         : formula.price[selectedMatelasSize]}
-                     </span>
-                     
-                     {/* Prix réduit avec info-bulle */}
-                     <div className="relative group inline-block">
-                       <span className={`!text-4xl font-extrabold ${
-                         selectedFormula === index ? 'text-white' : 'text-blue-600'
-                       }`}>
-                         {(() => {
-                           const basePrice = isCanape
-                             ? formula.price[selectedCanapeSize]
-                             : formula.price[selectedMatelasSize];
-                           const { discounted } = calculateDiscountedPrice(basePrice);
-                           return discounted;
-                         })()}
-                       </span>
-                       
-                         {/* Icône info avec tooltip */}
-                          <div 
-                            className={`absolute -top-1 -right-5 p-1 text-gray-400 opacity-80 hover:opacity-100 transition-opacity cursor-help z-10 rounded-full hover:bg-gray-100/30 ${isMobile ? '' : 'group/tooltip'}`}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (isMobile) toggleTooltip(index);
-                            }}
-                            aria-label="Informations sur le prix"
-                            role="button"
-                            tabIndex={0}
-                            data-tooltip-icon
-                          >
-                            <Info size={14} />
-                            <div 
-                              className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs text-white bg-gray-800 rounded whitespace-nowrap z-20 transition-all duration-200 ${
-                                isMobile 
-                                  ? (visibleTooltipIndex === index ? 'opacity-100 visible' : 'opacity-0 invisible')
-                                  : 'opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible'
-                              }`}
-                            >
-                              Prix après crédit d'impôt de 50%
-                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
-                            </div>
-                          </div>
-                     </div>
-                     
-                     {/* Légende discrète */}
-                     <p className={`!text-xs !mt-2 ${
-                       selectedFormula === index ? 'text-blue-100' : 'text-gray-500'
-                     }`}>
-                       après réduction
-                     </p>
-                   </div>
+                   <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
+                     {isCanape
+                       ? formula.price[selectedCanapeSize]
+                       : formula.price[selectedMatelasSize]}
+                   </p>
                  ) : (
                    <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
                      {isAutomobile

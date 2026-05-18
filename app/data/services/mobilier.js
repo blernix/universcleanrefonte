@@ -13,7 +13,12 @@ export const mobilierServices = [
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
     category: 'mobilier',
     description: 'Nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Élimination des taches, ravivage des couleurs, neutralisation des odeurs et réduction des allergènes.',
-    formulasDescription: `Redonnez vie à vos textiles d'intérieur grâce à un nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Nos prestations sont spécialement conçues pour éliminer les taches, raviver les couleurs, neutraliser les mauvaises odeurs et réduire les allergènes accumulés dans vos tissus.
+    heroDescription: `Votre chat a fait pipi sur le canapé ? Vos enfants ont fait des dégâts ? Votre canapé est taché ?
+
+Pas d'inquiétudes, votre canapé n'est pas bon pour la déchetterie. Eh oui ! Même les canapés peuvent être nettoyés. Univers Clean est une société de nettoyage à La Genevraye, à seulement 10 minutes de Fontainebleau, qui propose le nettoyage de canapé à domicile dans tout le département de la Seine-et-Marne (77).
+
+Débarrassez-vous des tâches et mauvaises odeurs sur votre canapé.`,
+    formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre canapé. Fauteuil, canapé d'angle, sofa, en tissus ou bien en cuir, confiez le nettoyage de votre canapé à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
 
 Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
 
@@ -41,11 +46,10 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
       {
         name: 'Nettoyage Standard',
         price: {
-          'fauteuil': '59€',
-          '2-3places': '79€',
-          '3-4places': '109€',
-          'angle': '119€',
-          'U': '139€'
+          'fauteuil': '60€',
+          '2-3places': '70€',
+          '4-5places': '80€',
+          'U': '90€'
         },
         description: 'Nettoyage complet de votre canapé avec injection-extraction professionnelle.',
         benefits: [
@@ -87,7 +91,12 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
     description: 'Nettoyage en profondeur de votre matelas pour un sommeil sain et réparateur. Traitement professionnel contre acariens, allergènes et taches organiques.',
-    formulasDescription: `Redonnez vie à vos textiles d'intérieur grâce à un nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Nos prestations sont spécialement conçues pour éliminer les taches, raviver les couleurs, neutraliser les mauvaises odeurs et réduire les allergènes accumulés dans vos tissus.
+    heroDescription: `Entreprise de nettoyage matelas à La Genevraye. Votre enfant a fait pipi au lit ? Pipi de chien ou de chat ? Taches de transpirations ? Allergie aux acariens ?
+
+Nettoyez votre matelas et dormez sur un matelas propre sans odeur, tâches ou acariens. Nous intervenons directement à votre domicile pour le nettoyage et la désinfection de votre matelas.
+
+Nous réalisons nos prestations de nettoyages matelas à La Genevraye et dans toute la Seine-et-Marne (77) à l'aide d'une machine à injection-extraction professionnelle et des produits nettoyants éco-responsables.`,
+    formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre matelas 1 place ou king size, confiez le nettoyage de votre matelas à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
 
 Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
 
@@ -110,14 +119,10 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
       {
         name: 'Nettoyage Standard',
         price: {
-           'enfant': '49€',
-           '1place': '59€',
-           '2places': '79€'
-        },
-        duration: {
-          'enfant': '30 min',
-          '1place': '45 min',
-          '2places': '60 min'
+           '1place': '60€',
+           '2places-140': '70€',
+           '2places-160': '80€',
+           '2places-180': '90€'
         },
         description: 'Nettoyage complet de votre matelas avec traitement anti-acariens.',
         benefits: [
@@ -153,15 +158,15 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
 export const canapeTypes = [
   { value: 'fauteuil', label: 'fauteuil' },
   { value: '2-3places', label: 'Canapé 2/3 places' },
-  { value: '3-4places', label: 'Canapé 3/4 places' },
-  { value: 'angle', label: 'Forme d\'angle' },
+  { value: '4-5places', label: 'Canapé 4/5 places' },
   { value: 'U', label: 'Forme de U' },
   { value: 'autre', label: 'Autre (à préciser)' }
 ];
 
 // Tailles de matelas pour formulaire
 export const matelasSizes = [
-  { value: 'enfant', label: 'Matelas enfant' },
   { value: '1place', label: 'Matelas 1 place' },
-  { value: '2places', label: 'Matelas 2 places' }
+  { value: '2places-140', label: 'Matelas 2 places (140)' },
+  { value: '2places-160', label: 'Matelas 2 places (160)' },
+  { value: '2places-180', label: 'Matelas 2 places (180)' }
 ];
