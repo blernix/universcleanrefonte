@@ -23,6 +23,7 @@ import ServiceCTA from '@/app/components/services/ServiceCTA';
 import ServiceSchema from '@/app/components/services/ServiceSchema';
 import BeforeAfterSlider from '@/app/components/services/BeforeAfterSlider';
 import ZoneIntervention from '@/app/components/services/ZoneIntervention';
+import { trackDevisClick } from '@/app/utils/umami';
 
 export default function ServicePageClient({ service, ville }) {
   if (!service) notFound();
@@ -33,6 +34,11 @@ export default function ServicePageClient({ service, ville }) {
   const [selectedVehicleClass, setSelectedVehicleClass] = useState('classe1');
   const [selectedCanapeSize, setSelectedCanapeSize] = useState('fauteuil');
   const [selectedMatelasSize, setSelectedMatelasSize] = useState('1place');
+
+  const handleOpenModal = () => {
+    trackDevisClick(service.slug, 'service');
+    setIsModalOpen(true);
+  };
 
   const handleRedirectToBooking = () => {
     setShowRedirectModal(false);
@@ -78,7 +84,7 @@ export default function ServicePageClient({ service, ville }) {
       {/* Schema.org JSON-LD for SEO */}
       <ServiceSchema service={service} ville={ville} />
 
-      <Header onOpenModal={() => setIsModalOpen(true)} onOpenRedirectModal={() => setShowRedirectModal(true)} />
+      <Header onOpenModal={handleOpenModal} onOpenRedirectModal={() => setShowRedirectModal(true)} />
 
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -86,7 +92,7 @@ export default function ServicePageClient({ service, ville }) {
           service={service}
           isAutomobile={isAutomobile}
           hasFormulas={hasFormulas}
-          onOpenModal={() => setIsModalOpen(true)}
+          onOpenModal={handleOpenModal}
           ville={ville}
         />
 
@@ -144,7 +150,7 @@ export default function ServicePageClient({ service, ville }) {
           setSelectedCanapeSize={setSelectedCanapeSize}
           selectedMatelasSize={selectedMatelasSize}
           setSelectedMatelasSize={setSelectedMatelasSize}
-          onOpenModal={() => setIsModalOpen(true)}
+          onOpenModal={handleOpenModal}
         />
 
         {/* Conversion Section (Interior/Exterior → Complete) */}
@@ -170,7 +176,7 @@ export default function ServicePageClient({ service, ville }) {
         {hasFormulas && service.formulas.length > 1 && (
           <>
             <SectionSeparator variant="reverseLight" />
-            <ServiceComparison service={service} onOpenModal={() => setIsModalOpen(true)} />
+            <ServiceComparison service={service} onOpenModal={handleOpenModal} />
           </>
         )}
 
@@ -238,7 +244,7 @@ export default function ServicePageClient({ service, ville }) {
         <SectionSeparator variant="blue" />
 
         {/* CTA Section */}
-        <ServiceCTA onOpenModal={() => setIsModalOpen(true)} />
+        <ServiceCTA onOpenModal={handleOpenModal} />
       </main>
 
       <Footer />

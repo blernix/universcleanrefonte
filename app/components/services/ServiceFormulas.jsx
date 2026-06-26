@@ -148,7 +148,7 @@ export default function ServiceFormulas({
           {isCanape && (
             <div className="!mt-10 flex justify-center gap-5 flex-wrap">
               {[
-                { value: 'fauteuil', label: 'fauteuil' },
+                { value: 'fauteuil', label: 'Fauteuil' },
                 { value: '2-3places', label: '2-3 places' },
                 { value: '4-5places', label: '4-5 places' },
                 { value: 'U', label: 'Forme U' }

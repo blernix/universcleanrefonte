@@ -38,6 +38,11 @@ export default function CTABanner({ onOpenModal }) {
 
             <a
               href="tel:+33782364263"
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.umami) {
+                  window.umami.track('click_telephone', { page: 'accueil' });
+                }
+              }}
               className="bg-blue-800/60 border border-white/20 text-white !px-10 !py-6 rounded-xl font-bold !text-xl shadow-lg hover:bg-blue-900/70 transition-all hover:scale-105 flex items-center gap-3"
             >
               <Phone className="w-6 h-6" />

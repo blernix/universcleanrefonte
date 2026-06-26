@@ -27,9 +27,7 @@ Des résultats visibles et durables :
 • Hygiène renforcée : poussières et allergènes sont éliminés.
 • Fraîcheur garantie : les mauvaises odeurs disparaissent.
 
-Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.
-
-Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et tapis retrouvent confort, éclat et hygiène.`,
+Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.`,
     beforeAfterImages: [
       {
         before: '/services/canape_bleu_avant.webp',
@@ -44,7 +42,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
     ],
     formulas: [
       {
-        name: 'Nettoyage Standard',
+        name: 'Nettoyage',
         price: {
           'fauteuil': '60€',
           '2-3places': '70€',
@@ -105,9 +103,7 @@ Des résultats visibles et durables :
 • Hygiène renforcée : poussières et allergènes sont éliminés.
 • Fraîcheur garantie : les mauvaises odeurs disparaissent.
 
-Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.
-
-Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et tapis retrouvent confort, éclat et hygiène.`,
+Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.`,
     beforeAfterImages: [
       {
         before: '/services/matelas_avant.webp',
@@ -117,7 +113,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
     ],
     formulas: [
       {
-        name: 'Nettoyage Standard',
+        name: 'Nettoyage',
         price: {
            '1place': '60€',
            '2places-140': '70€',
@@ -156,7 +152,7 @@ Avec notre service de nettoyage, vos canapés, matelas, fauteuils, chaises et ta
 
 // Tailles de canapé pour formulaire
 export const canapeTypes = [
-  { value: 'fauteuil', label: 'fauteuil' },
+  { value: 'fauteuil', label: 'Fauteuil' },
   { value: '2-3places', label: 'Canapé 2/3 places' },
   { value: '4-5places', label: 'Canapé 4/5 places' },
   { value: 'U', label: 'Forme de U' },

@@ -17,6 +17,7 @@ import SectionSeparator from './components/SectionSeparator';
 import PopupPromo from './components/PopupPromo';
 import SkipLinks from './components/SkipLinks';
 import RedirectConfirmModal from './components/RedirectConfirmModal';
+import { trackDevisClick } from './utils/umami';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,6 +38,7 @@ export default function HomePage() {
   }, []);
 
   const handleOpenModal = (serviceSlug = 'general') => {
+    trackDevisClick(serviceSlug, 'accueil');
     setSelectedService(serviceSlug);
     setIsModalOpen(true);
   };

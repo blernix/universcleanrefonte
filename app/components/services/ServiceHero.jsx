@@ -141,6 +141,11 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
 
               <motion.a
                 href="tel:+33782364263"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.umami) {
+                    window.umami.track('click_telephone', { page: 'service', service: service.slug });
+                  }
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="!inline-flex !items-center !justify-center !gap-2 !bg-white !border-2 !border-gray-300 !text-gray-700 !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-md hover:!border-blue-600 hover:!text-blue-600 hover:!shadow-lg !transition-all !duration-300"
@@ -206,6 +211,11 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
 
               <motion.a
                 href="tel:+33782364263"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.umami) {
+                    window.umami.track('click_telephone', { page: 'service', service: service.slug });
+                  }
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="!inline-flex !items-center !justify-center !gap-2 !bg-white !border-2 !border-gray-300 !text-gray-700 !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-md hover:!border-blue-600 hover:!text-blue-600 hover:!shadow-lg !transition-all !duration-300"

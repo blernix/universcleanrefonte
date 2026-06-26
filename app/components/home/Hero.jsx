@@ -259,6 +259,11 @@ const DesktopHero = ({
 
             <a
               href="tel:+33782364263"
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.umami) {
+                  window.umami.track('click_telephone', { page: 'accueil' });
+                }
+              }}
               className="bg-white text-blue-600 border-2 border-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               📞 Appeler maintenant

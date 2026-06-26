@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackContactClick } from "@/app/utils/umami";
 
 export default function PopupPromo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -165,6 +166,7 @@ export default function PopupPromo() {
                 <button
                   onClick={() => {
                     closePopup();
+                    trackContactClick('popup_promo');
                     setTimeout(() => {
                       const contactSection = document.getElementById("contact");
                       contactSection?.scrollIntoView({ behavior: "smooth" });
