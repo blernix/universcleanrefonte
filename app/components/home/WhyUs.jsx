@@ -1,28 +1,23 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Sparkles, Award, Users, Leaf } from 'lucide-react';
+import { Sparkles, Shield, Leaf } from 'lucide-react';
 
 export default function WhyUs() {
   const benefits = [
     {
-      icon: <Award className="w-12 h-12 text-blue-600" />,
-      title: 'Plus de 10 ans d\'expérience',
-      description: 'Formé dans les grandes concessions. Plus de 10 ans d\'expérience terrain.'
-    },
-    {
       icon: <Sparkles className="w-12 h-12 text-blue-600" />,
-      title: 'Produits professionnels haut de gamme',
-      description: 'Produits textiles professionnels haut de gamme. Jamais mélangés, adaptés à chaque surface.'
+      title: 'Propreté',
+      description: 'Un travail soigné et minutieux pour un résultat impeccable. Chaque surface retrouve son éclat d\'origine grâce à nos méthodes professionnelles.'
     },
     {
-      icon: <Users className="w-12 h-12 text-blue-600" />,
-      title: 'Tous les clients sont les bienvenus',
-      description: 'Du petit studio au grand appartement, chaque client mérite la même exigence.'
+      icon: <Shield className="w-12 h-12 text-blue-600" />,
+      title: 'Confiance',
+      description: 'Fiabilité, ponctualité et professionnalisme sont nos engagements. Vous nous confiez vos espaces, nous les traitons avec le plus grand soin.'
     },
     {
       icon: <Leaf className="w-12 h-12 text-blue-600" />,
-      title: 'Respect de l\'environnement',
-      description: 'Produits respectueux des matériaux et de la planète. Sans danger pour enfants et animaux.'
+      title: 'Respect',
+      description: 'Des produits d\'entretien écoresponsables, sans danger pour vos enfants, vos animaux et l\'environnement. Propre aujourd\'hui, responsable demain.'
     }
   ];
 
@@ -44,7 +39,7 @@ export default function WhyUs() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}

@@ -121,11 +121,11 @@ export default function ServicePageClient({ service, ville }) {
           onOpenModal={handleOpenModal}
         />
 
-          <ServiceFormulasIntro
+          {/* <ServiceFormulasIntro
           formulasDescription={service.formulasDescription}
           title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}
           serviceSlug={service.slug}
-        />
+        /> */}
 
 
         {/* Comparison Section (si plusieurs formules) */}

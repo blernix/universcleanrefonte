@@ -34,7 +34,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* Valeurs */}
+        {/* Valeurs *
         <div className="grid md:grid-cols-3 gap-10 !pb-8">
           {aboutContent.values.map((value, index) => {
             const Icon = icons[value.icon];
@@ -47,7 +47,6 @@ export default function About() {
                 transition={{ delay: index * 0.15 }}
                 className="relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300"
               >
-                {/* Halo animé */}
                 <motion.div
                   className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-100/40 to-blue-50/20 opacity-0 hover:opacity-100 blur-xl transition-opacity"
                   animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -67,7 +66,7 @@ export default function About() {
               </motion.div>
             );
           })}
-        </div>
+        </div>*/}
       </div>
     </section>
   );

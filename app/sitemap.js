@@ -10,7 +10,7 @@ export default function sitemap() {
 
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: lastModifiedDate,
       changeFrequency: 'monthly',
       priority: 1.0,
@@ -18,7 +18,7 @@ export default function sitemap() {
   ];
 
   const servicePages = servicesData.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
+    url: `${baseUrl}/services/${service.slug}/`,
     lastModified: lastModifiedDate,
     changeFrequency: 'monthly',
     priority: 0.8,
@@ -28,7 +28,7 @@ export default function sitemap() {
   for (const service of mobilierServices) {
     for (const ville of villes) {
       cityPages.push({
-        url: `${baseUrl}/services/${service.slug}/${ville.slug}`,
+        url: `${baseUrl}/services/${service.slug}/${ville.slug}/`,
         lastModified: lastModifiedDate,
         changeFrequency: 'monthly',
         priority: 0.6,

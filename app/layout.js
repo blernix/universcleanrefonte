@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothAnchor from "./components/SmoothAnchor";
+import MobileCTA from "./components/MobileCTA";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -195,7 +196,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script defer src="https://analytique.killian-lecrut.com/script.js" data-website-id="d9a4e583-eb61-4adb-a1a6-76515639e6b6"></script>
         <script defer src="https://analytique.killian-lecrut.com/recorder.js" data-website-id="d9a4e583-eb61-4adb-a1a6-76515639e6b6" data-sample-rate="1" data-mask-level="moderate" data-max-duration="300000"></script>
       </head>
-      <body className={`${inter.variable} antialiased bg-white text-gray-900`}>
+      <body className={`${inter.variable} antialiased bg-white text-gray-900 pb-20 lg:pb-0`}>
         {/* Noscript pour Facebook (optionnel mais recommandé) */}
         <noscript>
           <img 
@@ -223,6 +224,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Dispoo Widget Script */}
         <script src="https://app.dispoo.fr/js/widget.js" async></script>
+        <MobileCTA />
       </body>
     </html>
   );

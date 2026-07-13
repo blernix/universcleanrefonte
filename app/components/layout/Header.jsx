@@ -74,7 +74,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 bg-white/5 backdrop-blur-xl shadow-none z-50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >

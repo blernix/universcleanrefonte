@@ -5,29 +5,32 @@ export const mobilierServices = [
   {
     id: 4,
     slug: 'nettoyage-canape',
-    title: 'Nettoyage de Canapé',
-    heroTitle: 'Offrez une seconde vie à votre canapé',
-    heroSubtitle: 'Couleurs ravivées, fraîcheur retrouvée, confort assuré',
-    shortDescription: 'Redonnez vie à vos textiles. Couleurs éclatantes, hygiène renforcée.',
+    title: 'Nettoyage de canapé',
+    heroTitle: 'Nettoyage de canapé',
+    heroSubtitle: 'à domicile en Seine-et-Marne (77)',
+    shortDescription: 'Nettoyage professionnel de canapé à domicile. Injection-extraction, détachage, désodorisation.',
     image: '/canape.png',
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
     category: 'mobilier',
-    description: 'Nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Élimination des taches, ravivage des couleurs, neutralisation des odeurs et réduction des allergènes.',
-    heroDescription: `Votre chat a fait pipi sur le canapé ? Vos enfants ont fait des dégâts ? Votre canapé est taché ?
+    description: 'Nettoyage de canapé à domicile en Seine-et-Marne. Tissu, cuir, microfibre : on nettoie votre canapé en profondeur avec un injecteur-extracteur professionnel. Détachage, désodorisation, séchage rapide.',
+    heroDescription: `Nettoyage de canapé à domicile dans tout le 77. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec un injecteur-extracteur pour un résultat impeccable en quelques heures.`,
+    formulasDescription: `Nous nettoyons votre canapé directement chez vous avec une machine à injection-extraction professionnelle. Le principe : on injecte une solution nettoyante en profondeur dans les fibres du tissu, puis on aspire immédiatement l'eau et les saletés. Résultat : votre canapé est propre, désodorisé et sèche en 6 à 12 heures.
 
-Pas d'inquiétudes, votre canapé n'est pas bon pour la déchetterie. Eh oui ! Même les canapés peuvent être nettoyés. Univers Clean est une société de nettoyage à La Genevraye, à seulement 10 minutes de Fontainebleau, qui propose le nettoyage de canapé à domicile dans tout le département de la Seine-et-Marne (77).
+On s'occupe de tout type de canapé :
+• Canapé en tissu (coton, lin, velours, microfibre)
+• Canapé en cuir (traitement spécifique avec hydratation)
+• Canapé d'angle, convertible, panoramique
+• Fauteuil, chaise, pouf et tête de lit
 
-Débarrassez-vous des tâches et mauvaises odeurs sur votre canapé.`,
-    formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre canapé. Fauteuil, canapé d'angle, sofa, en tissus ou bien en cuir, confiez le nettoyage de votre canapé à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
+Ce qui est inclus dans le nettoyage :
+• Aspiration intégrale pour retirer poussières, poils et allergènes
+• Pré-traitement et détachage ciblé (taches de vin, café, urine, graisse...)
+• Injection-extraction avec produit textile professionnel
+• Ravivage des couleurs
+• Désodorisation pour éliminer les odeurs tenaces (animaux, tabac, humidité)
+• Séchage optimisé en 6-12h selon aération
 
-Un soin adapté à chaque surface : Nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
-
-Des résultats visibles et durables :
-• Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
-• Hygiène renforcée : poussières et allergènes sont éliminés.
-• Fraîcheur garantie : les mauvaises odeurs disparaissent.
-
-Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.`,
+Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
     beforeAfterImages: [
       {
         before: '/services/canape_bleu_avant.webp',
@@ -49,29 +52,31 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
           '4-5places': '80€',
           'U': '90€'
         },
-        description: 'Nettoyage complet de votre canapé avec injection-extraction professionnelle.',
+        description: 'Nettoyage complet avec injection-extraction professionnelle, détachage et désodorisation.',
         benefits: [
-          'Aspiration complète en profondeur',
+          'Aspiration intégrale en profondeur',
           'Pré-traitement et détachage ciblé',
           'Injection-extraction avec produits textiles professionnels',
           'Ravivage des couleurs',
-          'Élimination des poussières et allergènes',
-          'Neutralisation des mauvaises odeurs',
-          'Produits spécifiques textiles respectueux des matériaux',
-          'Séchage optimisé en 6-12h'
+          'Élimination des acariens et allergènes',
+          'Désodorisation complète',
+          'Séchage rapide en 6-12h',
+          'Produits sans danger pour enfants et animaux'
         ]
       }
     ],
     process: [
-      { step: 1, title: 'Aspiration complète', desc: 'Élimination des poussières et débris en surface' },
-      { step: 2, title: 'Pré-traitement', desc: 'Détachage ciblé des zones difficiles' },
-      { step: 3, title: 'Injection-extraction', desc: 'Nettoyage en profondeur avec produits textiles professionnels' },
-      { step: 4, title: 'Séchage naturel', desc: 'Séchage optimisé en 6-12h selon aération' }
+      { step: 1, title: 'Aspiration', desc: 'Aspiration des poussières et poils en surface et en profondeur' },
+      { step: 2, title: 'Détachage', desc: 'Pré-traitement des taches visibles avec produit adapté' },
+      { step: 3, title: 'Injection-extraction', desc: 'Injection de solution nettoyante et aspiration immédiate des saletés' },
+      { step: 4, title: 'Séchage', desc: 'Séchage naturel optimisé, canapé utilisable en 6 à 12h' }
     ],
     faqs: [
-      { q: 'Combien de temps faut-il attendre avant de réutiliser le canapé ?', a: 'Les tissus restent légèrement humides. Comptez entre 6 et 12 heures de séchage selon le textile et l\'aération. Vous pouvez accélérer avec un ventilateur ou déshumidificateur.' },
-      { q: 'Les produits sont-ils sans danger pour les enfants et animaux ?', a: 'Oui, absolument. Nous utilisons des produits spécifiques textiles, non toxiques, sans danger pour enfants et animaux. Formules respectueuses de la santé et de l\'environnement.' },
-      { q: 'Nettoyez-vous aussi le cuir ?', a: 'Oui, nous avons un traitement spécifique pour le cuir avec hydratation.' }
+      { q: 'Combien de temps avant de pouvoir utiliser mon canapé ?', a: 'Comptez 6 à 12h de séchage selon le type de tissu et l\'aération de la pièce. Vous pouvez accélérer avec un ventilateur.' },
+      { q: 'Nettoyez-vous aussi le cuir ?', a: 'Oui, nous avons un traitement spécifique pour canapé en cuir avec nettoyage doux et hydratation du cuir.' },
+      { q: 'Les produits sont-ils dangereux pour mes enfants ou animaux ?', a: 'Non, nos produits textiles sont certifiés sans danger. Pas de javel ni solvants agressifs.' },
+      { q: 'Peut-on enlever toutes les taches ?', a: 'La plupart des taches disparaissent : vin, café, urine, graisse, soda. Certaines taches très anciennes peuvent laisser une trace légère, mais le résultat est spectaculaire dans 95% des cas.' },
+      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye. Déplacement offert dans ce rayon.' }
     ],
     heroImage: '/canape.png',
     heroImageAlt: 'Technicien professionnel nettoyant un canapé à domicile avec matériel d\'injection-extraction'
@@ -81,29 +86,35 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
   {
     id: 5,
     slug: 'nettoyage-matelas',
-    title: 'Nettoyage de Matelas',
-    heroTitle: 'Dormez sur vos deux oreilles',
-    heroSubtitle: 'Un matelas sain pour un sommeil réparateur',
-    shortDescription: 'Sommeil sain. Élimination acariens, allergènes et taches.',
+    title: 'Nettoyage de matelas',
+    heroTitle: 'Nettoyage de matelas',
+    heroSubtitle: 'à domicile en Seine-et-Marne (77)',
+    shortDescription: 'Nettoyage professionnel de matelas à domicile. Traitement anti-acariens, détachage, désinfection.',
     image: '/matelas.png',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
-    description: 'Nettoyage en profondeur de votre matelas pour un sommeil sain et réparateur. Traitement professionnel contre acariens, allergènes et taches organiques.',
-    heroDescription: `Entreprise de nettoyage matelas à La Genevraye. Votre enfant a fait pipi au lit ? Pipi de chien ou de chat ? Taches de transpirations ? Allergie aux acariens ?
+    description: 'Nettoyage de matelas à domicile en Seine-et-Marne. Traitement professionnel anti-acariens et anti-bactérien. Détachage des taches organiques (urine, sueur, sang). Désinfection complète pour un sommeil sain.',
+    heroDescription: `Nettoyage de matelas à domicile en Seine-et-Marne (77). Taches de pipi, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas chez vous avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, matelas propre et sain.`,
+    formulasDescription: `Nous nettoyons votre matelas directement chez vous avec une machine à injection-extraction professionnelle et un traitement anti-acariens. Le nettoyage élimine les taches, les acariens, les allergènes et les mauvaises odeurs. Après notre passage, vous dormez sur un matelas propre, frais et désinfecté.
 
-Nettoyez votre matelas et dormez sur un matelas propre sans odeur, tâches ou acariens. Nous intervenons directement à votre domicile pour le nettoyage et la désinfection de votre matelas.
+On nettoie tous types de matelas :
+• Matelas 1 place, 2 places, king size
+• Matelas en mousse, latex, ressorts ensachés
+• Matelas à mémoire de forme
+• Surmatelas et protège-matelas
+• Matelas bébé et enfant
+• Literie médicalisée
 
-Nous réalisons nos prestations de nettoyages matelas à La Genevraye et dans toute la Seine-et-Marne (77) à l'aide d'une machine à injection-extraction professionnelle et des produits nettoyants éco-responsables.`,
-    formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre matelas 1 place ou king size, confiez le nettoyage de votre matelas à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
+Ce qui est inclus dans le nettoyage :
+• Aspiration profonde pour retirer poussières, peaux mortes et acariens
+• Détachage ciblé des taches organiques (urine, pipi enfant, sueur, sang, vomi)
+• Injection-extraction avec produit désinfectant textile professionnel
+• Traitement anti-acariens pour éliminer les allergènes
+• Désinfection antibactérienne complète
+• Désodorisation neutralisante (odeurs de transpiration, humidité, urine)
+• Séchage optimisé en 6-12h selon aération
 
-Un soin adapté à chaque surface : Nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
-
-Des résultats visibles et durables :
-• Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
-• Hygiène renforcée : poussières et allergènes sont éliminés.
-• Fraîcheur garantie : les mauvaises odeurs disparaissent.
-
-Une approche respectueuse de l'environnement : Nos produits sont soigneusement sélectionnés pour leur efficacité, mais aussi pour leur respect des matériaux et de la planète. Vous profitez ainsi d'un intérieur propre, sain et durable, sans compromis sur la sécurité de votre famille.`,
+À quelle fréquence nettoyer son matelas ? Les experts recommandent un nettoyage professionnel tous les 6 à 12 mois pour maintenir une hygiène optimale. Un matelas non nettoyé accumule des millions d'acariens, peaux mortes et bactéries qui peuvent provoquer allergies et problèmes respiratoires.`,
     beforeAfterImages: [
       {
         before: '/services/matelas_avant.webp',
@@ -120,30 +131,32 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
            '2places-160': '80€',
            '2places-180': '90€'
         },
-        description: 'Nettoyage complet de votre matelas avec traitement anti-acariens.',
+        description: 'Nettoyage complet avec injection-extraction, traitement anti-acariens et désinfection antibactérienne.',
         benefits: [
-          'Aspiration profonde en surface et en profondeur',
-          'Détachage ciblé (sang, urine, sueur)',
-          'Injection-extraction avec produits textiles professionnels',
-          'Traitement antibactérien et anti-acariens',
-          'Désinfection complète du matelas',
+          'Aspiration profonde (poussières, peaux mortes, acariens)',
+          'Détachage ciblé des taches organiques',
+          'Injection-extraction avec produit désinfectant professionnel',
+          'Traitement anti-acariens',
+          'Désinfection antibactérienne complète',
           'Désodorisation neutralisante',
-          'Élimination des allergènes',
-          'Amélioration de la qualité du sommeil',
-          'Séchage optimisé en 6-12h'
+          'Séchage rapide en 6-12h',
+          'Produits sans danger, enfants et animaux'
         ]
       }
     ],
     process: [
-      { step: 1, title: 'Aspiration profonde', desc: 'Élimination poussières et débris' },
-      { step: 2, title: 'Détachage ciblé', desc: 'Traitement des taches organiques' },
-      { step: 3, title: 'Injection-extraction', desc: 'Nettoyage en profondeur avec produits textiles' },
-      { step: 4, title: 'Désinfection', desc: 'Traitement antibactérien et désodorisation' }
+      { step: 1, title: 'Aspiration', desc: 'Élimination des poussières, peaux mortes et acariens en profondeur' },
+      { step: 2, title: 'Détachage', desc: 'Traitement ciblé des taches organiques (pipi, sueur, sang, vomi)' },
+      { step: 3, title: 'Injection-extraction', desc: 'Nettoyage en profondeur avec produit désinfectant' },
+      { step: 4, title: 'Désinfection', desc: 'Traitement anti-acariens et antibactérien pour un matelas sain' }
     ],
     faqs: [
-      { q: 'Combien de temps faut-il attendre avant de dormir sur le matelas ?', a: 'Le matelas reste légèrement humide. Il est recommandé de prévoir un séchage complet de 6 à 12 heures (souvent une demi-journée à une nuit). Aérez bien la pièce pour accélérer le séchage.' },
-      { q: 'À quelle fréquence nettoyer son matelas ?', a: 'Recommandé tous les 6 à 12 mois pour maintenir une hygiène optimale.' },
-      { q: 'Est-ce efficace contre les punaises de lit ?', a: 'Non, les punaises de lit nécessitent un traitement spécialisé différent.' }
+      { q: 'Combien de temps avant de pouvoir dormir sur le matelas ?', a: 'Le matelas reste légèrement humide. Prévoyez 6 à 12h de séchage. Aérez bien la pièce pour accélérer le processus.' },
+      { q: 'À quelle fréquence faire nettoyer son matelas ?', a: 'Tous les 6 à 12 mois pour une hygiène optimale. Un matelas non entretenu accumule acariens, peaux mortes et bactéries.' },
+      { q: 'Est-ce efficace contre les acariens et les allergies ?', a: 'Oui, le traitement élimine les acariens et leurs déjections, principales causes d\'allergies respiratoires et cutanées. Résultat visible et durable.' },
+      { q: 'Est-ce que ça enlève les taches de pipi ?', a: 'Oui, les taches d\'urine (enfant, pipi au lit, animal de compagnie) font partie des taches que nous traitons le plus souvent. Nous utilisons un détachant enzymatique spécifique.' },
+      { q: 'Nettoyez-vous aussi les punaises de lit ?', a: 'Non, les punaises de lit nécessitent un traitement insecticide spécialisé qui ne fait pas partie de nos prestations.' },
+      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye. Déplacement offert dans ce rayon.' }
     ],
     heroImage: '/matelas.png',
     heroImageAlt: 'Traitement professionnel anti-acariens et désinfection de matelas à domicile'
