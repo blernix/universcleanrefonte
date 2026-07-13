@@ -143,8 +143,8 @@ export default function ServicePageClient({ service, ville }) {
 
         <SectionSeparator variant="reverseGray" />
 
-        {/* Benefits Section */}
-        <ServiceBenefits benefits={service.benefits} />
+        {/* Benefits Section *
+        <ServiceBenefits benefits={service.benefits} /> */}
 
         {/* Before/After Section (si disponible) */}
         {service.beforeAfterImages && service.beforeAfterImages.length > 0 && (
