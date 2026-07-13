@@ -13,9 +13,9 @@ export default function Testimonials() {
     },
     {
       name: 'Thomas B.',
-      service: 'Nettoyage voiture complet',
+      service: 'Nettoyage matelas',
       rating: 5,
-      comment: 'Résultat bluffant sur ma voiture. L\'intérieur et l\'extérieur sont parfaits. Je recommande !',
+      comment: 'Mon matelas est nickel, plus aucune tache. Résultat incroyable, très efficace !',
       date: '2024-09-28'
     },
     {

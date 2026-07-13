@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { Loader2, Send, CheckCircle2, XCircle, Edit3 } from 'lucide-react';
-import { vehicleClasses, canapeTypes, matelasSizes } from '@/app/data/services';
+import { canapeTypes, matelasSizes } from '@/app/data/services';
 
 // Configuration centrale pour chaque type de formulaire
 export const formFieldsConfig = {
@@ -15,17 +15,13 @@ export const formFieldsConfig = {
     subject: 'Demande de devis - Nettoyage Matelas',
     fields: ['name', 'email', 'phone', 'matelasSize', 'ville', 'message'],
   },
-  'nettoyage-voiture-interieur': {
-    subject: 'Demande de devis - Nettoyage Voiture Intérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
+  'nettoyage-locaux-bureau': {
+    subject: 'Demande de devis - Nettoyage Locaux & Bureaux',
+    fields: ['name', 'email', 'phone', 'ville', 'message'],
   },
-  'nettoyage-voiture-exterieur': {
-    subject: 'Demande de devis - Nettoyage Voiture Extérieur',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
-  },
-  'nettoyage-voiture-complet': {
-    subject: 'Demande de devis - Nettoyage Voiture Complet',
-    fields: ['name', 'email', 'phone', 'vehicleClass', 'ville', 'message'],
+  'nettoyage-fin-chantier': {
+    subject: 'Demande de devis - Nettoyage Fin de Chantier',
+    fields: ['name', 'email', 'phone', 'ville', 'message'],
   },
   'general': {
     subject: 'Demande d\'information générale',
@@ -40,7 +36,6 @@ const initialFormData = {
   message: '', 
   canapeType: '', 
   matelasSize: '', 
-  vehicleClass: '', 
   ville: ''
 };
 
@@ -108,7 +103,6 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
       message: formData.message,
       canapeType: formData.canapeType || undefined,
       matelasSize: formData.matelasSize || undefined,
-      vehicleClass: formData.vehicleClass || undefined,
       ville: formData.ville || '',
     };
 
@@ -144,7 +138,6 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
                    field === 'phone' ? 'Téléphone' :
                    field === 'canapeType' ? 'Type de canapé' :
                    field === 'matelasSize' ? 'Taille matelas' :
-                   field === 'vehicleClass' ? 'Classe véhicule' :
                    field === 'ville' ? 'Ville' :
                    'Message'}
                 </span>
@@ -350,27 +343,6 @@ export default function ContactForm({ formType = 'general', onClose, onSuccess }
               <option value="">-- Sélectionner --</option>
               {matelasSizes.map((size) => (
                 <option key={size.value} value={size.label}>{size.label}</option>
-              ))}
-            </select>
-          </div>
-        )}
-
-        {/* Classe véhicule */}
-        {config.fields.includes('vehicleClass') && (
-          <div className="group">
-            <label htmlFor="vehicleClass" className="block !text-sm font-semibold !text-gray-800 !mb-3">
-              Classe du véhicule
-            </label>
-            <select
-              id="vehicleClass"
-              value={formData.vehicleClass}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className="w-full !bg-white border-2 border-gray-200 rounded-xl !px-5 !py-4 !text-base transition-all duration-200 hover:border-blue-300 focus:!ring-4 focus:!ring-blue-500/20 focus:!border-blue-500 focus:outline-none cursor-pointer"
-            >
-              <option value="">-- Sélectionner --</option>
-              {vehicleClasses.map((cls) => (
-                <option key={cls.value} value={cls.label}>{cls.label}</option>
               ))}
             </select>
           </div>

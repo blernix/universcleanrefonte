@@ -6,18 +6,17 @@ export default function Footer() {
   const services = [
     { name: 'Nettoyage Canapé', href: '/services/nettoyage-canape' },
     { name: 'Nettoyage Matelas', href: '/services/nettoyage-matelas' },
-    { name: 'Nettoyage Voiture Intérieur', href: '/services/nettoyage-voiture-interieur' },
-    { name: 'Nettoyage Voiture Extérieur', href: '/services/nettoyage-voiture-exterieur' },
-    { name: 'Nettoyage Voiture Complet', href: '/services/nettoyage-voiture-complet' },
+    { name: 'Nettoyage Locaux & Bureaux', href: '/services/nettoyage-locaux-bureau' },
+    { name: 'Nettoyage Fin de Chantier', href: '/services/nettoyage-fin-chantier' },
   ];
 
   const zones = [
-    'Melun',
     'Fontainebleau',
-    'Meaux',
-    'Provins',
-    'Coulommiers',
-    'Toute Île-de-France'
+    'Moret-sur-Loing',
+    'Nemours',
+    'Samoreau',
+    'Bois-le-Roi',
+    'Villiers-en-Bière'
   ];
 
   return (
@@ -32,7 +31,7 @@ export default function Footer() {
           </div>
           <p className="text-gray-400 text-sm leading-relaxed mb-6">
             Spécialiste du nettoyage professionnel à domicile en Île-de-France. 
-            Canapé, matelas, voiture : résultat garanti, satisfaction assurée.
+            Canapé, matelas : résultat garanti, satisfaction assurée.
           </p>
           <div className="flex gap-4">
             <a

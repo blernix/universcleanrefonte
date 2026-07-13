@@ -26,8 +26,8 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
   // Grouper les services par catégorie
   const servicesByCategory = {
     mobilier: servicesData.filter(s => s.category === 'mobilier'),
-    automobile: servicesData.filter(s => s.category === 'automobile')
-    
+    locaux: servicesData.filter(s => s.category === 'locaux'),
+    chantier: servicesData.filter(s => s.category === 'chantier')
   };
 
   // Gestion du scroll pour masquer/afficher le header
@@ -110,7 +110,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                       <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-4 animate-fadeIn">
                       {/* Services Mobilier */}
                       <div className="px-4 pb-3 mb-3 border-b border-gray-100">
-                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Mobilier</p>
+                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Textile</p>
                         <div className="space-y-1">
                           {servicesByCategory.mobilier.map((service) => (
                             <Link
@@ -127,11 +127,11 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                         </div>
                       </div>
 
-                      {/* Services Automobile */}
+                      {/* Services Locaux */}
                       <div className="px-4">
-                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Automobile</p>
+                         <p className="text-xs font-bold text-gray-600 uppercase mb-3">Locaux & Chantier</p>
                         <div className="!space-y-1">
-                          {servicesByCategory.automobile.map((service) => (
+                          {[...servicesByCategory.locaux, ...servicesByCategory.chantier].map((service) => (
                             <Link
                               key={service.slug}
                               href={`/services/${service.slug}`}
@@ -205,7 +205,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
               onClick={() => onOpenModal && onOpenModal('general')}
               className="btn-primary whitespace-nowrap"
             >
-              Mon Devis gratuit
+              Demande de devis
             </button>
           </div>
 
@@ -261,11 +261,11 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                           </div>
                         </div>
 
-                        {/* Services Automobile */}
+                        {/* Services Locaux & Chantier */}
                         <div className="pt-3 border-t border-gray-100">
-                           <p className="text-xs font-bold text-gray-600 uppercase mb-2">Automobile</p>
+                           <p className="text-xs font-bold text-gray-600 uppercase mb-2">Locaux & Chantier</p>
                           <div className="space-y-1">
-                            {servicesByCategory.automobile.map((service) => (
+                            {[...servicesByCategory.locaux, ...servicesByCategory.chantier].map((service) => (
                               <Link
                                 key={service.slug}
                                 href={`/services/${service.slug}`}
@@ -344,7 +344,7 @@ export default function Header({ onOpenModal, onOpenRedirectModal }) {
                 }}
                 className="btn-primary w-full mt-2"
               >
-                Mon Devis gratuit
+                Demande de devis
               </button>
             </nav>
           </div>

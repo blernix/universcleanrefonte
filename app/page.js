@@ -83,7 +83,7 @@ export default function HomePage() {
         <FAQ />
 
         <SectionSeparator variant="blue" />
-        <CTABanner onOpenModal={handleOpenModal} />
+        {/* <CTABanner onOpenModal={handleOpenModal} /> */}
       </main>
 
       <Footer />
@@ -93,7 +93,7 @@ export default function HomePage() {
       <Modal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        title="Demander un devis gratuit"
+        title="Demander un devis"
       >
         <ContactForm
           formType={selectedService}

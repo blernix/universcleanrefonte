@@ -2,60 +2,24 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Version mobile avec carrousel d'images
+// Version mobile
 const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Images du carrousel (ajoute hero-accueil-2.webp quand tu l'auras)
-  const slides = [
-    { src: '/services/hero-accueil-1.webp', alt: 'Nettoyage automobile professionnel' },
-    { src: '/services/hero-accueil-2.webp', alt: 'Nettoyage canapé professionnel' },
-    { src: '/services/hero-accueil-3.webp', alt: 'Nettoyage matelas professionnel' },
-   
-     
-  ];
-
-  useEffect(() => {
-    // Carrousel automatique toutes les 4 secondes
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
   return (
     <div className="bg-white text-gray-900">
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16 overflow-hidden">
-        {/* Carrousel d'images de fond */}
+        {/* Image de fond statique */}
         <div className="absolute inset-0 z-0">
-          {slides.map((slide, index) => (
-            <motion.div
-              key={slide.src}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: currentSlide === index ? 1 : 0,
-                scale: currentSlide === index ? 1 : 1.1,
-              }}
-              transition={{ duration: 1, ease: 'easeInOut' }}
-              className="absolute inset-0"
-            >
-              <img
-                src={slide.src}
-                alt={slide.alt}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          ))}
-
-          {/* Overlay sombre */}
+          <img
+            src="/hero-mobile.png"
+            alt="Univers Clean - Nettoyage professionnel"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Contenu centré */}
+        {/* Contenu centré *
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          {/* Logo en gros */}
-           <motion.div
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -68,7 +32,6 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             />
           </motion.div>
 
-          {/* H1 optimisé SEO */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,17 +41,15 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             Nettoyage professionnel à domicile
           </motion.h1>
 
-          {/* H2 avec services et localisation */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base font-bold mb-4 leading-tight text-white drop-shadow-lg"
           >
-            Voiture • Canapé • Matelas en Seine-et-Marne (77)
+            Canapé • Matelas • Bureaux • Chantier en Seine-et-Marne (77)
           </motion.h2>
 
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,14 +60,12 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             Intervention à La Genevraye (77) et 30 km alentour.
           </motion.p>
 
-          {/* Boutons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col gap-4"
           >
-            {/* CTA principal avec micro-bounce */}
             <motion.button
               onClick={() => onOpenModal && onOpenModal('general')}
               className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-700 transition-all"
@@ -119,7 +78,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
                 delay: 1.0
               }}
             >
-              Mon devis gratuit
+              Demande de devis
             </motion.button>
 
             <a
@@ -129,7 +88,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
               Découvrir nos services
             </a>
           </motion.div>
-        </div>
+        </div>*/}
       </section>
     </div>
   );
@@ -168,7 +127,7 @@ const DesktopHero = ({
           style={{ opacity: heroOpacity }}
         >
           <motion.img
-            src="/services/hero_accueil.webp"
+            src="/hero.png"
             alt='Univers Clean - Nettoyage professionnel'
             className='w-full h-full object-cover'
             animate={{
@@ -187,9 +146,8 @@ const DesktopHero = ({
           <div className='absolute inset-0 bg-black/40' />
         </motion.div>
 
-         {/* Contenu centré */}
+         {/* Contenu centré *
         <div className='relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6'>
-          {/* Logo en gros */}
            <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -203,7 +161,6 @@ const DesktopHero = ({
             />
           </motion.div>
 
-          {/* H1 optimisé SEO */}
            <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -213,17 +170,15 @@ const DesktopHero = ({
             Nettoyage professionnel à domicile
           </motion.h1>
 
-          {/* H2 avec services et localisation (SEO) */}
            <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
           >
-            Voiture • Canapé • Matelas en Seine-et-Marne (77)
+            Canapé • Matelas • Bureaux • Chantier en Seine-et-Marne (77)
           </motion.h2>
 
-          {/* Description */}
            <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -234,14 +189,12 @@ const DesktopHero = ({
             Intervention à La Genevraye (77) et 30 km alentour.
           </motion.p>
 
-          {/* Boutons CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            {/* CTA principal avec bounce */}
             <motion.button
               onClick={() => onOpenModal && onOpenModal('general')}
               className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
@@ -254,7 +207,7 @@ const DesktopHero = ({
                 delay: 1.5
               }}
             >
-              Mon devis gratuit
+              Demande de devis
             </motion.button>
 
             <a
@@ -269,7 +222,7 @@ const DesktopHero = ({
               📞 Appeler maintenant
             </a>
           </motion.div>
-        </div>
+        </div>*/}
 
       </section>
 

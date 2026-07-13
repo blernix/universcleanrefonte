@@ -359,7 +359,7 @@ export default function ServiceComparison({ service, onOpenModal }) {
             onClick={() => onOpenModal && onOpenModal()}
             className="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-700 transition-all hover:scale-105 shadow-lg"
           >
-            Mon devis gratuit
+            Demande de devis
           </button>
         </motion.div>
       </div>

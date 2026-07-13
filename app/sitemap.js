@@ -1,6 +1,3 @@
-// Génération automatique du sitemap pour le SEO
-// Ce fichier est lu par Next.js et génère automatiquement sitemap.xml
-
 import { servicesData, mobilierServices } from '@/app/data/services';
 import { villes } from '@/app/data/villes';
 
@@ -20,7 +17,6 @@ export default function sitemap() {
     },
   ];
 
-  // Pages services principales (tous les services)
   const servicePages = servicesData.map((service) => ({
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: lastModifiedDate,
@@ -28,7 +24,6 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  // Pages services par ville
   const cityPages = [];
   for (const service of mobilierServices) {
     for (const ville of villes) {

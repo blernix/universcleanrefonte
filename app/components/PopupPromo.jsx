@@ -151,7 +151,7 @@ export default function PopupPromo() {
                       <span className="!text-gray-900"><strong className="!text-blue-700">25 % de réduction d'impôt</strong> pour les professionnels</span>
                     </li>
                     <li className="!text-gray-500 !text-sm !ml-9 !italic">
-                      (Hors nettoyage automobile)
+                      un devis
                     </li>
                   </ul>
                 </div>

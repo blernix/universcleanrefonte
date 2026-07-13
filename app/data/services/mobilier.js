@@ -9,7 +9,7 @@ export const mobilierServices = [
     heroTitle: 'Offrez une seconde vie à votre canapé',
     heroSubtitle: 'Couleurs ravivées, fraîcheur retrouvée, confort assuré',
     shortDescription: 'Redonnez vie à vos textiles. Couleurs éclatantes, hygiène renforcée.',
-    image: '/services/canape-hero.webp',
+    image: '/canape.png',
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
     category: 'mobilier',
     description: 'Nettoyage professionnel en profondeur, respectueux des matériaux et de votre environnement. Élimination des taches, ravivage des couleurs, neutralisation des odeurs et réduction des allergènes.',
@@ -20,7 +20,7 @@ Pas d'inquiétudes, votre canapé n'est pas bon pour la déchetterie. Eh oui ! M
 Débarrassez-vous des tâches et mauvaises odeurs sur votre canapé.`,
     formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre canapé. Fauteuil, canapé d'angle, sofa, en tissus ou bien en cuir, confiez le nettoyage de votre canapé à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
 
-Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
+Un soin adapté à chaque surface : Nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
 
 Des résultats visibles et durables :
 • Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
@@ -73,7 +73,7 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
       { q: 'Les produits sont-ils sans danger pour les enfants et animaux ?', a: 'Oui, absolument. Nous utilisons des produits spécifiques textiles, non toxiques, sans danger pour enfants et animaux. Formules respectueuses de la santé et de l\'environnement.' },
       { q: 'Nettoyez-vous aussi le cuir ?', a: 'Oui, nous avons un traitement spécifique pour le cuir avec hydratation.' }
     ],
-    heroImage: '/services/canape-hero.webp',
+    heroImage: '/canape.png',
     heroImageAlt: 'Technicien professionnel nettoyant un canapé à domicile avec matériel d\'injection-extraction'
   },
 
@@ -85,7 +85,7 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
     heroTitle: 'Dormez sur vos deux oreilles',
     heroSubtitle: 'Un matelas sain pour un sommeil réparateur',
     shortDescription: 'Sommeil sain. Élimination acariens, allergènes et taches.',
-    image: '/services/chambre-hero.webp',
+    image: '/matelas.png',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
     description: 'Nettoyage en profondeur de votre matelas pour un sommeil sain et réparateur. Traitement professionnel contre acariens, allergènes et taches organiques.',
@@ -96,7 +96,7 @@ Nettoyez votre matelas et dormez sur un matelas propre sans odeur, tâches ou ac
 Nous réalisons nos prestations de nettoyages matelas à La Genevraye et dans toute la Seine-et-Marne (77) à l'aide d'une machine à injection-extraction professionnelle et des produits nettoyants éco-responsables.`,
     formulasDescription: `Univers Clean est équipé des meilleurs injecteur/extracteur, nous intervenons à votre domicile que vous viviez en maison ou en appartement pour le nettoyage de votre matelas 1 place ou king size, confiez le nettoyage de votre matelas à un professionnel reconnu et dites adieu aux taches et mauvaises odeurs.
 
-Un soin adapté à chaque surface : Contrairement aux produits utilisés pour l'automobile, nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
+Un soin adapté à chaque surface : Nous employons des solutions spécifiques pour les textiles d'intérieur. Elles pénètrent en profondeur dans les fibres tout en respectant la délicatesse des tissus : canapés, fauteuils, matelas, chaises ou tapis.
 
 Des résultats visibles et durables :
 • Couleurs éclatantes : vos tissus retrouvent leur aspect d'origine.
@@ -145,7 +145,7 @@ Une approche respectueuse de l'environnement : Nos produits sont soigneusement s
       { q: 'À quelle fréquence nettoyer son matelas ?', a: 'Recommandé tous les 6 à 12 mois pour maintenir une hygiène optimale.' },
       { q: 'Est-ce efficace contre les punaises de lit ?', a: 'Non, les punaises de lit nécessitent un traitement spécialisé différent.' }
     ],
-    heroImage: '/services/chambre-hero.webp',
+    heroImage: '/matelas.png',
     heroImageAlt: 'Traitement professionnel anti-acariens et désinfection de matelas à domicile'
   }
 ];

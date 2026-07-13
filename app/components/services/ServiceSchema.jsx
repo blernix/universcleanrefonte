@@ -117,7 +117,7 @@ export default function ServiceSchema({ service, ville }) {
         geoRadius: '30000'
       }
     },
-    serviceType: service.category === 'automobile' ? 'Nettoyage Automobile' : 'Nettoyage Mobilier',
+    serviceType: service.category === 'chantier' ? 'Nettoyage Chantier' : service.category === 'locaux' ? 'Nettoyage Locaux' : 'Nettoyage Textile',
     areaServed: ville ? {
       '@type': 'City',
       name: ville.nom

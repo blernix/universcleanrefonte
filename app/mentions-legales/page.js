@@ -79,7 +79,6 @@ export default function MentionsLegalesPage() {
                 <li>Nettoyage de tapis</li>
                 <li>Nettoyage de vitres</li>
                 <li>Nettoyage de terrasses</li>
-                <li>Nettoyage de véhicules automobiles (intérieur et extérieur)</li>
                 <li>Nettoyage courant de bâtiments</li>
               </ul>
             </section>

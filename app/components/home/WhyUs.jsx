@@ -7,17 +7,17 @@ export default function WhyUs() {
     {
       icon: <Award className="w-12 h-12 text-blue-600" />,
       title: 'Plus de 10 ans d\'expérience',
-      description: 'Formé dans les grandes concessions (Land Rover, Jaguar, BMW). Passion devenue métier.'
+      description: 'Formé dans les grandes concessions. Plus de 10 ans d\'expérience terrain.'
     },
     {
       icon: <Sparkles className="w-12 h-12 text-blue-600" />,
       title: 'Produits professionnels haut de gamme',
-      description: 'Koch Chemie, CarPro pour l\'automobile. Produits textiles spécifiques pour le mobilier. Jamais mélangés.'
+      description: 'Produits textiles professionnels haut de gamme. Jamais mélangés, adaptés à chaque surface.'
     },
     {
       icon: <Users className="w-12 h-12 text-blue-600" />,
       title: 'Tous les clients sont les bienvenus',
-      description: 'De la Twingo à la Ferrari, du canapé classique au mobilier haut de gamme. Même attention pour tous.'
+      description: 'Du petit studio au grand appartement, chaque client mérite la même exigence.'
     },
     {
       icon: <Leaf className="w-12 h-12 text-blue-600" />,

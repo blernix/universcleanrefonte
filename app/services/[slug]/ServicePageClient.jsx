@@ -14,7 +14,6 @@ import ServiceHero from '@/app/components/services/ServiceHero';
 import ServiceFormulasIntro from '@/app/components/services/ServiceFormulasIntro';
 import ServiceFormulas from '@/app/components/services/ServiceFormulas';
 import ServiceComparison from '@/app/components/services/ServiceComparison';
-import ServiceConversion from '@/app/components/services/ServiceConversion';
 import ServiceProcess from '@/app/components/services/ServiceProcess';
 import ServiceBenefits from '@/app/components/services/ServiceBenefits';
 import ServiceFAQ from '@/app/components/services/ServiceFAQ';
@@ -45,52 +44,21 @@ export default function ServicePageClient({ service, ville }) {
     window.open('https://app.dispoo.fr/website/368-univers-clean/step1', '_blank');
   };
 
-  const isAutomobile = service.category === 'automobile';
   const isCanape = service.slug === 'nettoyage-canape';
   const isMatelas = service.slug === 'nettoyage-matelas';
   const isMobilier = service.category === 'mobilier';
   const hasFormulas = service.formulas && service.formulas.length > 0;
-  const isInteriorOrExterior = service.slug === 'nettoyage-voiture-interieur' || service.slug === 'nettoyage-voiture-exterieur';
-
-  // Calcul de l'économie pour la conversion
-  const calculateSavings = () => {
-    if (!isInteriorOrExterior) return null;
-
-    const currentPrice = parseInt(service.formulas?.[0]?.price?.[selectedVehicleClass]?.replace('€', '') || 0);
-
-    // Prix des services séparés (nouvelle structure)
-    const interiorPrices = { classe1: 110, classe2: 130, classe3: 150 };
-    const exteriorPrices = { classe1: 100, classe2: 120, classe3: 140 };
-    const completePrices = { classe1: 190, classe2: 225, classe3: 260 };
-
-    const estimatedCombinedPrice = interiorPrices[selectedVehicleClass] + exteriorPrices[selectedVehicleClass];
-    const completePrice = completePrices[selectedVehicleClass];
-    const savings = estimatedCombinedPrice - completePrice;
-    const discountPercent = Math.round((savings / estimatedCombinedPrice) * 100);
-
-    return {
-      currentPrice,
-      estimatedCombinedPrice,
-      completePrice,
-      savings,
-      discount: discountPercent
-    };
-  };
-
-  const savingsData = calculateSavings();
 
   return (
     <>
-      {/* Schema.org JSON-LD for SEO */}
       <ServiceSchema service={service} ville={ville} />
 
       <Header onOpenModal={handleOpenModal} onOpenRedirectModal={() => setShowRedirectModal(true)} />
 
       <main className="overflow-hidden">
-        {/* Hero Section */}
         <ServiceHero
           service={service}
-          isAutomobile={isAutomobile}
+          isAutomobile={false}
           hasFormulas={hasFormulas}
           onOpenModal={handleOpenModal}
           ville={ville}
@@ -138,14 +106,14 @@ export default function ServicePageClient({ service, ville }) {
         {/* Formulas Section */}
         <ServiceFormulas
           service={service}
-          isAutomobile={isAutomobile}
+          isAutomobile={false}
           isCanape={isCanape}
           isMatelas={isMatelas}
           hasFormulas={hasFormulas}
           selectedFormula={selectedFormula}
           setSelectedFormula={setSelectedFormula}
-          selectedVehicleClass={selectedVehicleClass}
-          setSelectedVehicleClass={setSelectedVehicleClass}
+          selectedVehicleClass={'classe1'}
+          setSelectedVehicleClass={() => {}}
           selectedCanapeSize={selectedCanapeSize}
           setSelectedCanapeSize={setSelectedCanapeSize}
           selectedMatelasSize={selectedMatelasSize}
@@ -153,18 +121,6 @@ export default function ServicePageClient({ service, ville }) {
           onOpenModal={handleOpenModal}
         />
 
-        {/* Conversion Section (Interior/Exterior → Complete) */}
-        {isInteriorOrExterior && savingsData && (
-          <>
-            <SectionSeparator variant="reverseLight" />
-            <ServiceConversion
-              service={service}
-              savingsData={savingsData}
-              selectedVehicleClass={selectedVehicleClass}
-              setSelectedVehicleClass={setSelectedVehicleClass}
-            />
-          </>
-        )}
           <ServiceFormulasIntro
           formulasDescription={service.formulasDescription}
           title={hasFormulas && service.formulas.length > 1 ? "Trois formules adaptées à vos besoins" : null}

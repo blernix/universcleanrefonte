@@ -25,21 +25,23 @@ export async function generateMetadata({ params }) {
   if (service.formulas && service.formulas.length > 0) {
     const firstFormula = service.formulas[0];
     if (firstFormula.price) {
-      // Récupérer le premier prix disponible (classe1, classe2, ou classe3)
-      const priceValue = firstFormula.price.classe1 || firstFormula.price.classe2 || firstFormula.price.classe3;
-      minPrice = priceValue ? priceValue.replace('€', '') : null;
+      const priceKeys = Object.keys(firstFormula.price);
+      const priceValue = firstFormula.price[priceKeys[0]];
+      if (priceValue && priceValue.includes('€')) {
+        minPrice = priceValue.replace('€', '');
+      }
     }
   }
 
   // Construire le titre optimisé SEO
-  const title = `${service.title} à Domicile - Univers Clean 77 | Devis Gratuit`;
+  const title = `${service.title} à Domicile - Univers Clean 77 | Devis`;
 
   // Construire la description optimisée SEO
   let description = service.description || service.shortDescription;
   if (minPrice) {
-    description = `${description} Prix dès ${minPrice}€. Intervention rapide en Seine-et-Marne. Devis gratuit sous 24h.`;
+    description = `${description} Prix dès ${minPrice}€. Intervention rapide en Seine-et-Marne. Devis en 24h.`;
   } else {
-    description = `${description} Intervention rapide en Seine-et-Marne. Devis gratuit sous 24h.`;
+    description = `${description} Intervention rapide en Seine-et-Marne. Devis en 24h.`;
   }
 
   // Limiter la description à 160 caractères pour le SEO
@@ -52,18 +54,23 @@ export async function generateMetadata({ params }) {
     'nettoyage professionnel',
     'Seine-et-Marne',
     'Univers Clean 77',
-    'devis gratuit',
+    'devis',
     'intervention rapide'
   ];
 
-  const serviceKeywords = service.category === 'automobile'
-    ? [...baseKeywords, 'nettoyage voiture', 'détailing auto', 'nettoyage automobile']
-    : [...baseKeywords, 'nettoyage mobilier', 'nettoyage domicile'];
+  const serviceKeywords = [
+    ...baseKeywords,
+    service.title.toLowerCase(),
+    service.slug.replace(/-/g, ' '),
+    service.category === 'mobilier' ? 'nettoyage textile' :
+    service.category === 'locaux' ? 'nettoyage bureau' :
+    service.category === 'chantier' ? 'nettoyage chantier' : '',
+  ].filter(Boolean);
 
   return {
     title,
     description,
-    keywords: [...serviceKeywords, service.title.toLowerCase()],
+    keywords: serviceKeywords,
     openGraph: {
       title: `${service.title} Professionnel - Univers Clean 77`,
       description: service.shortDescription,

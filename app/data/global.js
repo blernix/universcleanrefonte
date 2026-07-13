@@ -15,7 +15,7 @@ export const globalFAQ = [
   },
   {
     q: 'Les produits que vous utilisez sont-ils sans danger pour les enfants ou les animaux ?',
-    a: 'Oui, absolument. Nous utilisons uniquement des produits spécialement conçus pour le nettoyage textile, qui sont sans danger pour les enfants comme pour les animaux de compagnie.\n\nNos solutions sont respectueuses de la santé et de l\'environnement, tout en restant efficaces contre les taches, les mauvaises odeurs et les allergènes. Elles sont choisies pour leur formule non toxique, ce qui permet de profiter rapidement et en toute sécurité de vos canapés, tapis, matelas ou sièges de voiture après le nettoyage.\n\nAvec nous, vous avez la garantie d\'un intérieur propre, sain et sûr pour toute la famille.'
+    a: 'Oui, absolument. Nous utilisons uniquement des produits spécialement conçus pour le nettoyage textile, qui sont sans danger pour les enfants comme pour les animaux de compagnie.\n\nNos solutions sont respectueuses de la santé et de l\'environnement, tout en restant efficaces contre les taches, les mauvaises odeurs et les allergènes. Elles sont choisies pour leur formule non toxique, ce qui permet de profiter rapidement et en toute sécurité de vos canapés, tapis ou matelas après le nettoyage.\n\nAvec nous, vous avez la garantie d\'un intérieur propre, sain et sûr pour toute la famille.'
   },
   {
     q: 'Faut-il un accès à l\'eau ou à l\'électricité pour vos interventions ?',
@@ -27,7 +27,7 @@ export const globalFAQ = [
   },
   {
     q: 'Comment prendre rendez-vous ?',
-    a: 'C\'est très simple ! Sur notre site, vous trouverez un lien de réservation disponible sur chaque service.\n\nEn quelques clics, vous pouvez :\n• Choisir la prestation qui correspond à vos besoins (automobile, canapé, matelas, tapis, etc.).\n• Sélectionner la date et l\'heure qui vous conviennent.\n• Valider votre réservation directement en ligne.\n\nNotre système est intuitif, rapide et pratique, ce qui vous permet de planifier votre rendez-vous en toute autonomie et sans perte de temps.'
+    a: 'C\'est très simple ! Sur notre site, vous trouverez un lien de réservation disponible sur chaque service.\n\nEn quelques clics, vous pouvez :\n• Choisir la prestation qui correspond à vos besoins (canapé, matelas, locaux, etc.).\n• Sélectionner la date et l\'heure qui vous conviennent.\n• Valider votre réservation directement en ligne.\n\nNotre système est intuitif, rapide et pratique, ce qui vous permet de planifier votre rendez-vous en toute autonomie et sans perte de temps.'
   }
 ];
 
@@ -39,7 +39,7 @@ export const aboutContent = {
   intro: {
     title: `À propos d'Univers Clean`,
     subtitle: 'Des prestations de qualité, efficaces et durables',
-    content: `Univers Clean est une entreprise spécialisée dans le nettoyage professionnel pour particuliers et professionnels, née d'une volonté simple : offrir des prestations de qualité, efficaces et durables, tout en redonnant une seconde vie aux surfaces et aux textiles du quotidien. Passionnés par le travail bien fait et soucieux du détail, nous avons créé Univers Clean pour répondre à un besoin réel : proposer des services de nettoyage approfondis, là où le nettoyage classique ne suffit plus. Aujourd'hui, nous intervenons sur une large gamme de prestations : nettoyage automobile, canapés, matelas, vitres, terrasses, ainsi que le nettoyage de fin de chantier. Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels.`
+    content: `Univers Clean est une entreprise spécialisée dans le nettoyage professionnel pour particuliers et professionnels, née d'une volonté simple : offrir des prestations de qualité, efficaces et durables, tout en redonnant une seconde vie aux surfaces et aux textiles du quotidien. Passionnés par le travail bien fait et soucieux du détail, nous avons créé Univers Clean pour répondre à un besoin réel : proposer des services de nettoyage approfondis, là où le nettoyage classique ne suffit plus. Aujourd'hui, nous intervenons sur une large gamme de prestations : canapés, matelas, locaux, vitres, terrasses, ainsi que le nettoyage de fin de chantier. Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels.`
   },
   values: [
     {

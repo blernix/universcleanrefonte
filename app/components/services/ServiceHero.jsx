@@ -135,7 +135,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
                 className="!inline-flex !items-center !justify-center !gap-3 !bg-blue-600 hover:!bg-blue-700 !text-white !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-lg hover:!shadow-xl !transition-all !duration-300"
               >
                 <Phone className="!w-6 !h-6" />
-                <span>Mon devis gratuit</span>
+                <span>Demande de devis</span>
                 <ArrowRight className="!w-5 !h-5" />
               </motion.button>
 
@@ -205,7 +205,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
                 className="!inline-flex !items-center !justify-center !gap-3 !bg-blue-600 hover:!bg-blue-700 !text-white !px-8 !py-4 !rounded-xl !font-bold !text-lg !shadow-lg hover:!shadow-xl !transition-all !duration-300"
               >
                 <Phone className="!w-6 !h-6" />
-                <span>Mon devis gratuit</span>
+                <span>Demande de devis</span>
                 <ArrowRight className="!w-5 !h-5" />
               </motion.button>
 
@@ -237,7 +237,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
           {[
             { icon: Truck, text: "Déplacement offert", subtext: "Dans un rayon de 30km" },
             { icon: Sparkles, text: "Produits Premium", subtext: "Qualité professionnelle" },
-            { icon: MessageSquare, text: "Devis Gratuit", subtext: "Sans engagement" },
+              { icon: MessageSquare, text: "Demande de devis", subtext: "Sans engagement" },
           ].map(({ icon: Icon, text, subtext }, i) => (
             <motion.div
               key={i}

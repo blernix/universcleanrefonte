@@ -8,13 +8,13 @@ export default function ServiceCTA({ onOpenModal }) {
         {[
           {
             title: "Prêt à réserver votre intervention ?",
-            text: "Obtenez votre devis gratuit en moins de 24h. C'est simple, rapide et sans engagement.",
+            text: "Obtenez votre devis en moins de 24h. C'est simple, rapide et sans engagement.",
             button: (
               <button
                 onClick={() => onOpenModal && onOpenModal()}
                 className="bg-white text-blue-600 !px-8 !py-3 rounded-full font-bold hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
               >
-                <Calendar className="w-5 h-5" /> Mon devis gratuit
+                <Calendar className="w-5 h-5" /> Demande de devis
               </button>
             ),
           },

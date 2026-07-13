@@ -5,11 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default function ServicesGrid() {
-  // Trier les services : mobilier d'abord, puis automobile
-  const sortedServices = [
-    ...servicesData.filter(service => service.category === 'mobilier'),
-    ...servicesData.filter(service => service.category === 'automobile')
-  ];
+  const sortedServices = servicesData;
 
   return (
     <section id="services" aria-labelledby="services-title" className="py-24 bg-gray-50">

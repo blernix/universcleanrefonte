@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   }
 
   const title = `${service.title} à ${ville.nom} (${ville.codePostal}) | Univers Clean 77`;
-  const description = `${service.shortDescription} Intervention à ${ville.nom} et ses environs. ${ville.description.substring(0, 80)} Devis gratuit en 24h.`;
+  const description = `${service.shortDescription} Intervention à ${ville.nom} et ses environs. ${ville.description.substring(0, 80)} Devis en 24h.`;
 
   const keywords = [
     service.title.toLowerCase(),
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
     ville.codePostal,
     'Seine-et-Marne',
     'Univers Clean 77',
-    'devis gratuit'
+    'devis'
   ];
 
   return {

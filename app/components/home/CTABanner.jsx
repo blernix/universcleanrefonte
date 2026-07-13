@@ -21,7 +21,7 @@ export default function CTABanner({ onOpenModal }) {
           </h2>
 
           <p className="!text-xl md:!text-2xl !text-blue-100 mb-14 max-w-3xl !mx-auto !text-center leading-relaxed">
-            Obtenez votre devis gratuit en moins de 24h.<br />
+              Obtenez votre devis en moins de 24h.<br />
             Intervention rapide partout en Île-de-France.
           </p>
 
@@ -33,7 +33,7 @@ export default function CTABanner({ onOpenModal }) {
               whileTap={{ scale: 0.95 }}
             >
               <Mail className="w-6 h-6" />
-              Mon devis gratuit
+              Demande de devis
             </motion.button>
 
             <a

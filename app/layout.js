@@ -11,13 +11,13 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL("https://univers-clean77.fr"),
   title: "Univers Clean 77 - Nettoyage Professionnel à Domicile en Île-de-France",
-  description: "Nettoyage professionnel de canapé, matelas et voiture à domicile en Seine-et-Marne (77). Intervention rapide, résultat garanti. Devis gratuit en 24h.",
+  description: "Nettoyage professionnel de canapé, matelas, locaux et fin de chantier à domicile en Seine-et-Marne (77). Intervention rapide, résultat garanti. Devis en 24h.",
 
   keywords: [
     "nettoyage professionnel 77",
     "nettoyage à domicile Seine-et-Marne",
     "nettoyage canapé Île-de-France",
-    "nettoyage voiture 77",
+    "nettoyage locaux 77",
     "Univers Clean",
   ],
 
@@ -37,7 +37,7 @@ export const metadata = {
     type: 'website',
     url: 'https://univers-clean77.fr',
     title: 'Univers Clean 77 - Nettoyage Professionnel à Domicile',
-    description: 'Spécialiste du nettoyage de canapé, matelas et voiture en Île-de-France. Devis gratuit, intervention rapide.',
+    description: 'Spécialiste du nettoyage de canapé, matelas, locaux et fin de chantier en Île-de-France. Devis en 24h, intervention rapide.',
     siteName: 'Univers Clean 77',
     images: [
       {
@@ -53,7 +53,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Univers Clean 77 - Nettoyage Professionnel à Domicile',
-    description: 'Spécialiste du nettoyage de canapé, matelas et voiture en Île-de-France. Devis gratuit, intervention rapide.',
+    description: 'Spécialiste du nettoyage de canapé, matelas, locaux et fin de chantier en Île-de-France. Devis en 24h, intervention rapide.',
     images: ['https://univers-clean77.fr/logo_univers_clean.png'],
   },
 
@@ -136,24 +136,16 @@ const jsonLd = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Nettoyage voiture intérieur',
-          description: 'Nettoyage professionnel intérieur de voiture',
+          name: 'Nettoyage de locaux',
+          description: 'Nettoyage professionnel de locaux et bureaux',
         }
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Nettoyage voiture extérieur',
-          description: 'Nettoyage professionnel extérieur de voiture',
-        }
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Nettoyage voiture complet',
-          description: 'Nettoyage professionnel complet de voiture (intérieur + extérieur)',
+          name: 'Nettoyage fin de chantier',
+          description: 'Nettoyage professionnel de fin de chantier',
         }
       },
     ]
@@ -225,7 +217,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
 
         <SmoothAnchor />
+        {/* Dispoo Widget Container */}
+        <div data-dispoo-slug="univers-clean77" suppressHydrationWarning></div>
         {children}
+
+        {/* Dispoo Widget Script */}
+        <script src="https://app.dispoo.fr/js/widget.js" async></script>
       </body>
     </html>
   );
