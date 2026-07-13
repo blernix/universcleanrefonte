@@ -7,6 +7,7 @@ export default function Partenaires() {
     { id: 1, nom: 'Partenaire 1', logo: '/logo_partenaire1.png' },
     { id: 2, nom: 'Partenaire 2', logo: '/logo_partenaire2.png' },
     { id: 3, nom: 'Partenaire 3', logo: '/logo_partenaire3.png' },
+    { id: 4, nom: 'CVE', logo: '/cve.jpg' },
   ];
 
   return (
@@ -28,7 +29,7 @@ export default function Partenaires() {
         </motion.div>
 
         {/* Logos des partenaires */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-items-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 items-center justify-items-center">
           {partenaires.map((partenaire, index) => (
             <motion.div
               key={partenaire.id}
