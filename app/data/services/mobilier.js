@@ -47,10 +47,10 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
       {
         name: 'Nettoyage',
         price: {
-          'fauteuil': '60€',
-          '2-3places': '70€',
-          '4-5places': '80€',
-          'U': '90€'
+          'fauteuil': '50€',
+          '2-3places': '80€',
+          '4-5places': '100€',
+          'U': '120€'
         },
         description: 'Nettoyage complet avec injection-extraction professionnelle, détachage et désodorisation.',
         benefits: [
@@ -127,9 +127,9 @@ Ce qui est inclus dans le nettoyage :
         name: 'Nettoyage',
         price: {
            '1place': '60€',
-           '2places-140': '70€',
-           '2places-160': '80€',
-           '2places-180': '90€'
+           '2places-140': '80€',
+           '2places-160': '90€',
+           '2places-180': '100€'
         },
         description: 'Nettoyage complet avec injection-extraction, traitement anti-acariens et désinfection antibactérienne.',
         benefits: [
