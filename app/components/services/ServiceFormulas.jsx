@@ -116,13 +116,6 @@ export default function ServiceFormulas({
     <section className="!py-32 bg-white">
       <div className="container mx-auto px-8 max-w-7xl">
         <div className="!text-center !mb-20">
-          <h2 className="!text-4xl md:!text-5xl font-bold !text-gray-900 !mb-6 !text-center">
-            Choisissez Votre Catégorie
-          </h2>
-          <p className="!text-xl !text-gray-600 max-w-2xl !mx-auto !text-center">
-           Sélectionnez le modèle correspondant à votre profil
-          </p>
-
           {isAutomobile && (
             <div className="!mt-10 flex justify-center gap-5 flex-wrap">
               {[
@@ -222,13 +215,15 @@ export default function ServiceFormulas({
                        ? formula.price[selectedCanapeSize]
                        : formula.price[selectedMatelasSize]}
                    </p>
-                 ) : (
-                   <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
-                     {isAutomobile
-                       ? formula.price[selectedVehicleClass]
-                       : formula.price?.classe1 || 'Sur devis'}
-                   </p>
-                 )}
+                  ) : (
+                    <p className={`!text-4xl font-extrabold ${selectedFormula === index ? 'text-white' : 'text-gray-900'}`}>
+                      {isAutomobile
+                        ? formula.price[selectedVehicleClass]
+                        : formula.price && !isCanape && !isMatelas
+                          ? Object.values(formula.price)[0]
+                          : 'Sur devis'}
+                    </p>
+                  )}
                 <p className={`!text-sm !mt-4 ${selectedFormula === index ? 'text-blue-100' : 'text-gray-500'}`}>
                   {formula.description}
                 </p>

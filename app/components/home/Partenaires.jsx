@@ -7,7 +7,7 @@ export default function Partenaires() {
     { id: 1, nom: 'Partenaire 1', logo: '/logo_partenaire1.png' },
     { id: 2, nom: 'Partenaire 2', logo: '/logo_partenaire2.png' },
     { id: 3, nom: 'Partenaire 3', logo: '/logo_partenaire3.png' },
-    { id: 4, nom: 'CVE', logo: '/cve.jpg' },
+    { id: 4, nom: 'La Juxta', logo: '/la juxta (nouveau client).jpg' },
   ];
 
   return (

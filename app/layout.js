@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothAnchor from "./components/SmoothAnchor";
 import MobileCTA from "./components/MobileCTA";
+import DispooWidget from "./components/DispooWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -218,12 +219,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
 
         <SmoothAnchor />
-        {/* Dispoo Widget Container */}
-        <div data-dispoo-slug="univers-clean77" suppressHydrationWarning></div>
+        <DispooWidget />
         {children}
 
-        {/* Dispoo Widget Script */}
-        <script src="https://app.dispoo.fr/js/widget.js" async></script>
         <MobileCTA />
       </body>
     </html>

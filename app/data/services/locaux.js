@@ -5,8 +5,8 @@ export const locauxServices = [
   {
     id: 6,
     slug: 'nettoyage-locaux-bureau',
-    title: 'Entreprise de nettoyage de bureaux et de locaux',
-    heroTitle: 'Entreprise de nettoyage de bureaux et de locaux',
+    title: 'Nettoyage de locaux et bureaux',
+    heroTitle: 'Nettoyage de locaux et bureaux',
     heroSubtitle: 'en Seine-et-Marne et dans tout le 77',
     shortDescription: 'Nettoyage professionnel de bureaux et locaux. Régulier ou ponctuel.',
     image: '/bureaux.png',
@@ -36,7 +36,7 @@ Nos agents de nettoyage utilisent des produits professionnels respectueux de l'e
     beforeAfterImages: [],
     formulas: [
       {
-        name: 'Sur devis',
+        name: 'Prestation pro',
         price: {
           'regulier': 'Sur devis',
         },
@@ -107,7 +107,7 @@ Nous disposons du matériel professionnel adapté : aspirateur de chantier haute
     beforeAfterImages: [],
     formulas: [
       {
-        name: 'Sur devis',
+        name: 'Remise en état',
         price: {
           'standard': 'Sur devis',
         },

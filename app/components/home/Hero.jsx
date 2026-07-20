@@ -10,7 +10,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
         {/* Image de fond statique */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero-mobile.png"
+            src="/hero_mobile.png"
             alt="Univers Clean - Nettoyage professionnel"
             className="w-full h-full object-cover"
           />
