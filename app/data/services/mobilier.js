@@ -48,9 +48,9 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
         name: 'Nettoyage',
         price: {
           'fauteuil': '50€',
-          '2-3places': '80€',
-          '4-5places': '100€',
-          'U': '120€'
+          '2-3places': '100€',
+          '4-5places': '120€',
+          'U': '150€'
         },
         description: 'Nettoyage complet avec injection-extraction professionnelle, détachage et désodorisation.',
         benefits: [
