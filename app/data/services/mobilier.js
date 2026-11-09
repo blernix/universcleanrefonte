@@ -7,13 +7,15 @@ export const mobilierServices = [
     slug: 'nettoyage-canape',
     title: 'Nettoyage de canapé',
     heroTitle: 'Nettoyage de canapé',
-    heroSubtitle: 'à domicile en Seine-et-Marne (77)',
+    heroSubtitle: 'à domicile à Fontainebleau et alentours (77)',
     shortDescription: 'Nettoyage professionnel de canapé à domicile. Injection-extraction, détachage, désodorisation.',
     image: '/canape.png',
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
     category: 'mobilier',
     description: 'Nettoyage de canapé à domicile en Seine-et-Marne. Tissu, cuir, microfibre : on nettoie votre canapé en profondeur avec un injecteur-extracteur professionnel. Détachage, désodorisation, séchage rapide.',
+    metaDescription: 'Nettoyage de canapé à domicile à Fontainebleau et alentours (77). Injection-extraction, détachage, désodorisation. Devis en 24h.',
     heroDescription: `Nettoyage de canapé à domicile dans tout le 77. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec un injecteur-extracteur pour un résultat impeccable en quelques heures.`,
+    localIntro: 'Vous cherchez un nettoyage de canapé à Fontainebleau ? Nous nous déplaçons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et Barbizon, dans un rayon de 30 km autour de La Genevraye.',
     formulasDescription: `Nous nettoyons votre canapé directement chez vous avec une machine à injection-extraction professionnelle. Le principe : on injecte une solution nettoyante en profondeur dans les fibres du tissu, puis on aspire immédiatement l'eau et les saletés. Résultat : votre canapé est propre, désodorisé et sèche en 6 à 12 heures.
 
 On s'occupe de tout type de canapé :
@@ -76,7 +78,7 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
       { q: 'Nettoyez-vous aussi le cuir ?', a: 'Oui, nous avons un traitement spécifique pour canapé en cuir avec nettoyage doux et hydratation du cuir.' },
       { q: 'Les produits sont-ils dangereux pour mes enfants ou animaux ?', a: 'Non, nos produits textiles sont certifiés sans danger. Pas de javel ni solvants agressifs.' },
       { q: 'Peut-on enlever toutes les taches ?', a: 'La plupart des taches disparaissent : vin, café, urine, graisse, soda. Certaines taches très anciennes peuvent laisser une trace légère, mais le résultat est spectaculaire dans 95% des cas.' },
-      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye. Déplacement offert dans ce rayon.' }
+      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye.' }
     ],
     heroImage: '/canape.png',
     heroImageAlt: 'Technicien professionnel nettoyant un canapé à domicile avec matériel d\'injection-extraction'
@@ -88,13 +90,15 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
     slug: 'nettoyage-matelas',
     title: 'Nettoyage de matelas',
     heroTitle: 'Nettoyage de matelas',
-    heroSubtitle: 'à domicile en Seine-et-Marne (77)',
+    heroSubtitle: 'à domicile à Fontainebleau et alentours (77)',
     shortDescription: 'Nettoyage professionnel de matelas à domicile. Traitement anti-acariens, détachage, désinfection.',
     image: '/matelas.png',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
     category: 'mobilier',
     description: 'Nettoyage de matelas à domicile en Seine-et-Marne. Traitement professionnel anti-acariens et anti-bactérien. Détachage des taches organiques (urine, sueur, sang). Désinfection complète pour un sommeil sain.',
+    metaDescription: 'Nettoyage de matelas à domicile à Fontainebleau et alentours (77). Anti-acariens, détachage, désinfection. Devis en 24h.',
     heroDescription: `Nettoyage de matelas à domicile en Seine-et-Marne (77). Taches de pipi, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas chez vous avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, matelas propre et sain.`,
+    localIntro: 'Vous cherchez un nettoyage de matelas à Fontainebleau ? Nous intervenons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et dans les communes alentour, dans un rayon de 30 km autour de La Genevraye.',
     formulasDescription: `Nous nettoyons votre matelas directement chez vous avec une machine à injection-extraction professionnelle et un traitement anti-acariens. Le nettoyage élimine les taches, les acariens, les allergènes et les mauvaises odeurs. Après notre passage, vous dormez sur un matelas propre, frais et désinfecté.
 
 On nettoie tous types de matelas :
@@ -156,7 +160,7 @@ Ce qui est inclus dans le nettoyage :
       { q: 'Est-ce efficace contre les acariens et les allergies ?', a: 'Oui, le traitement élimine les acariens et leurs déjections, principales causes d\'allergies respiratoires et cutanées. Résultat visible et durable.' },
       { q: 'Est-ce que ça enlève les taches de pipi ?', a: 'Oui, les taches d\'urine (enfant, pipi au lit, animal de compagnie) font partie des taches que nous traitons le plus souvent. Nous utilisons un détachant enzymatique spécifique.' },
       { q: 'Nettoyez-vous aussi les punaises de lit ?', a: 'Non, les punaises de lit nécessitent un traitement insecticide spécialisé qui ne fait pas partie de nos prestations.' },
-      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye. Déplacement offert dans ce rayon.' }
+      { q: 'Quelle est votre zone d\'intervention ?', a: 'Toute la Seine-et-Marne (77) et 30 km autour de La Genevraye.' }
     ],
     heroImage: '/matelas.png',
     heroImageAlt: 'Traitement professionnel anti-acariens et désinfection de matelas à domicile'

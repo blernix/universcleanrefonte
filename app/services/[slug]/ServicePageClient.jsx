@@ -17,7 +17,7 @@ import ServiceComparison from '@/app/components/services/ServiceComparison';
 import ServiceProcess from '@/app/components/services/ServiceProcess';
 import ServiceBenefits from '@/app/components/services/ServiceBenefits';
 import ServiceFAQ from '@/app/components/services/ServiceFAQ';
-import ServiceTestimonials from '@/app/components/services/ServiceTestimonials';
+import GoogleReviews from '@/app/components/GoogleReviews';
 import ServiceCTA from '@/app/components/services/ServiceCTA';
 import ServiceSchema from '@/app/components/services/ServiceSchema';
 import BeforeAfterSlider from '@/app/components/services/BeforeAfterSlider';
@@ -84,7 +84,7 @@ export default function ServicePageClient({ service, ville }) {
                       <div className="flex flex-wrap gap-3 mt-5">
                         <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-green-50 border border-green-200 text-green-700 rounded-full text-sm font-medium">
                           <BadgeCheck className="w-4 h-4" />
-                          Déplacement offert — {ville.nom} ({ville.codePostal})
+                          Intervention à {ville.nom} ({ville.codePostal})
                         </span>
                         <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-yellow-50 border border-yellow-200 text-yellow-700 rounded-full text-sm font-medium">
                           <Sparkles className="w-4 h-4" />
@@ -195,7 +195,7 @@ export default function ServicePageClient({ service, ville }) {
         <SectionSeparator variant="reverseLight" />
 
         {/* Testimonials Section */}
-        <ServiceTestimonials serviceTitle={service.title} />
+        <GoogleReviews />
 
         <SectionSeparator variant="blue" />
 

@@ -1,111 +1,34 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Hero from './components/home/Hero';
-import ServicesGrid from './components/home/ServicesGrid';
-import WhyUs from './components/home/WhyUs';
-import About from './components/home/About';
-import Process from './components/home/Process';
-import Partenaires from './components/home/Partenaires';
-import Testimonials from './components/home/Testimonials';
-import FAQ from './components/home/FAQ';
-import CTABanner from './components/home/CTABanner';
-import Modal from './components/Modal';
-import ContactForm from './components/ContactForm';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import SectionSeparator from './components/SectionSeparator';
-import PopupPromo from './components/PopupPromo';
-import SkipLinks from './components/SkipLinks';
-import RedirectConfirmModal from './components/RedirectConfirmModal';
-import { trackDevisClick } from './utils/umami';
+import HomeClient from './HomeClient';
 
-export default function HomePage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('general');
-  const [showHeader, setShowHeader] = useState(false);
-  const [showRedirectModal, setShowRedirectModal] = useState(false);
+export const metadata = {
+  title: 'Univers Clean 77 — Nettoyage Professionnel à Fontainebleau et Alentours',
+  description: 'Nettoyage professionnel de canapé, matelas, locaux et fin de chantier à Fontainebleau et alentours (77). Intervention rapide, résultat garanti. Devis en 24h.',
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) setShowHeader(true);
-    };
-    const timer = setTimeout(() => setShowHeader(true), 3000);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
+  openGraph: {
+    type: 'website',
+    url: 'https://univers-clean77.fr',
+    title: 'Univers Clean 77 - Nettoyage Professionnel à Fontainebleau et alentours',
+    description: 'Spécialiste du nettoyage de canapé, matelas, locaux et fin de chantier à Fontainebleau et alentours (77). Devis en 24h, intervention rapide.',
+    siteName: 'Univers Clean 77',
+    images: [
+      {
+        url: 'https://univers-clean77.fr/logo_univers_clean.png',
+        width: 1200,
+        height: 630,
+        alt: 'Univers Clean 77 - Nettoyage Professionnel',
+      },
+    ],
+    locale: 'fr_FR',
+  },
 
-  const handleOpenModal = (serviceSlug = 'general') => {
-    trackDevisClick(serviceSlug, 'accueil');
-    setSelectedService(serviceSlug);
-    setIsModalOpen(true);
-  };
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Univers Clean 77 - Nettoyage Professionnel à Fontainebleau et alentours',
+    description: 'Spécialiste du nettoyage de canapé, matelas, locaux et fin de chantier à Fontainebleau et alentours (77). Devis en 24h, intervention rapide.',
+    images: ['https://univers-clean77.fr/logo_univers_clean.png'],
+  },
+};
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedService('general');
-  };
-
-  const handleRedirectToBooking = () => {
-    setShowRedirectModal(false);
-    window.open('https://app.dispoo.fr/website/368-univers-clean/step1', '_blank');
-  };
-
-  return (
-    <>
-      <SkipLinks />
-      {showHeader && <Header onOpenModal={handleOpenModal} onOpenRedirectModal={() => setShowRedirectModal(true)} />}
-
-      <main id="main-content" className="min-h-screen">
-        <Hero onOpenModal={handleOpenModal} />
-
-        <SectionSeparator variant="light" />
-        <ServicesGrid />
-
-        
-        <WhyUs />
-
-<SectionSeparator variant="gray" />
-        <About />
-
-        <SectionSeparator variant="blue" />
-        <Process />
-
-        <SectionSeparator variant="reverseGray" />
-        <Partenaires />
-
-        <SectionSeparator variant="gray" />
-        <Testimonials />
-
-        <SectionSeparator variant="gray" />
-        <FAQ />
-
-        <SectionSeparator variant="blue" />
-        {/* <CTABanner onOpenModal={handleOpenModal} /> */}
-      </main>
-
-      <Footer />
-
-      <PopupPromo />
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        title="Demander un devis"
-      >
-        <ContactForm
-          formType={selectedService}
-          onSuccess={handleCloseModal}
-        />
-      </Modal>
-
-      <RedirectConfirmModal
-        isOpen={showRedirectModal}
-        onClose={() => setShowRedirectModal(false)}
-        onConfirm={handleRedirectToBooking}
-      />
-    </>
-  );
+export default function Page() {
+  return <HomeClient />;
 }

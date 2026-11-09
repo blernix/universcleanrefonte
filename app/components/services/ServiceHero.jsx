@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Sparkles, Truck, MessageSquare, Phone, ArrowRight, Star } from 'lucide-react';
+import { Sparkles, MessageSquare, Phone, ArrowRight, Star } from 'lucide-react';
 import Image from 'next/image';
 import SectionSeparator from '@/app/components/SectionSeparator';
 
@@ -74,6 +74,13 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
             <p className="!text-base sm:!text-lg md:!text-xl !text-gray-600 !max-w-2xl !leading-relaxed !mx-auto lg:!mx-0 whitespace-pre-line">
               {service.heroDescription || service.description || service.shortDescription}
             </p>
+
+            {/* Intro locale - pages directes uniquement */}
+            {!ville && service.localIntro && (
+              <p className="!text-base sm:!text-lg md:!text-xl !text-gray-700 !max-w-2xl !leading-relaxed !mx-auto lg:!mx-0">
+                {service.localIntro}
+              </p>
+            )}
 
             {/* Info formules - Afficher uniquement s'il y a plus d'une formule */}
             {hasFormulas && service.formulas.length > 1 && (
@@ -232,10 +239,9 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="!mt-12 md:!mt-20 !grid !grid-cols-1 sm:!grid-cols-3 !gap-4 md:!gap-6"
+          className="!mt-12 md:!mt-20 !grid !grid-cols-1 sm:!grid-cols-2 !gap-4 md:!gap-6"
         >
           {[
-            { icon: Truck, text: "Déplacement offert", subtext: "Dans un rayon de 30km" },
             { icon: Sparkles, text: "Produits Premium", subtext: "Qualité professionnelle" },
               { icon: MessageSquare, text: "Demande de devis", subtext: "Sans engagement" },
           ].map(({ icon: Icon, text, subtext }, i) => (

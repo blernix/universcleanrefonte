@@ -38,8 +38,8 @@ export const globalFAQ = [
 export const aboutContent = {
   intro: {
     title: `À propos d'Univers Clean`,
-    subtitle: 'Des prestations de qualité, efficaces et durables',
-    content: `Univers Clean est une entreprise spécialisée dans le nettoyage professionnel pour particuliers et professionnels, née d'une volonté simple : offrir des prestations de qualité, efficaces et durables, tout en redonnant une seconde vie aux surfaces et aux textiles du quotidien. Passionnés par le travail bien fait et soucieux du détail, nous avons créé Univers Clean pour répondre à un besoin réel : proposer des services de nettoyage approfondis, là où le nettoyage classique ne suffit plus. Aujourd'hui, nous intervenons sur une large gamme de prestations : canapés, matelas, locaux, vitres, terrasses, ainsi que le nettoyage de fin de chantier. Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels.`
+    subtitle: 'Des prestations de qualité, efficaces et durables, à Fontainebleau et alentours',
+    content: `Univers Clean est une entreprise de nettoyage professionnel à Fontainebleau et alentours, pour les particuliers comme pour les professionnels. Passionnés par le travail bien fait et soucieux du détail, nous avons créé Univers Clean pour répondre à un besoin réel : proposer des services de nettoyage approfondis, là où le nettoyage classique ne suffit plus. Aujourd'hui, nous intervenons sur une large gamme de prestations : canapés, matelas, locaux, vitres, terrasses, ainsi que le nettoyage de fin de chantier. Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels. Nous intervenons dans un rayon de 30 km autour de La Genevraye (77690) : Fontainebleau, Avon, Samoreau, Bois-le-Roi, Barbizon, Bourron-Marlotte, Moret-Loing-et-Orvanne.`
   },
   values: [
     {

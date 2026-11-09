@@ -21,12 +21,12 @@ export default function ServicesGrid() {
             Nos Services
           </h2>
           <p className="!text-xl !text-gray-600 !text-center max-w-2xl !mx-auto">
-            Découvrez notre gamme complète de services de nettoyage professionnel
+            Canapé, matelas, bureaux, fin de chantier : nettoyage professionnel à Fontainebleau et dans les communes alentour, chez vous.
           </p>
         </motion.div>
 
         {/* Grille */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {sortedServices.map((service, index) => (
             <motion.div
               key={service.id}
@@ -34,12 +34,13 @@ export default function ServicesGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="h-full"
             >
-              <Link href={`/services/${service.slug}`}>
+              <Link href={`/services/${service.slug}`} className="block h-full">
                 <div className="relative group bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col h-full hover:-translate-y-2">
                   
                   {/* Image */}
-                  <div className="relative h-56 w-full overflow-hidden">
+                  <div className="relative h-44 w-full overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.imageAlt}
@@ -48,8 +49,8 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* Contenu */}
-                  <div className="flex flex-col flex-grow !p-8 !text-center relative z-10 bg-white transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50">
-                    <h3 className="!text-2xl font-bold !text-gray-900 mb-4 !text-center">
+                  <div className="flex flex-col flex-grow !p-6 !text-center relative z-10 bg-white transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-blue-50">
+                    <h3 className="!text-xl font-bold !text-gray-900 mb-4 !text-center">
                       {service.title}
                     </h3>
                     <p className="!text-gray-600 !mb-6 leading-relaxed flex-grow !text-center">

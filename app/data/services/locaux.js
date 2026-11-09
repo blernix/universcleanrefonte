@@ -7,13 +7,15 @@ export const locauxServices = [
     slug: 'nettoyage-locaux-bureau',
     title: 'Nettoyage de locaux et bureaux',
     heroTitle: 'Nettoyage de locaux et bureaux',
-    heroSubtitle: 'en Seine-et-Marne et dans tout le 77',
+    heroSubtitle: 'à Fontainebleau et alentours (77)',
     shortDescription: 'Nettoyage professionnel de bureaux et locaux. Régulier ou ponctuel.',
     image: '/bureaux.png',
     imageAlt: 'Nettoyage professionnel de bureaux et locaux en Seine-et-Marne',
     category: 'locaux',
     description: 'Service de nettoyage des locaux et de bureaux en Seine-et-Marne. Intervention 7j/7, la propreté est notre métier. À votre service pour l\'entretien courant ou ponctuel de vos locaux.',
+    metaDescription: 'Nettoyage de locaux et bureaux à Fontainebleau et alentours (77). Entretien régulier ou ponctuel. Devis en 24h.',
     heroDescription: `Service de nettoyage de locaux et bureaux en Seine-et-Marne (77) et alentours. Intervention 7j/7 afin d'entretenir vos locaux professionnels. La propreté, notre métier. À votre service pour l'entretien courant ou ponctuel de vos bureaux, commerces et espaces professionnels.`,
+    localIntro: 'Vous gérez des locaux à Fontainebleau, Avon ou Samoreau ? Nous entretenons vos bureaux, commerces et espaces professionnels, en ponctuel ou en contrat régulier.',
     formulasDescription: `Notre service de nettoyage de locaux professionnels répond à tous vos besoins, qu'il s'agisse d'un nettoyage ponctuel ou d'un entretien régulier. Bureaux, commerces, cabinets, écoles : nous nous adaptons à chaque espace.
 
 Notre prestation inclut :
@@ -76,13 +78,15 @@ Nos agents de nettoyage utilisent des produits professionnels respectueux de l'e
     slug: 'nettoyage-fin-chantier',
     title: 'Nettoyage de fin de chantier',
     heroTitle: 'Nettoyage de fin de chantier',
-    heroSubtitle: 'en Seine-et-Marne et dans tout le 77',
+    heroSubtitle: 'à Fontainebleau et alentours (77)',
     shortDescription: 'Nettoyage après travaux professionnel. Remise en état pour particuliers et professionnels.',
     image: '/chantier.png',
     imageAlt: 'Nettoyage professionnel de fin de chantier après travaux',
     category: 'chantier',
     description: 'Nettoyage de fin de chantier professionnel et fiable en Seine-et-Marne. Notre entreprise spécialisée dans la remise en état après travaux intervient sur tous types de chantiers.',
+    metaDescription: 'Nettoyage de fin de chantier à Fontainebleau et alentours (77). Remise en état après travaux. Devis en 24h.',
     heroDescription: `Nettoyage après travaux professionnel et fiable en Seine-et-Marne (77). Notre entreprise spécialisée dans la remise en état des chantiers est là pour répondre à tous vos besoins, particuliers comme professionnels du bâtiment.`,
+    localIntro: 'Fin de chantier à Fontainebleau ou dans les communes alentour ? Nous remettons en état votre logement ou local après travaux, pour les particuliers comme pour les professionnels du bâtiment.',
     formulasDescription: `Notre service de remise en état après travaux est conçu pour vous livrer un espace propre et prêt à être occupé. Nous intervenons après tous types de travaux : rénovation, construction, aménagement.
 
 Notre prestation complète :

@@ -33,15 +33,18 @@ export async function generateMetadata({ params }) {
     }
   }
 
-  // Construire le titre optimisé SEO
-  const title = `${service.title} à Domicile - Univers Clean 77 | Devis`;
+  // Construire le titre optimisé SEO (pages directes uniquement)
+  const title = `${service.title} à Fontainebleau et Alentours (77) | Univers Clean 77`;
 
-  // Construire la description optimisée SEO
-  let description = service.description || service.shortDescription;
-  if (minPrice) {
-    description = `${description} Prix dès ${minPrice}€. Intervention rapide en Seine-et-Marne. Devis en 24h.`;
-  } else {
-    description = `${description} Intervention rapide en Seine-et-Marne. Devis en 24h.`;
+  // Construire la description optimisée SEO (copie arbitrée, pages directes uniquement)
+  let description = service.metaDescription || service.description || service.shortDescription;
+
+  if (!service.metaDescription) {
+    if (minPrice) {
+      description = `${description} Prix dès ${minPrice}€. Intervention rapide en Seine-et-Marne. Devis en 24h.`;
+    } else {
+      description = `${description} Intervention rapide en Seine-et-Marne. Devis en 24h.`;
+    }
   }
 
   // Limiter la description à 160 caractères pour le SEO
