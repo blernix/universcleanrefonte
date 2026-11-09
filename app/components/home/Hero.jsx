@@ -14,13 +14,13 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             alt="Univers Clean - Nettoyage professionnel"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/70" />
           {/* Voile radial derrière le texte : détache les lettres du fond chargé */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.75),rgba(0,0,0,0.15))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.55),rgba(0,0,0,0.05))]" />
         </div>
 
         {/* Contenu centré */}
-        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/45 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10">
+        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/30 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             className="text-base mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
           >
             Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
-            Intervention à La Genevraye (77) et 30 km alentour.
+            Intervention à Fontainebleau et alentours.
           </motion.p>
 
           <motion.div
@@ -91,21 +91,6 @@ const DesktopHero = ({
   children,
   onOpenModal
 }) => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Calculer l'opacité du hero en fonction du scroll (disparaît progressivement)
-  const heroOpacity = Math.max(0, 1 - scrollY / 600);
-  const heroScale = 1 + (scrollY / 2000); // Léger zoom lors du scroll
-
   return (
     <div className="bg-white text-gray-900">
       {/* Hero Section avec effet parallax */}
@@ -113,7 +98,6 @@ const DesktopHero = ({
         {/* Photo de fond avec effet Ken Burns */}
         <motion.div
           className='absolute inset-0 z-0'
-          style={{ opacity: heroOpacity }}
         >
           <motion.img
             src="/hero.png"
@@ -128,17 +112,14 @@ const DesktopHero = ({
               repeatType: 'reverse',
               ease: 'easeInOut',
             }}
-            style={{
-              transform: `scale(${heroScale})`,
-            }}
           />
-          <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85' />
+          <div className='absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/70' />
           {/* Voile radial derrière le texte : détache les lettres du fond chargé */}
-          <div className='absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.75),rgba(0,0,0,0.15))]' />
+          <div className='absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.55),rgba(0,0,0,0.05))]' />
         </motion.div>
 
          {/* Contenu centré */}
-        <div className='relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center text-center bg-black/45 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10'>
+        <div className='relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center text-center bg-black/30 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10'>
            <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -164,7 +145,7 @@ const DesktopHero = ({
             className="text-base md:text-lg mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed drop-shadow-md"
           >
             Plus de 10 ans d'expérience. Produits professionnels haut de gamme.
-            Intervention à La Genevraye (77) et 30 km alentour.
+            Intervention à Fontainebleau et alentours.
           </motion.p>
 
           <motion.div
