@@ -14,24 +14,13 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
             alt="Univers Clean - Nettoyage professionnel"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85" />
+          {/* Voile radial derrière le texte : détache les lettres du fond chargé */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.75),rgba(0,0,0,0.15))]" />
         </div>
 
         {/* Contenu centré */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-2"
-          >
-            <img
-              src="/logo_univers_clean.png"
-              alt="Logo Univers Clean"
-               className="w-72 h-72 object-contain drop-shadow-2xl mx-auto"
-            />
-          </motion.div>
-
+        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/45 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,24 +132,13 @@ const DesktopHero = ({
               transform: `scale(${heroScale})`,
             }}
           />
-          <div className='absolute inset-0 bg-black/40' />
+          <div className='absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/85' />
+          {/* Voile radial derrière le texte : détache les lettres du fond chargé */}
+          <div className='absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.75),rgba(0,0,0,0.15))]' />
         </motion.div>
 
          {/* Contenu centré */}
-        <div className='relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6'>
-           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-3"
-          >
-            <img
-              src="/logo_univers_clean.png"
-              alt="Logo Univers Clean"
-               className="w-80 h-80 object-contain drop-shadow-2xl"
-            />
-          </motion.div>
-
+        <div className='relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center text-center bg-black/45 backdrop-blur-[2px] border border-white/10 rounded-3xl px-6 py-8 sm:px-10 sm:py-10'>
            <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
