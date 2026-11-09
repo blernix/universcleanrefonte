@@ -1,8 +1,10 @@
 // Avis Google — fiche « Univers Clean - Entreprise de nettoyage » (cid 95189979976139715)
 //
-// Source : /opt/data/plateaux/universclean/modifs-client/avis-google.json (relevé du 2026-11-09).
-// Seules les entrées marquées `affiche: true` ET `complet: true` sont reprises ici, texte
-// verbatim, sans le champ `contexte`. Les avis tronqués par Google restent hors du module.
+// Source : /opt/data/plateaux/universclean/modifs-client/avis-google.json (relevé du 2026-11-09,
+// complété le 2026-11-09 par deux avis transmis par Killian depuis la fiche).
+// Texte VERBATIM (fautes, ponctuation et emoji de l'auteur conservés), auteur au prénom public.
+// `visite` = mois de la prestation quand Google l'affiche ; `null` si Google ne le donne pas.
+// Les avis tronqués par Google restent hors de ce module.
 
 export const source = {
   fiche: 'Univers Clean - Entreprise de nettoyage',
@@ -14,6 +16,21 @@ export const source = {
 };
 
 export const avisPublies = [
+  {
+    auteur: 'François Ducatez',
+    note: 5,
+    visite: '2026-10',
+    texte: 'Excellent service, le canapé et fauteuil sont impeccables! Comme neufs! Je recommande vivement.',
+  },
+  {
+    auteur: 'CHISPORTICH Rachel',
+    note: 5,
+    visite: null,
+    texte:
+      'Prestation au top ! Éric a été réactif à ma demande et il est très professionnel. Je retrouve mon canapé après l’avoir taché avec du sang !\n' +
+      'Je recommande vivement Éric qui sait se rendre disponible pour ses clients, et connaît les produits adaptés à vos textiles.\n' +
+      'Encore merci !',
+  },
   {
     auteur: 'Pauline Guignot',
     note: 5,

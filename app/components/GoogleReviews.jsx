@@ -45,12 +45,12 @@ export default function GoogleReviews() {
                     <Star key={i} aria-hidden="true" className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <blockquote className="text-gray-700 text-lg italic text-center mb-6">
+                <blockquote className="text-gray-700 text-lg italic text-center mb-6 whitespace-pre-line">
                   {avis.texte}
                 </blockquote>
                 <div className="text-center">
                   <p className="font-bold text-gray-900">{avis.auteur}</p>
-                  <p className="text-sm text-gray-600">{`Avis Google · ${formatVisite(avis.visite)}`}</p>
+                  <p className="text-sm text-gray-600">{avis.visite ? `Avis Google · ${formatVisite(avis.visite)}` : 'Avis Google'}</p>
                 </div>
               </li>
             ))}

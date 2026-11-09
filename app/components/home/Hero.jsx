@@ -17,7 +17,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Contenu centré *
+        {/* Contenu centré */}
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -88,7 +88,7 @@ const SimpleHero = ({ videoSrc, bgImageSrc, title, onOpenModal }) => {
               Découvrir nos services
             </a>
           </motion.div>
-        </div>*/}
+        </div>
       </section>
     </div>
   );
@@ -146,7 +146,7 @@ const DesktopHero = ({
           <div className='absolute inset-0 bg-black/40' />
         </motion.div>
 
-         {/* Contenu centré *
+         {/* Contenu centré */}
         <div className='relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-6'>
            <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -222,7 +222,7 @@ const DesktopHero = ({
               📞 Appeler maintenant
             </a>
           </motion.div>
-        </div>*/}
+        </div>
 
       </section>
 
