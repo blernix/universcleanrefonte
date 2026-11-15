@@ -57,7 +57,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
 
             {/* Titre */}
             <h1 className="!text-4xl sm:!text-5xl md:!text-6xl lg:!text-7xl !font-black !leading-[1.1] !tracking-tight !text-gray-900">
-              {service.heroTitle || service.title}
+              {(!ville && service.heroTitleDirect) || service.heroTitle || service.title}
               {ville && (
                 <span className="!block !text-blue-600 !text-3xl sm:!text-4xl md:!text-5xl !mt-3 !font-black !leading-tight">
                   à {ville.nom}
@@ -72,7 +72,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
 
             {/* Description */}
             <p className="!text-base sm:!text-lg md:!text-xl !text-gray-600 !max-w-2xl !leading-relaxed !mx-auto lg:!mx-0 whitespace-pre-line">
-              {service.heroDescription || service.description || service.shortDescription}
+              {(!ville && service.heroDescriptionDirect) || service.heroDescription || service.description || service.shortDescription}
             </p>
 
             {/* Intro locale - pages directes uniquement */}

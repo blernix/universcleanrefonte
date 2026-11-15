@@ -7,7 +7,8 @@ export const mobilierServices = [
     slug: 'nettoyage-canape',
     title: 'Nettoyage de canapé',
     heroTitle: 'Nettoyage de canapé',
-    heroSubtitle: 'à domicile à Fontainebleau et alentours (77)',
+    heroTitleDirect: 'Nettoyage de canapés',
+    heroSubtitle: 'à Fontainebleau et en Seine-et-Marne',
     shortDescription: 'Nettoyage professionnel de canapé à domicile. Injection-extraction, détachage, désodorisation.',
     image: '/canape.png',
     imageAlt: 'Canapé en tissu propre et rafraîchi après nettoyage professionnel par injection-extraction',
@@ -15,6 +16,9 @@ export const mobilierServices = [
     description: 'Nettoyage de canapé à domicile en Seine-et-Marne. Tissu, cuir, microfibre : on nettoie votre canapé en profondeur avec un injecteur-extracteur professionnel. Détachage, désodorisation, séchage rapide.',
     metaDescription: 'Nettoyage de canapé à domicile à Fontainebleau et alentours (77). Injection-extraction, détachage, désodorisation. Devis en 24h.',
     heroDescription: `Nettoyage de canapé à domicile dans tout le 77. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec un injecteur-extracteur pour un résultat impeccable en quelques heures.`,
+    heroDescriptionDirect: `Univers Clean nettoie vos canapés à domicile à Fontainebleau et en Seine-et-Marne. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec notre matériel professionnel pour un résultat garanti.
+
+À partir de 55€ avec l'avance immédiate du crédit d'impôt (110€ TTC avant crédit). Devis gratuit sous 24 h.`,
     localIntro: 'Vous cherchez un nettoyage de canapé à Fontainebleau ? Nous nous déplaçons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et Barbizon, dans un rayon de 30 km autour de La Genevraye.',
     formulasDescription: `Nous nettoyons votre canapé directement chez vous avec une machine à injection-extraction professionnelle. Le principe : on injecte une solution nettoyante en profondeur dans les fibres du tissu, puis on aspire immédiatement l'eau et les saletés. Résultat : votre canapé est propre, désodorisé et sèche en 6 à 12 heures.
 
@@ -68,10 +72,10 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
       }
     ],
     process: [
-      { step: 1, title: 'Aspiration', desc: 'Aspiration des poussières et poils en surface et en profondeur' },
-      { step: 2, title: 'Détachage', desc: 'Pré-traitement des taches visibles avec produit adapté' },
-      { step: 3, title: 'Injection-extraction', desc: 'Injection de solution nettoyante et aspiration immédiate des saletés' },
-      { step: 4, title: 'Séchage', desc: 'Séchage naturel optimisé, canapé utilisable en 6 à 12h' }
+      { step: 1, title: 'Pulvérisation', desc: 'Application d’un produit nettoyant pour décoller les saletés et préparer les surfaces.' },
+      { step: 2, title: 'Brossage', desc: 'Brossage en profondeur pour éliminer les taches et les impuretés incrustées.' },
+      { step: 3, title: 'Désinfection', desc: 'Élimination des bactéries et des germes pour une hygiène optimale.' },
+      { step: 4, title: 'Extraction', desc: 'Aspiration des résidus et de l’humidité pour un résultat propre et frais.' }
     ],
     faqs: [
       { q: 'Combien de temps avant de pouvoir utiliser mon canapé ?', a: 'Comptez 6 à 12h de séchage selon le type de tissu et l\'aération de la pièce. Vous pouvez accélérer avec un ventilateur.' },
@@ -90,7 +94,7 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
     slug: 'nettoyage-matelas',
     title: 'Nettoyage de matelas',
     heroTitle: 'Nettoyage de matelas',
-    heroSubtitle: 'à domicile à Fontainebleau et alentours (77)',
+    heroSubtitle: 'à Fontainebleau et en Seine-et-Marne',
     shortDescription: 'Nettoyage professionnel de matelas à domicile. Traitement anti-acariens, détachage, désinfection.',
     image: '/matelas.png',
     imageAlt: 'Matelas blanc désinfecté et hygiénique après nettoyage professionnel en profondeur',
@@ -98,6 +102,9 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
     description: 'Nettoyage de matelas à domicile en Seine-et-Marne. Traitement professionnel anti-acariens et anti-bactérien. Détachage des taches organiques (urine, sueur, sang). Désinfection complète pour un sommeil sain.',
     metaDescription: 'Nettoyage de matelas à domicile à Fontainebleau et alentours (77). Anti-acariens, détachage, désinfection. Devis en 24h.',
     heroDescription: `Nettoyage de matelas à domicile en Seine-et-Marne (77). Taches de pipi, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas chez vous avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, matelas propre et sain.`,
+    heroDescriptionDirect: `Univers Clean nettoie vos matelas à domicile à Fontainebleau et en Seine-et-Marne. Taches d'urine, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, pour un matelas propre et sain.
+
+À partir de 33€ avec l'avance immédiate du crédit d'impôt (66€ TTC avant crédit). Devis gratuit sous 24 h.`,
     localIntro: 'Vous cherchez un nettoyage de matelas à Fontainebleau ? Nous intervenons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et dans les communes alentour, dans un rayon de 30 km autour de La Genevraye.',
     formulasDescription: `Nous nettoyons votre matelas directement chez vous avec une machine à injection-extraction professionnelle et un traitement anti-acariens. Le nettoyage élimine les taches, les acariens, les allergènes et les mauvaises odeurs. Après notre passage, vous dormez sur un matelas propre, frais et désinfecté.
 
@@ -149,10 +156,10 @@ Ce qui est inclus dans le nettoyage :
       }
     ],
     process: [
-      { step: 1, title: 'Aspiration', desc: 'Élimination des poussières, peaux mortes et acariens en profondeur' },
-      { step: 2, title: 'Détachage', desc: 'Traitement ciblé des taches organiques (pipi, sueur, sang, vomi)' },
-      { step: 3, title: 'Injection-extraction', desc: 'Nettoyage en profondeur avec produit désinfectant' },
-      { step: 4, title: 'Désinfection', desc: 'Traitement anti-acariens et antibactérien pour un matelas sain' }
+      { step: 1, title: 'Pulvérisation', desc: 'Application d’un produit nettoyant pour décoller les saletés et préparer les surfaces.' },
+      { step: 2, title: 'Brossage', desc: 'Brossage en profondeur pour éliminer les taches et les impuretés incrustées.' },
+      { step: 3, title: 'Désinfection', desc: 'Élimination des bactéries et des germes pour une hygiène optimale.' },
+      { step: 4, title: 'Extraction', desc: 'Aspiration des résidus et de l’humidité pour un résultat propre et frais.' }
     ],
     faqs: [
       { q: 'Combien de temps avant de pouvoir dormir sur le matelas ?', a: 'Le matelas reste légèrement humide. Prévoyez 6 à 12h de séchage. Aérez bien la pièce pour accélérer le processus.' },

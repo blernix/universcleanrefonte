@@ -78,7 +78,7 @@ Nos agents de nettoyage utilisent des produits professionnels respectueux de l'e
     slug: 'nettoyage-fin-chantier',
     title: 'Nettoyage de fin de chantier',
     heroTitle: 'Nettoyage de fin de chantier',
-    heroSubtitle: 'à Fontainebleau et alentours (77)',
+    heroSubtitle: 'à Fontainebleau et en Seine-et-Marne',
     shortDescription: 'Nettoyage après travaux professionnel. Remise en état pour particuliers et professionnels.',
     image: '/chantier.png',
     imageAlt: 'Nettoyage professionnel de fin de chantier après travaux',
@@ -86,6 +86,13 @@ Nos agents de nettoyage utilisent des produits professionnels respectueux de l'e
     description: 'Nettoyage de fin de chantier professionnel et fiable en Seine-et-Marne. Notre entreprise spécialisée dans la remise en état après travaux intervient sur tous types de chantiers.',
     metaDescription: 'Nettoyage de fin de chantier à Fontainebleau et alentours (77). Remise en état après travaux. Devis en 24h.',
     heroDescription: `Nettoyage après travaux professionnel et fiable en Seine-et-Marne (77). Notre entreprise spécialisée dans la remise en état des chantiers est là pour répondre à tous vos besoins, particuliers comme professionnels du bâtiment.`,
+    heroDescriptionDirect: `Univers Clean réalise le nettoyage après travaux à Fontainebleau et en Seine-et-Marne. Notre entreprise spécialisée dans la remise en état des chantiers est là pour répondre à tous vos besoins, particuliers comme professionnels.
+
+Après les travaux, chaque recoin du logement est soigneusement nettoyé : élimination des poussières de plâtre, des traces de peinture, de colle et de ciment, ainsi que du calcaire et des différents résidus.
+
+Le nettoyage est réalisé pièce par pièce et concerne les sols, les portes, les fenêtres, les sanitaires, la cuisine et l'ensemble des surfaces vitrées.
+
+Votre logement est rendu parfaitement propre, prêt à être habité, mis en location ou présenté lors de la réception des travaux.`,
     localIntro: 'Fin de chantier à Fontainebleau ou dans les communes alentour ? Nous remettons en état votre logement ou local après travaux, pour les particuliers comme pour les professionnels du bâtiment.',
     formulasDescription: `Notre service de remise en état après travaux est conçu pour vous livrer un espace propre et prêt à être occupé. Nous intervenons après tous types de travaux : rénovation, construction, aménagement.
 
