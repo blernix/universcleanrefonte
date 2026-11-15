@@ -18,10 +18,8 @@ export const mobilierServices = [
     description: 'Nettoyage de canapé à domicile en Seine-et-Marne. Tissu, cuir, microfibre : on nettoie votre canapé en profondeur avec un injecteur-extracteur professionnel. Détachage, désodorisation, séchage rapide.',
     metaDescription: 'Nettoyage de canapé à domicile à Fontainebleau et alentours (77). Injection-extraction, détachage, désodorisation. Devis en 24h.',
     heroDescription: `Nettoyage de canapé à domicile dans tout le 77. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec un injecteur-extracteur pour un résultat impeccable en quelques heures.`,
-    heroDescriptionDirect: `Univers Clean nettoie vos canapés à domicile à Fontainebleau et en Seine-et-Marne. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec notre matériel professionnel pour un résultat garanti.
-
-À partir de 55€ avec l'avance immédiate du crédit d'impôt (110€ TTC avant crédit). Devis gratuit sous 24 h.`,
-    localIntro: 'Vous cherchez un nettoyage de canapé à Fontainebleau ? Nous nous déplaçons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et Barbizon, dans un rayon de 30 km autour de La Genevraye.',
+    heroDescriptionDirect: `Univers Clean nettoie vos canapés à domicile à Fontainebleau et en Seine-et-Marne. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec notre matériel professionnel pour un résultat garanti.`,
+    localIntro: 'Vous cherchez un nettoyage de canapé à Fontainebleau ? Nous nous déplaçons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et Barbizon.',
     formulasDescription: `Nous nettoyons votre canapé directement chez vous avec une machine à injection-extraction professionnelle. Le principe : on injecte une solution nettoyante en profondeur dans les fibres du tissu, puis on aspire immédiatement l'eau et les saletés. Résultat : votre canapé est propre, désodorisé et sèche en 6 à 12 heures.
 
 On s'occupe de tout type de canapé :
@@ -104,10 +102,8 @@ Tous nos produits sont certifiés sans danger pour les enfants et les animaux.`,
     description: 'Nettoyage de matelas à domicile en Seine-et-Marne. Traitement professionnel anti-acariens et anti-bactérien. Détachage des taches organiques (urine, sueur, sang). Désinfection complète pour un sommeil sain.',
     metaDescription: 'Nettoyage de matelas à domicile à Fontainebleau et alentours (77). Anti-acariens, détachage, désinfection. Devis en 24h.',
     heroDescription: `Nettoyage de matelas à domicile en Seine-et-Marne (77). Taches de pipi, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas chez vous avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, matelas propre et sain.`,
-    heroDescriptionDirect: `Univers Clean nettoie vos matelas à domicile à Fontainebleau et en Seine-et-Marne. Taches d'urine, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, pour un matelas propre et sain.
-
-À partir de 33€ avec l'avance immédiate du crédit d'impôt (66€ TTC avant crédit). Devis gratuit sous 24 h.`,
-    localIntro: 'Vous cherchez un nettoyage de matelas à Fontainebleau ? Nous intervenons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et dans les communes alentour, dans un rayon de 30 km autour de La Genevraye.',
+    heroDescriptionDirect: `Univers Clean nettoie vos matelas à domicile à Fontainebleau et en Seine-et-Marne. Taches d'urine, de sueur ou de sang ? Allergies aux acariens ? Odeurs ? On nettoie et désinfecte votre matelas avec un traitement professionnel anti-acariens et antibactérien. Résultat visible immédiatement, pour un matelas propre et sain.`,
+    localIntro: 'Vous cherchez un nettoyage de matelas à Fontainebleau ? Nous intervenons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et dans les communes alentour.',
     formulasDescription: `Nous nettoyons votre matelas directement chez vous avec une machine à injection-extraction professionnelle et un traitement anti-acariens. Le nettoyage élimine les taches, les acariens, les allergènes et les mauvaises odeurs. Après notre passage, vous dormez sur un matelas propre, frais et désinfecté.
 
 On nettoie tous types de matelas :
