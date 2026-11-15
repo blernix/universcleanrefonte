@@ -32,7 +32,7 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
   const minPrice = getMinPrice();
 
   return (
-    <section className="!relative !overflow-hidden !bg-white !pt-24 md:!pt-32 !pb-12 md:!pb-20">
+    <section className="!relative !overflow-x-clip !bg-white !pt-24 md:!pt-32 !pb-12 md:!pb-20">
 
       <div className="!container !relative !mx-auto !px-4 sm:!px-6 md:!px-12 !max-w-7xl">
         <div className="!grid lg:!grid-cols-2 !gap-8 md:!gap-12 lg:!gap-16 !items-start">
@@ -165,7 +165,8 @@ export default function ServiceHero({ service, isAutomobile, hasFormulas, onOpen
           </motion.div>
 
           {/* Bloc image + CTAs - Desktop uniquement (colonne de droite) */}
-          <div className="!hidden lg:!flex !flex-col !gap-8 !order-2">
+          {/* Collée en haut de la fenêtre pendant le défilement du texte, pour éviter le vide sous la photo. */}
+          <div className="!hidden lg:!flex !flex-col !gap-8 !order-2 lg:!sticky lg:!top-28 lg:!self-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
