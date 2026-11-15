@@ -55,7 +55,9 @@ export default function ServicePageClient({ service, ville }) {
 
       <Header onOpenModal={handleOpenModal} onOpenRedirectModal={() => setShowRedirectModal(true)} />
 
-      <main className="overflow-hidden">
+      {/* overflow-x-clip et non overflow-hidden : overflow-hidden cree un conteneur de
+          defilement et empeche la colonne photo du hero de rester collante (position: sticky). */}
+      <main className="overflow-x-clip">
         <ServiceHero
           service={service}
           isAutomobile={false}
