@@ -50,6 +50,11 @@ export default function MobileCTA() {
   const isMobilier = pathname?.includes('nettoyage-canape') || pathname?.includes('nettoyage-matelas');
   const isServicePage = pathname?.startsWith('/services/');
 
+  // Bulle « Prendre RDV » (lien Dispoo) des pages canapé et matelas : le client n'en veut plus.
+  // Elle est seulement désactivée, pas supprimée : repasser SHOW_RDV_BUBBLE à true pour la réafficher.
+  const SHOW_RDV_BUBBLE = false;
+  const showBubble = isMobilier ? SHOW_RDV_BUBBLE : true;
+
   return (
     <>
       <div className={`${isServicePage ? '' : 'lg:hidden'} fixed bottom-0 left-0 right-0 z-40 p-4 pointer-events-none`}>
@@ -59,7 +64,7 @@ export default function MobileCTA() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="pointer-events-auto"
           >
-            {isMobilier ? (
+            {showBubble && (isMobilier ? (
               <a
                 href="https://app.dispoo.fr/univers-clean77"
                 target="_blank"
@@ -82,7 +87,7 @@ export default function MobileCTA() {
                 <Phone className="w-5 h-5" />
                 Demande de devis
               </button>
-            )}
+            ))}
           </motion.div>
         </div>
       </div>
