@@ -1,64 +1,39 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useReducedMotion } from 'framer-motion';
 import { HERO_PHOTOS, HERO_DELAY } from '@/app/data/hero-photos';
 
 export default function Hero({ onOpenModal }) {
   const [index, setIndex] = useState(0);
-  // Pause pilotée par l'utilisateur (bouton) : elle est maître, le survol ne la réarme pas.
-  const [userPaused, setUserPaused] = useState(false);
-  // Pauses contextuelles (survol / focus) : elles ne s'appliquent que tant qu'elles sont armées.
+  // Pauses contextuelles (survol / focus) : état interne seulement, aucun contrôle affiché.
   const [hoverPaused, setHoverPaused] = useState(false);
   const [focusPaused, setFocusPaused] = useState(false);
-  const hoverArmed = useRef(true);
-  const focusArmed = useRef(true);
   const reduce = useReducedMotion();
 
   useEffect(() => {
     // Pas de défilement automatique si la personne préfère réduire les animations,
-    // s'il n'y a qu'une photo, ou si une pause (bouton, survol, focus) est active.
+    // s'il n'y a qu'une photo, ou si le survol / le focus met la piste en pause.
     if (reduce) return;
     if (HERO_PHOTOS.length < 2) return;
-    if (userPaused || hoverPaused || focusPaused) return;
+    if (hoverPaused || focusPaused) return;
 
     const timer = setInterval(() => {
       setIndex((current) => (current + 1) % HERO_PHOTOS.length);
     }, HERO_DELAY);
 
     return () => clearInterval(timer);
-  }, [reduce, userPaused, hoverPaused, focusPaused]);
+  }, [reduce, hoverPaused, focusPaused]);
 
-  const togglePause = () => {
-    const next = !userPaused;
-    setUserPaused(next);
-    if (!next) {
-      // Reprise au clic : le survol et le focus en cours ne doivent pas réécraser le clic.
-      // Ils se réarmeront à la prochaine sortie (mouseleave / blur).
-      hoverArmed.current = false;
-      focusArmed.current = false;
-      setHoverPaused(false);
-      setFocusPaused(false);
-    }
-  };
+  const handleMouseEnter = () => setHoverPaused(true);
 
-  const handleMouseEnter = () => {
-    if (hoverArmed.current) setHoverPaused(true);
-  };
+  const handleMouseLeave = () => setHoverPaused(false);
 
-  const handleMouseLeave = () => {
-    hoverArmed.current = true;
-    setHoverPaused(false);
-  };
-
-  const handleFocus = () => {
-    if (focusArmed.current) setFocusPaused(true);
-  };
+  const handleFocus = () => setFocusPaused(true);
 
   const handleBlur = (event) => {
     if (event.currentTarget.contains(event.relatedTarget)) return;
-    focusArmed.current = true;
     setFocusPaused(false);
   };
 
@@ -108,7 +83,7 @@ export default function Hero({ onOpenModal }) {
             </div>
           </div>
 
-          {/* Colonne photos : cadre à ratio fixe, les deux images restent montées */}
+          {/* Colonne photos : cadre à ratio fixe, piste horizontale qui glisse */}
           <div
             className="relative aspect-[3/5] w-full max-w-[380px] mx-auto lg:ml-auto rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 shadow-sm"
             onMouseEnter={handleMouseEnter}
@@ -116,42 +91,27 @@ export default function Hero({ onOpenModal }) {
             onFocus={handleFocus}
             onBlur={handleBlur}
           >
-            {HERO_PHOTOS.map((photo, position) => (
-              <Image
-                key={photo.src}
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(min-width: 1024px) 380px, 90vw"
-                priority={position === 0}
-                aria-hidden={position === index ? undefined : true}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 motion-reduce:transition-none ${
-                  position === index ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
-
-            <button
-              type="button"
-              onClick={togglePause}
-              aria-pressed={userPaused}
-              aria-label={
-                userPaused
-                  ? 'Reprendre le défilement des photos'
-                  : 'Mettre le défilement des photos en pause'
-              }
-              className="absolute bottom-3 right-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-900 shadow-sm ring-1 ring-gray-900/10 transition-colors hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 motion-reduce:hidden"
+            <div
+              className="flex h-full w-full transition-transform duration-700 ease-in-out motion-reduce:transition-none"
+              style={{ transform: `translateX(-${index * 100}%)` }}
             >
-              {userPaused ? (
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
-                  <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
-                </svg>
-              )}
-            </button>
+              {HERO_PHOTOS.map((photo, position) => (
+                <div
+                  key={photo.src}
+                  className="relative h-full w-full shrink-0"
+                  aria-hidden={position === index ? undefined : true}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(min-width: 1024px) 380px, 90vw"
+                    priority={position === 0}
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
