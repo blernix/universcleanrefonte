@@ -68,7 +68,7 @@ export default function Hero({ onOpenModal }) {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Colonne texte */}
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-gray-900 text-balance">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-gray-900 text-balance">
               Entreprise de nettoyage à Fontainebleau et en Seine-et-Marne
             </h1>
 
@@ -89,7 +89,7 @@ export default function Hero({ onOpenModal }) {
               <button
                 type="button"
                 onClick={() => onOpenModal && onOpenModal('general')}
-                className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto whitespace-nowrap bg-blue-600 text-white px-6 lg:px-7 xl:px-8 py-3.5 xl:py-4 rounded-full font-bold text-base lg:text-lg xl:text-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300"
               >
                 Demande de devis
               </button>
@@ -101,7 +101,7 @@ export default function Hero({ onOpenModal }) {
                     window.umami.track('click_telephone', { page: 'accueil' });
                   }
                 }}
-                className="w-full sm:w-auto text-center bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-full font-bold text-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto whitespace-nowrap text-center bg-white text-blue-600 border-2 border-blue-600 px-6 lg:px-7 xl:px-8 py-3.5 xl:py-4 rounded-full font-bold text-base lg:text-lg xl:text-xl shadow-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 📞 Appeler maintenant
               </a>
