@@ -8,6 +8,8 @@ export const mobilierServices = [
     title: 'Nettoyage de canapé',
     heroTitle: 'Nettoyage de canapé',
     heroTitleDirect: 'Nettoyage de canapés',
+    // title SERP, distinct du H1 volontairement (ne pas propager au menu, aux pages ville, au JSON-LD ni au modal)
+    seoTitle: 'Nettoyage de canapés',
     heroSubtitle: 'à Fontainebleau et en Seine-et-Marne',
     shortDescription: 'Nettoyage professionnel de canapé à domicile. Injection-extraction, détachage, désodorisation.',
     image: '/canape.png',

@@ -6,6 +6,8 @@ export default function Partenaires() {
   const partenaires = [
     { id: 1, nom: 'Eau de Paris', logo: '/logo_partenaire1.png' },
     { id: 4, nom: 'Carton Turquand', logo: '/CARTON TURQUAND.png' },
+    { id: 2, nom: 'Médiateurs 77', logo: '/mediateurs77.jpeg' },
+    { id: 3, nom: 'Ville de Nemours', logo: '/ville-nemours.jpeg' },
   ];
 
   return (
@@ -27,7 +29,7 @@ export default function Partenaires() {
         </motion.div>
 
         {/* Logos des partenaires - rangée statique */}
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
           {partenaires.map((partenaire) => (
             <div key={partenaire.id} className="w-64">
               <div className="relative p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 group">
