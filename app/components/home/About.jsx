@@ -34,7 +34,7 @@ export default function About() {
           className="grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-10 lg:gap-16 items-center"
         >
           {/* Cadre photo : même langage que le panneau du hero (Hero.jsx:88) */}
-          <div className="relative aspect-[1/1] sm:aspect-[4/5] lg:aspect-[61/100] w-full max-w-[380px] mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 shadow-sm">
+          <div className="relative aspect-[61/100] w-full max-w-[380px] mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 shadow-sm">
             <Image
               src="/about-nettoyage-canape.jpeg"
               alt="Technicien nettoyant un canapé mauve à la brosseuse, à domicile"
