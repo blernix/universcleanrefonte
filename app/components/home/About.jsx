@@ -1,9 +1,19 @@
 'use client';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Heart, Award, Users } from 'lucide-react';
 import { aboutContent } from '@/app/data/global';
 
 const icons = { Heart, Award, Users };
+
+// Hiérarchie des 4 blocs, par position : accroche, méthode, prestations, assurance.
+// Aucune mise en avant à l'intérieur d'un bloc (le texte du client reste verbatim).
+const BLOCK_CLASSES = [
+  'text-lg lg:text-xl text-gray-700 leading-relaxed',
+  'text-base text-gray-600 leading-relaxed',
+  'text-base text-gray-600 leading-relaxed',
+  'text-base text-gray-700 leading-relaxed'
+];
 
 export default function About() {
   return (
@@ -16,22 +26,37 @@ export default function About() {
       />
 
       <div className="relative container  mx-auto px-6 max-w-6xl">
-        {/* Intro */}
+        {/* Intro : photo à gauche (1er enfant du DOM), texte à droite à partir de lg */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="!text-center mb-20"
+          className="grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-10 lg:gap-16 items-center"
         >
-          <h2 id="about-title" className="!text-4xl md:!text-5xl font-bold !text-gray-900 mb-4 !text-center">
-            {aboutContent.intro.title}
-          </h2>
-          <p className="!text-lg md:!text-xl !text-gray-600 max-w-3xl !mx-auto leading-relaxed !text-center">
-            {aboutContent.intro.subtitle}
-          </p>
-          <p className="mt-6 !text-gray-700 max-w-3xl !mx-auto leading-relaxed !text-center">
-            {aboutContent.intro.content}
-          </p>
+          {/* Cadre photo : même langage que le panneau du hero (Hero.jsx:88) */}
+          <div className="relative aspect-[1/1] sm:aspect-[4/5] lg:aspect-[61/100] w-full max-w-[380px] mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 shadow-sm">
+            <Image
+              src="/about-nettoyage-canape.jpeg"
+              alt="Technicien nettoyant un canapé mauve à la brosseuse, à domicile"
+              fill
+              sizes="(min-width: 1024px) 380px, 90vw"
+              className="object-cover"
+            />
+          </div>
+
+          {/* Texte : bord gauche aligné sur la colonne, aucun centrage hérité */}
+          <div className="max-w-[34rem]">
+            <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-gray-900">
+              {aboutContent.intro.title}
+            </h2>
+            <div className="mt-6 space-y-5">
+              {aboutContent.intro.blocks.map((block, index) => (
+                <p key={index} className={BLOCK_CLASSES[index] ?? BLOCK_CLASSES[BLOCK_CLASSES.length - 1]}>
+                  {block}
+                </p>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* Valeurs *
