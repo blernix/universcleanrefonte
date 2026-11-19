@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack && npm run cleanup",
+    "build": "next build --turbopack",
     "cleanup": "find out -name '*.txt' -type f -delete",
     "start": "next start"
   },
