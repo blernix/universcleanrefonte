@@ -7,13 +7,26 @@ import { aboutContent } from '@/app/data/global';
 const icons = { Heart, Award, Users };
 
 // Hiérarchie des 4 blocs, par position : accroche, méthode, prestations, assurance.
-// Aucune mise en avant à l'intérieur d'un bloc (le texte du client reste verbatim).
+// Les passages en gras viennent du texte client, marqués `**…**` dans global.js.
 const BLOCK_CLASSES = [
   'text-lg lg:text-xl text-gray-700 leading-relaxed',
   'text-base text-gray-600 leading-relaxed',
   'text-base text-gray-600 leading-relaxed',
   'text-base text-gray-700 leading-relaxed'
 ];
+
+// Rend les `**gras**` sans injecter de HTML (pas de dangerouslySetInnerHTML).
+function renderRich(text) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? (
+      <strong key={i} className="font-semibold text-gray-900">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
 
 export default function About() {
   return (
@@ -52,7 +65,7 @@ export default function About() {
             <div className="mt-6 space-y-5">
               {aboutContent.intro.blocks.map((block, index) => (
                 <p key={index} className={BLOCK_CLASSES[index] ?? BLOCK_CLASSES[BLOCK_CLASSES.length - 1]}>
-                  {block}
+                  {renderRich(block)}
                 </p>
               ))}
             </div>

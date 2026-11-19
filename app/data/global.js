@@ -41,11 +41,12 @@ export const aboutContent = {
     // Texte du client, verbatim : 4 blocs dans l'ordre reçu
     // (0 accroche · 1 méthode · 2 prestations + objectif · 3 assurance).
     // La majuscule de « Notre objectif : Offrir » est conservée telle quelle.
+    // `**…**` marque les passages en gras de la carte client (rendus par About.jsx).
     blocks: [
-      `Univers Clean est une entreprise spécialisée dans le nettoyage à Fontainebleau. Nous intervenons auprès des particuliers et des professionnels en Seine-et-Marne (77).`,
-      `Matériel professionnel, méthode adaptée à chaque surface et contrôle final avec vous avant de partir.`,
-      `Nous intervenons sur une large gamme de prestations : canapés, matelas, fin de chantier et entretien de vos bureaux. Notre objectif : Offrir des prestations de qualité, efficaces et durables.`,
-      `Avec Univers Clean, vous avez l'assurance d'un espace propre, sain et valorisé, aussi bien chez vous que dans vos locaux professionnels.`
+      `**Univers Clean** est une entreprise spécialisée dans le **nettoyage à Fontainebleau**. Nous intervenons auprès des **particuliers et des professionnels** en **Seine-et-Marne (77)**.`,
+      `**Matériel professionnel**, méthode adaptée à chaque surface et contrôle final avec vous avant de partir.`,
+      `Nous intervenons sur une **large gamme de prestations** : canapés, matelas, fin de chantier et entretien de vos bureaux. **Notre objectif : Offrir des prestations de qualité, efficaces et durables.**`,
+      `Avec Univers Clean, vous avez l'assurance d'un **espace propre, sain et valorisé**, aussi bien chez vous que dans vos **locaux professionnels.**`
     ]
   },
   values: [
