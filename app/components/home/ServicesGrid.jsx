@@ -21,7 +21,7 @@ export default function ServicesGrid() {
             Nos Services
           </h2>
           <p className="!text-xl !text-gray-600 !text-center max-w-2xl !mx-auto">
-            Canapé, matelas, bureaux, fin de chantier : nettoyage professionnel à Fontainebleau et dans les communes alentour, chez vous.
+            Nettoyage de textiles, fin de chantier, bureaux : nettoyage professionnel à Fontainebleau et en Seine-et-Marne.
           </p>
         </motion.div>
 

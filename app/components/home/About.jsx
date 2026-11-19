@@ -9,10 +9,10 @@ const icons = { Heart, Award, Users };
 // Hiérarchie des 4 blocs, par position : accroche, méthode, prestations, assurance.
 // Les passages en gras viennent du texte client, marqués `**…**` dans global.js.
 const BLOCK_CLASSES = [
-  'text-lg lg:text-xl text-gray-700 leading-relaxed',
-  'text-base text-gray-600 leading-relaxed',
-  'text-base text-gray-600 leading-relaxed',
-  'text-base text-gray-700 leading-relaxed'
+  'text-xl lg:text-2xl text-gray-700 leading-relaxed',
+  'text-lg text-gray-600 leading-relaxed',
+  'text-lg text-gray-600 leading-relaxed',
+  'text-lg text-gray-700 leading-relaxed'
 ];
 
 // Rend les `**gras**` sans injecter de HTML (pas de dangerouslySetInnerHTML).
@@ -44,7 +44,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-10 lg:gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-[380px_minmax(0,1fr)] gap-12 lg:gap-24 items-center"
         >
           {/* Cadre photo : même langage que le panneau du hero (Hero.jsx:88) */}
           <div className="relative aspect-[61/100] w-full max-w-[380px] mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 shadow-sm">
@@ -57,8 +57,8 @@ export default function About() {
             />
           </div>
 
-          {/* Texte : bord gauche aligné sur la colonne, aucun centrage hérité */}
-          <div className="max-w-[34rem]">
+          {/* Texte : centré dans sa colonne, plus large et plus aéré que la photo */}
+          <div className="max-w-[38rem] mx-auto text-center lg:text-left">
             <h2 id="about-title" className="text-3xl md:text-4xl font-bold text-gray-900">
               {aboutContent.intro.title}
             </h2>

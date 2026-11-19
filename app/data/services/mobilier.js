@@ -19,7 +19,7 @@ export const mobilierServices = [
     metaDescription: 'Nettoyage de canapé à domicile à Fontainebleau et alentours (77). Injection-extraction, détachage, désodorisation. Devis en 24h.',
     heroDescription: `Nettoyage de canapé à domicile dans tout le 77. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec un injecteur-extracteur pour un résultat impeccable en quelques heures.`,
     heroDescriptionDirect: `Univers Clean nettoie vos canapés à domicile à Fontainebleau et en Seine-et-Marne. Taches, mauvaises odeurs, poils d'animaux, urine de chat ou de chien ? Votre canapé mérite un nettoyage professionnel. On intervient chez vous avec notre matériel professionnel pour un résultat garanti.`,
-    localIntro: 'Vous cherchez un nettoyage de canapé à Fontainebleau ? Nous nous déplaçons à Fontainebleau, Avon, Samoreau, Bois-le-Roi et Barbizon.',
+    localIntro: 'Vous cherchez un nettoyage de canapé professionnel ? Nous nous déplaçons à Fontainebleau, Samoreau, Bois-le-Roi, Barbizon, Fontaine le Port et en Seine-et-Marne.',
     formulasDescription: `Nous nettoyons votre canapé directement chez vous avec une machine à injection-extraction professionnelle. Le principe : on injecte une solution nettoyante en profondeur dans les fibres du tissu, puis on aspire immédiatement l'eau et les saletés. Résultat : votre canapé est propre, désodorisé et sèche en 6 à 12 heures.
 
 On s'occupe de tout type de canapé :

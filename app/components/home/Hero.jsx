@@ -49,11 +49,10 @@ export default function Hero({ onOpenModal }) {
 
             <div className="mt-6 space-y-4">
               <p className="text-base lg:text-lg leading-relaxed text-gray-600">
-                Nettoyage de canapés, matelas, tapis, vitres, bureaux et logements après chantier ou
-                location, pour les particuliers et les professionnels.
+                Nettoyage de canapés, matelas, fin de chantier, ainsi que l&apos;entretien de bureaux / Locaux, pour les particuliers et les professionnels.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-gray-600">
-                Devis gratuit sous 24 h, intervention sous 48 h, 7 jours sur 7.
+                Devis gratuit sous 24h, intervention rapide.
               </p>
               <p className="text-base lg:text-lg leading-relaxed font-semibold text-gray-900 border-l-2 border-blue-600 pl-4">
                 Particuliers : 50 % de crédit d&apos;impôt avec l&apos;avance immédiate.
