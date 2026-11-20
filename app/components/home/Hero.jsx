@@ -49,7 +49,7 @@ export default function Hero({ onOpenModal }) {
 
             <div className="mt-6 space-y-4">
               <p className="text-base lg:text-lg leading-relaxed text-gray-600">
-                Nettoyage de canapés, matelas, fin de chantier, ainsi que l&apos;entretien de bureaux / Locaux, pour les particuliers et les professionnels.
+                Nettoyage de canapés, matelas, fin de chantier, ainsi que l&apos;entretien de bureaux / locaux, pour les particuliers et les professionnels.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-gray-600">
                 Devis gratuit sous 24h, intervention rapide.
